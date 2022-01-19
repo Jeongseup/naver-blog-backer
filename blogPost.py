@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
-import re
+import sys
+import utils
+
 
 class blogPost:
     def __init__(self, url, isDevMode=False):
@@ -23,6 +24,8 @@ class blogPost:
         if self.isForeignUrl():
             print("[INIT ERROR] URL이 잘못되었습니다. 프로그램을 종료합니다.")
 
+    # ============================================================================================
+
     # 개발편의용 프린트 함수
     def printDevMessage(self, message):
         if self.isDevMode:
@@ -36,23 +39,25 @@ class blogPost:
             return False
         else:
             return True
-    
+
+    # ============================================================================================
 
     def postSetup(self):
         try:
-            self.printDevMessage("postSetup execution")
+            self.printDevMessage("== postSetup execution == ")
 
             self.postInframeUrl = self.getPostInframeUrl()
             self.postInframeSoup = self.getPostInframeSoup()
             self.postEditorVersion = self.getPostEditorVersion()
-
             self.postDate = self.getPostDate()
-            print('here')
 
-            # self.postLogNum = self.getPostLogNum()
+            self.printDevMessage("== postSetup is clear == ")
+
+        # 여기서는 폴더 생성 체크까지만, 다 되었다면 run 함수로 넘긴다.
 
         except Exception as e:
             print(e)
+            sys.exit(-1)
 
     def getPostInframeUrl(self):
         self.printDevMessage("== getPostInframeUrl 실행 ==")
@@ -98,52 +103,47 @@ class blogPost:
             raise Exception("[ERROR] 포스트 게시일을 찾지 못했습니다.")
 
         else:
-            for link  in links:
+            for link in links:
                 publishDate = link.get_text()
 
-            if self.isRelativePostDate(publishDate):
-                publishDate = self.getRelativePostDate(publishDate)
-            else:
-                publishDateRegExpr = "20[0-9][0-9]\. [0-9]+\. [0-9]+\. [0-9]+:[0-9]+"
-                publishDate = re.search(publishDateRegExpr, publishDate).group()
+            if utils.isRelativePostDate(publishDate):
+                publishDate = utils.getRelativePostDate(publishDate)
+
+            # publishDateRegExpr = "20[0-9][0-9]\. [0-9]+\. [0-9]+\. [0-9]+:[0-9]+"
+            # publishDate = re.search(publishDateRegExpr, publishDate).group()
 
             self.printDevMessage(f'return is : {publishDate}')
             return publishDate
 
-    # util for getPostDate
-    def isRelativePostDate(self, postDate):
-        if "전" in postDate:
-            return True
-        else:
+    # ============================================================================================
+
+    def run(self):
+        self.printDevMessage("== run execution ==")
+
+        self.postSetup()
+
+        try:
+            # "fp" stands for "file pointer"
+            # with open(dir + '/' + file_name, "w", encoding='utf-8') as fp:
+            with open('./post/test.txt', mode='w', encoding='utf-8') as fp:
+                txt = 'write test'
+
+                # if 'se_component' in str(self.postInframeSoup):
+                #     for sub_content in soup.select('div.se_component'):
+                #         txt += parser.parsing(sub_content)
+                # else:
+                #     for sub_content in soup.select('div.se-component'):
+                #         txt += parser.parsing(sub_content)
+
+                fp.write(txt)
+            return
+        except Exception as e:
+            print(e)
             return False
-    # util for getPostDate
-    def getRelativePostDate(self, relativeDate):
-        # eg. "방금 전", "3분전", "10시간 전"...
-        curTime = datetime.now()
-        if relativeDate == "방금 전":
-            pass
-        elif "분 전" in relativeDate:
-            elapsedMin = re.search("[0-9]+", relativeDate).group()
-            elapsedMin = int(elapsedMin)
-            curTime = curTime - timedelta(minutes=elapsedMin)
-        elif "시간 전" in relativeDate:
-            elapsedHour = re.search("[0-9]+", relativeDate).group()
-            elapsedHour = int(elapsedHour)
-            curTime = curTime - timedelta(hours=elapsedHour)
-        curTime = str(curTime)
-        timeRegex = re.compile("[0-9]+-[0-9]+-[0-9]+ [0-9]+:[0-9]+")
-        curTime = timeRegex.search(curTime).group()
-        return curTime
 
 
 
-# ├ def getPostDate(self): set self.postDate ( + isRelativePostDat, getRelativePostDate)
-# ├ def isRelativePostDate(self): 만약에
-# ├ def getPostEditiorVerison(self): set self.postEditorVerison
-# ├ def postSetup(self): set self.postEditorVerison
-# └ def run(self) : postSetup 후 파일생성 및 백업 시작 후 close까지
-
-
-testPostURL = "https://blog.naver.com/thswjdtmq4/222625521000"
-c1 = blogPost(testPostURL, True)
-c1.postSetup()
+testPostUrl1 = "https://blog.naver.com/thswjdtmq4/222619927525"
+testPostUrl2 = "https://blog.naver.com/thswjdtmq4/222625521000"
+c1 = blogPost(testPostUrl2, True)
+c1.run()

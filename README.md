@@ -49,3 +49,22 @@ naver blog backer (backlinker &amp; backup)
 ├  
 ├  
 └  
+
+
+에디터 버젼 4의 component 구성  
+1. HEADER 와 CONTENT로 구성  
+2. 모든 컨텐츠는 div.se-component로 구성  
+
+HEADER  
+- 카테고리명 :  se-component & se-documentTitle > se-component-content > ... > blog2_series  
+- 제목 : se-component se-documentTitle > se-component-content > ... > se-title-text  
+- etc..    
+
+CONTENT  
+- 일반텍스트 : se-component & se-text > se-component-content > ... > se-module-text > se-text-paragraph  
+- 소제목 : se-component & se-quotation > se-component-content > ... > se-module-text > se-text-paragraph  
+- 인용구 : se-component & se-sectionTitle > se-component-content > ... > se-module-text > se-text-paragraph  
+- 링크 : se-component & se-text > se-component-content > ... > se-module-text > se-text-paragraph > se-link  
+(ex: <a href="http://example.com" class="se-link" target="_blank"><strike><u><i><b>http://example.com</b></i></u></strike></a> )  
+
+한 component 안에는 여러 개의 텍스트가 존재할 수 있다?  

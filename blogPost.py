@@ -4,7 +4,7 @@ import sys
 import utils
 
 
-class blogPost:
+class BlogPost:
     def __init__(self, url, isDevMode=False):
         # 개발 편의
         self.isDevMode = isDevMode
@@ -142,8 +142,52 @@ class blogPost:
             return False
 
 
-
 testPostUrl1 = "https://blog.naver.com/thswjdtmq4/222619927525"
 testPostUrl2 = "https://blog.naver.com/thswjdtmq4/222625521000"
-c1 = blogPost(testPostUrl2, True)
-c1.run()
+c1 = BlogPost(testPostUrl2, False)
+c1.postSetup()
+
+
+# 어떻게든 레포 둘 다 컴포넌트를 파서로 넘겨서 파서에서 해결.
+
+def getComponent(soup):
+    components = list()
+
+    paragraphDivClassName = 'se-text'
+    imgDivClassName = 'se-image'
+    linkDivClassName = 'se-oglink'
+    codeDivClassName = 'se-code'
+    mapDivClassName = 'se-placesMap'
+
+    rawComponents = soup.find_all('div', {'class': {paragraphDivClassName,
+                                                    imgDivClassName,
+                                                    codeDivClassName,
+                                                    linkDivClassName,
+                                                    mapDivClassName}})
+
+    for item in rawComponents:
+        components.append(item)
+
+    return components
+
+
+# print(c1.postInframeSoup)
+# if 'se-component' in str(c1.postInframeSoup):
+
+# components = getComponent(c1.postInframeSoup)
+# print(components[0])
+
+
+components = c1.postInframeSoup.select('div.se-component')
+print(components[0])
+# for component in c1.postInframeSoup.select('div.se-component'):
+#     # 컨텐츠 하나 가져오고
+#  컨텐츠 가져올 때 어차피 첫 컨텐츠는 무조건 title이니까 바로 title로 처리 se-title-text로 접근
+
+#     print("===================")
+#     print(component)
+#     print("===================")
+# #
+#     break
+    # 파싱하고
+    # 파일에 쓰고

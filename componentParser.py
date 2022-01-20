@@ -1,5 +1,6 @@
 from blogPost import BlogPost
 
+
 class ComponentParser(object):
     # SE3Component is class that based on str, found on soup(= HTML TAG)
     # parser progress counter
@@ -55,6 +56,14 @@ class ComponentParser(object):
 
     # ============================================================================================
 
+    def isParagraphComponent(self):
+        if "se-component se-paragraph" in str(self.component):
+            return True
+        else:
+            return False
+
+    # ============================================================================================
+
     # parsing function for text
     def text(self):
         component = self.component
@@ -62,26 +71,7 @@ class ComponentParser(object):
         self.printDevMessage("== text execution ==")
 
         txt = ''
-        if 'se-section-sectionTitle' in str(component):
-            print('start\n')
-            print(component.text)
-            print('end\n')
-
-            for i, sub_content in enumerate(component.select('.se-section-sectionTitle')):
-                # print(sub_content)
-                print(sub_content.text)
-                if sub_content.text.strip() == '':
-                    continue
-
-                if 'se-l-default' in str(component):  # sectiontitle 1
-                    txt += self.wrappingText(self.subtitle, sub_content.text)
-                else:
-                    txt += sub_content.text
-
-                txt += self.endLine
-            return txt
-
-        elif 'se-module-text' in str(component):
+        if 'se-module-text' in str(component):
             for sub_content in component.select('.se-module-text'):
                 for p_tag in sub_content.select('p'):
                     txt += p_tag.text
@@ -95,17 +85,39 @@ class ComponentParser(object):
 
         return None
 
+    # parsing function for code
 
+
+import time
 
 if __name__ == '__main__':
-    print("test bed")
+    print("== test bed start ==")
 
     testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
     c1 = BlogPost(testPostUrl, False)
     c1.postSetup()
+    components = c1.postInframeSoup.select('div.se-component')
 
-    components = c1.postInframeSoup.select('.se-sectionTitle')
-    tempComponent = components[0]
+    iteration = 0
+    totalTime = 0
+    while iteration < 10:
+        iteration += 1
 
-    c1 = ComponentParser(tempComponent)
-    print(c1.text())
+        start = time.time()  # 시작 시간 저장
+        #  작업
+        textComponentCount = 0
+
+        for component in components:
+            if 'se-component se-text' in str(component):
+                textComponentCount += 1
+
+        print(f'{textComponentCount}개의 text component를 모두 찾았습니다.')
+
+        duration = time.time() - start
+        print(f'{iteration}번째 소요시간 : ', duration)
+        totalTime += duration
+
+    print(f'총 {len(components)}개의 컴포넌트를 찾는 소요시간은 평균 {totalTime / 10}초 입니다.')
+
+    # c1 = ComponentParser(tempComponent)
+    # print(c1.text())

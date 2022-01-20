@@ -5,6 +5,10 @@ naver blog backer (backlinker &amp; backup)
 
 가정 :이전 단계에서 naver id를 입력하면 id에 맞춰 모든 post URL을 가져오는 로직이 구현되었다는 가정 그 이후에 url 하나씩 넘겨준다.
 
+스타일 가이드 
+> https://medium.com/@kkweon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-doc-%EC%8A%A4%ED%83%80%EC%9D%BC-%EA%B0%80%EC%9D%B4%EB%93%9C%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC-b6d27cd0a27c
+> https://google.github.io/styleguide/pyguide.html
+
 패키지 룰 : cameCase로 작성
 
 패키지 로직 (ver : 0.1)

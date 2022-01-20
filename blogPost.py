@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import sys
 import utils
 
-
 class BlogPost:
     def __init__(self, url, isDevMode=False):
         # 개발 편의

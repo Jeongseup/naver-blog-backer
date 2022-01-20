@@ -53,18 +53,66 @@ naver blog backer (backlinker &amp; backup)
 
 에디터 버젼 4의 component 구성  
 1. HEADER 와 CONTENT로 구성  
-2. 모든 컨텐츠는 div.se-component로 구성  
+2. 모든 컨텐츠는 div.se-component로 구성    
 
-HEADER  
-- 카테고리명 :  se-component & se-documentTitle > se-component-content > ... > blog2_series  
+HEADER ()  
+- 카테고리명 :  se-component & se-documentTitle > se-component-content > ... > blog2_series    
 - 제목 : se-component se-documentTitle > se-component-content > ... > se-title-text  
 - etc..    
 
-CONTENT  
-- 일반텍스트 : se-component & se-text > se-component-content > ... > se-module-text > se-text-paragraph  
-- 소제목 : se-component & se-quotation > se-component-content > ... > se-module-text > se-text-paragraph  
-- 인용구 : se-component & se-sectionTitle > se-component-content > ... > se-module-text > se-text-paragraph  
-- 링크 : se-component & se-text > se-component-content > ... > se-module-text > se-text-paragraph > se-link  
-(ex: <a href="http://example.com" class="se-link" target="_blank"><strike><u><i><b>http://example.com</b></i></u></strike></a> )  
+CONTENT  (div.se-main-container)  
+- 텍스트 : se-component & se-text > se-component-content > se-section-text >    
+    - 실제 텍스트 : ... > se-module-text > p.se-text-paragraph & span (span 태그에 실제 텍스트가 담김)    
+    - 엔터 : ... > se-module-text > p.se-text-paragraph & span (nothing)    
+    - 링크 : ... > se-module-text > p.se-text-paragraph & se-link  
+    
+- 소제목 : se-component & se-quotation > se-component-content > ... > se-module-text > se-text-paragraph    
 
-한 component 안에는 여러 개의 텍스트가 존재할 수 있다?  
+- 인용구 : se-component & se-sectionTitle > se-component-content > ... > se-module-text > se-text-paragraph    
+
+- 구분선 : se-component & se-horizontalLine > se-component-content > se-section-horizontalLine > se-module-horizontalLIne   
+    - 구분선 : ... > hr.se-hr (스타일에 따라 변하지는 않음)  
+    
+- 일정 : se-component & se-schedule   
+    - 일정 텍스트 : ... > se-component-content > se-section-schedule > se-module-schedule > ... > p.se-schedule-title   
+    - 일정 데이트 : ... > script[data-module] > data.startAt, data.endAt  
+
+- 코드 : se-component & se-code > se-component-content > se-section-code > se-section-code > se-module-code > se-code-source     
+
+- 라이브러리(책, 영화) : se-component & se-material > se-component-content > se-section-material > a[data-linkdata]  
+
+- 이미지 : se-component & se-image > se-component-content > se-section-image >  
+    - 이미지 소스 : ... > se-module-image > a[data-link, src] or a > img[data-lazy-src]  
+    - 이미지 텍스트 : ... > se-module-text & se-caption > p.se-text-paragraph > span  
+
+- sns 이미지 : 이미지 컴포넌트와 동일  
+
+- 스티커 : se-component & se-sticker > se-component-content > se-section-sticker >  
+    - 이미지 소스 : ... > se-module-sticker > a > img.se-sticker-image[src]  
+    - 이미지 텍스트 : ... > se-module-text & se-caption > p.se-text-paragraph > span  
+
+- 비디오 :  se-component & se-video    
+    - 비디오 컴포넌트 : ... > se-component-content > se-section-video    
+    - 비디오 소스 : ... > script > data-module (vid, inkey) -> api 요청(https://apis.naver.com/rmcnmv/rmcnmv/vod/play/v2.0/VID?key=?) -> 파일 저장된 URL로 요청     
+
+- 파일 : se-component & se-file > se-component-content > se-section-file > se-module-file >  a[data-link] -> api 요청(link)  
+
+- 지도 :  se-component & se-placeMap > se-component-content > se-section-placeMap > se-module-text > a.se-map-info > se-map-title & se-map-address (생략하고 텍스트 데이터만 가져옴.)  
+
+- 링크 : se-component & se-text > se-component-content > ... > se-module-oglink > se-text-paragraph > se-link    
+    - a > se-oglink-thumbnail  
+    - a > se-oglink-info  
+    - se-oglink-title    
+    - se-oglink-summary  
+    - se-oglink url  
+(ex: <a href="http://example.com" class="se-link" target="_blank"><strike><u><i><b>http://example.com</b></i></u></strike></a> )    
+
+- 해시태그 : se-component & se-text > se-component-content > ... > se-module-text > se-text-paragraph > __se-hash-tag  
+
+
+
+한 component 안에는 여러 개의 텍스트가 존재할 수 있다?  -> 이거 한 컴포넌트 돌릴 떄 for문으로 돌려야할 거 같은데.. ?  
+임베드 영상은 어떻게 처리해야 할지.. ?  
+
+
+

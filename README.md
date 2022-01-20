@@ -59,6 +59,10 @@ naver blog backer (backlinker &amp; backup)
 1. HEADER 와 CONTENT로 구성  
 2. 모든 컨텐츠는 div.se-component로 구성    
 
+
+테스트 페이지
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222626338613&redirect=Dlog&widgetTypeCall=true&directAccess=false
+
 HEADER ()  
 - 카테고리명 :  se-component & se-documentTitle > se-component-content > ... > blog2_series    
 - 제목 : se-component se-documentTitle > se-component-content > ... > se-title-text  
@@ -70,9 +74,9 @@ CONTENT  (div.se-main-container)
     - 엔터 : ... > se-module-text > p.se-text-paragraph & span (nothing)    
     - 링크 : ... > se-module-text > p.se-text-paragraph & se-link  
     
-- 소제목 : se-component & se-quotation > se-component-content > ... > se-module-text > se-text-paragraph    
+- 소제목 : se-component & se-sectionTitle > se-component-content > ... > se-module-text > se-text-paragraph    
 
-- 인용구 : se-component & se-sectionTitle > se-component-content > ... > se-module-text > se-text-paragraph    
+- 인용구 : se-component & se-quotation > se-component-content > ... > se-module-text > se-text-paragraph    
 
 - 구분선 : se-component & se-horizontalLine > se-component-content > se-section-horizontalLine > se-module-horizontalLIne   
     - 구분선 : ... > hr.se-hr (스타일에 따라 변하지는 않음)  

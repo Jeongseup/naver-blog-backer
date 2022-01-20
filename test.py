@@ -5,3 +5,4 @@ file_name = 'chrome.zip'
 
 urllib.request.urlretrieve(url,file_name)
 print("저장완료")
+

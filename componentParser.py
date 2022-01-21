@@ -28,20 +28,20 @@ class ComponentParser(object):
 	def wrappingText(self, header, txt, tail=''):
 		return header + ' ' + txt.strip() + '' + tail
 
+	# ============================================================================================
+
 	# 파서 작동
 	def parsing(self):
 		self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
 
 		# temporary text variable
-		txt = ''
+		data = ''
 
 		componentSting = str(self.component)
 
 		# 텍스트 컴포넌트 체크
 		if "se-component se-text" in componentSting:
-			print('parsing text')
-			print(self.component)
-		# parsingTextComponent(self.component)
+			data += self.parsingText()
 
 		# 소제목 컴포넌트 체크
 		elif "se-component se-sectionTitle" in componentSting:
@@ -106,32 +106,28 @@ class ComponentParser(object):
 
 		self.printDevMessage("== postSetup is clear == ")
 
+		return data
+
+	# ============================================================================================
+
+	# parsing function for text
+	def parsingText(self):
+		self.printDevMessage("== parsing text execution ==")
+
+		txt = ''
+		for subContent in self.component.select('.se-module-text'):
+			for pTag in subContent.select('p'):
+				txt += pTag.text
+				txt += self.endLine
+
+		self.printDevMessage("== text is clear == ")
+
 		return txt
 
 
 # ============================================================================================
 
-# parsing function for text
-def text(self):
-	component = self.component
-
-	self.printDevMessage("== text execution ==")
-
-	txt = ''
-	if 'se-module-text' in str(component):
-		for sub_content in component.select('.se-module-text'):
-			for p_tag in sub_content.select('p'):
-				txt += p_tag.text
-				txt += self.endline
-			if txt == '':
-				txt += sub_content.text
-				txt += self.endline
-		return txt
-
-	self.printDevMessage("== text is clear == ")
-
-	return None
-
+import os
 
 # parsing function for code
 
@@ -143,11 +139,17 @@ if __name__ == '__main__':
 	c1.postSetup()
 	rawComponents = c1.postInframeSoup.select('div.se-component')
 
-	for i, rawComponent in enumerate(rawComponents):
-		if i == 0:
-			# 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
-			pass
-		else:
-			data = ComponentParser(rawComponent).parsing()
-			print(data)
+	with open('test.md', "w", encoding='utf-8') as fp:
 
+		data = ''
+
+		for i, rawComponent in enumerate(rawComponents):
+			if i == 0:
+				# 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
+				pass
+			else:
+				data += ComponentParser(rawComponent, isDevMode=False).parsing()
+
+		fp.write(data)
+
+# print('텍스트 파싱 결과 ', data)

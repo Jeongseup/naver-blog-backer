@@ -1,6 +1,8 @@
 ## test post
 
-''공백 테스트
+![0](./sources/0.png)
+
+test 사진''공백 테스트
 
 ​
 
@@ -14,7 +16,9 @@
 
 ​
 
-​
+![1](./sources/1.png)
+
+sns 테스트 사진​
 
 스티커 테스트
 
@@ -54,7 +58,9 @@ code snippet test
 
 ​
 
-본문입니다.
+![2](./sources/2.png)
+
+© tezos, 출처 Unsplash본문입니다.
 
 ​
 

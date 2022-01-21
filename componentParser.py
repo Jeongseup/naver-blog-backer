@@ -1,5 +1,5 @@
 from blogPost import BlogPost
-
+from utils import saveImage
 
 class ComponentParser(object):
 	# SE3Component is class that based on str, found on soup(= HTML TAG)
@@ -72,7 +72,7 @@ class ComponentParser(object):
 
 		# 이미지 컴포넌트 체크
 		elif "se-component se-image" in componentSting:
-			return ''
+			return self.parsingImage()
 
 		# 스티커 컴포넌트 체크
 		elif "se-component se-sticker" in componentSting:
@@ -175,17 +175,15 @@ class ComponentParser(object):
 		oglinkSummaryTag = self.component.select('.se-oglink-summary')
 		oglink = self.component.select('.se-oglink-info')[0]['href']
 
-
 		if len(oglinkTitleTag) == 0:
 			oglinkTitle = "No Title"
 		else:
 			oglinkTitle = oglinkTitleTag[0].text
 
-		if  len(oglinkSummaryTag) == 0:
+		if len(oglinkSummaryTag) == 0:
 			oglinkSummary = ''
 		else:
 			oglinkSummary = oglinkSummaryTag[0].text
-
 
 		txt += f'[{oglinkTitle}]({oglink})' + ' : '
 		txt += oglinkSummary
@@ -216,7 +214,7 @@ class ComponentParser(object):
 
 		quotationSiteTag = self.component.select('.se-cite')
 
-		if  len(quotationSiteTag) == 0:
+		if len(quotationSiteTag) == 0:
 			quotationSite = "No Site"
 		else:
 			quotationSite = quotationSiteTag[0].text
@@ -244,21 +242,20 @@ class ComponentParser(object):
 			imageCaption = imageCaptionTag[0].text
 
 		for imageTag in self.component.select('img'):
-
 			imageUrl = imageTag['data-lazy-src']
 
-			txt += '![' + './img/' + str(self.counter) + '.png' + ']('
-			txt += './img/' + str(self.counter) + '.png' + ')'
-			txt += '\n'
+			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
+			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			txt += self.endLine
+			txt += imageCaption
 
+			if not saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+				print('\t' + str(imageTag) + ' 를 저장합니다.')
+			else:
+				ComponentParser.counter += 1
 
-			# if not utils.saveImage(url, self.folder_path + '/img/' + str(self.counter) + '.png'):
-			# 	print('\t' + str(content) + ' 를 저장합니다.')
-			# else:
-			# 	self.counter += 1
-
-		txt += self.endline
 		return txt
+
 
 # ============================================================================================
 

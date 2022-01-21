@@ -1,3 +1,4 @@
+
 from datetime import datetime, timedelta
 from urllib import request, parse
 import re, os, errno
@@ -61,6 +62,17 @@ def saveImage(url, path):
         request.urlretrieve(link, path)
 
         print(path)
+    except Exception as e:
+        print(url + ' ' + str(e))
+        return False
+    return True
+
+
+def saveImage(url, path):
+    try:
+        print('here', url, path)
+        link = parse.quote(url, safe=':/?-=')
+        request.urlretrieve(link, path)
     except Exception as e:
         print(url + ' ' + str(e))
         return False

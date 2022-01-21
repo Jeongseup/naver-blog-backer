@@ -40,6 +40,7 @@ class ComponentParser(object):
 		# 텍스트 컴포넌트 체크
 		if "se-component se-text" in componentSting:
 			print('parsing text')
+			print(self.component)
 		# parsingTextComponent(self.component)
 
 		# 소제목 컴포넌트 체크
@@ -52,7 +53,7 @@ class ComponentParser(object):
 
 		# 구분선 컴포넌트 체크
 		elif "se-component se-horizontalLine" in componentSting:
-			print('parsing quotation')
+			print('parsing horizontalLine')
 
 		# 일정 컴포넌트 체크
 		elif "se-component se-schedule" in componentSting:
@@ -73,8 +74,8 @@ class ComponentParser(object):
 		# 스티커 컴포넌트 체크
 		elif "se-component se-sticker" in componentSting:
 			print('parsing sticker')
-			# if (self.skipSticker):
-			# 	print('test')
+		# if (self.skipSticker):
+		# 	print('test')
 
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
@@ -84,12 +85,29 @@ class ComponentParser(object):
 		elif "se-component se-file" in componentSting:
 			print('parsing file')
 
+		# 지도 컴포넌트 체크
+		elif "se-component se-placesMap" in componentSting:
+			print('parsing map')
+
+		# 아웃고잉링크 컴포넌트 체크
+		elif "se-component se-oglink" in componentSting:
+			print('parsing oglink')
+
+		# 수식 컴포넌트 체크
+		elif "se-component se-formula" in componentSting:
+			pass
+
+		# 테이블 컴포넌트 체크
+		elif "se-component se-table" in componentSting:
+			pass
+
 		else:
 			print('find unknown tag\n' + str(self.component))
 
 		self.printDevMessage("== postSetup is clear == ")
 
 		return txt
+
 
 # ============================================================================================
 
@@ -117,18 +135,19 @@ def text(self):
 
 # parsing function for code
 
-
 if __name__ == '__main__':
 	print("== test bed start ==")
 
 	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
 	c1 = BlogPost(testPostUrl, False)
 	c1.postSetup()
-	components = c1.postInframeSoup.select('div.se-component')
+	rawComponents = c1.postInframeSoup.select('div.se-component')
 
-	for component in components:
-		data = ComponentParser(component)
-		data.parsing()
+	for i, rawComponent in enumerate(rawComponents):
+		if i == 0:
+			# 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
+			pass
+		else:
+			data = ComponentParser(rawComponent).parsing()
+			print(data)
 
-# c1 = ComponentParser(tempComponent)
-# print(c1.text())

@@ -1,6 +1,7 @@
 from blogPost import BlogPost
 from utils import saveImage
 
+
 class ComponentParser(object):
 	# SE3Component is class that based on str, found on soup(= HTML TAG)
 	# parser progress counter
@@ -74,10 +75,16 @@ class ComponentParser(object):
 		elif "se-component se-image" in componentSting:
 			return self.parsingImage()
 
+		# 이미지 스트립 컴포넌트 체크
+		elif "se-component se-imageStrip" in componentSting:
+			return self.parsingImageStrip()
+
 		# 스티커 컴포넌트 체크
 		elif "se-component se-sticker" in componentSting:
-			return ''
-
+			if not (self.skipSticker):
+				return self.parsingSticker()
+			else:
+				return ''
 
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
@@ -95,6 +102,10 @@ class ComponentParser(object):
 		# 아웃고잉링크 컴포넌트 체크
 		elif "se-component se-oglink" in componentSting:
 			return self.parsingOglink()
+
+		# 임베드 컴포넌트 체크
+		elif "se-component se-oembed" in componentSting:
+			return ''
 
 		# 수식 컴포넌트 체크
 		elif "se-component se-formula" in componentSting:
@@ -242,6 +253,7 @@ class ComponentParser(object):
 			imageCaption = imageCaptionTag[0].text
 
 		for imageTag in self.component.select('img'):
+
 			imageUrl = imageTag['data-lazy-src']
 
 			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
@@ -249,11 +261,60 @@ class ComponentParser(object):
 			txt += self.endLine
 			txt += imageCaption
 
-			if not saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
-				print('\t' + str(imageTag) + ' 를 저장합니다.')
-			else:
+			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
+			else:
+				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
 
+		self.printDevMessage('clear')
+		return txt
+
+	# parsing function for image
+	def parsingImageStrip(self):
+		self.printDevMessage("== parsingImageStrip execution ==")
+
+		txt = ''
+
+		imageCaptionTag = self.component.select('.se-caption')
+
+		for i, imageTag in enumerate(self.component.select('img')):
+
+			imageUrl = imageTag['data-lazy-src']
+
+			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
+			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			txt += self.endLine
+
+			if len(imageCaptionTag) != 0:
+				txt += imageCaptionTag[i]
+
+			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+				ComponentParser.counter += 1
+			else:
+				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
+
+		self.printDevMessage('clear')
+		return txt
+
+	# parsing function for sticker
+	def parsingSticker(self):
+		self.printDevMessage("== parsingSticker execution ==")
+
+		txt = ''
+
+		for imageTag in self.component.select('img'):
+			imageUrl = imageTag['src']
+
+			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
+			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			txt += self.endLine
+
+			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+				ComponentParser.counter += 1
+			else:
+				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
+
+		self.printDevMessage('clear')
 		return txt
 
 
@@ -262,7 +323,7 @@ class ComponentParser(object):
 
 if __name__ == '__main__':
 
-	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
+	testPostUrl = "https://blog.naver.com/thswjdtmq4/222619927525"
 	c1 = BlogPost(testPostUrl, False)
 	c1.postSetup()
 	rawComponents = c1.postInframeSoup.select('div.se-component')
@@ -279,7 +340,8 @@ if __name__ == '__main__':
 				data += ComponentParser(headComponent, isDevMode=False).parsingTitle()
 				continue
 
-			data += ComponentParser(rawComponent).parsing
+			print(rawComponent)
+			data += ComponentParser(rawComponent, skipSticker=True).parsing
 
 			if i == len(rawComponents) - 1:
 				txt = '해시태그 : '
@@ -291,6 +353,5 @@ if __name__ == '__main__':
 		fp.write(data)
 
 	ComponentParser.hashTagList = []
-	print(ComponentParser.hashTagList)
-
+	ComponentParser.counter = 0
 # print('텍스트 파싱 결과 ', data)

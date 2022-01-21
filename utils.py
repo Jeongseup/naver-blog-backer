@@ -58,32 +58,8 @@ def removeSpecialChar(dirName):
 def saveImage(url, path):
     try:
         link = parse.quote(url, safe=':/?-=')
-        print('link : ' + link)
-        request.urlretrieve(link, path)
-
-        print(path)
-    except Exception as e:
-        print(url + ' ' + str(e))
-        return False
-    return True
-
-
-def saveImage(url, path):
-    try:
-        print('here', url, path)
-        link = parse.quote(url, safe=':/?-=')
         request.urlretrieve(link, path)
     except Exception as e:
-        print(url + ' ' + str(e))
+        print(e)
         return False
     return True
-
-
-# def saveImage(self, imageUrl):
-#     saveLoc = self.backupDir
-#     saveName = self.getSaveImageName(imageUrl)
-#     request.urlretrieve(imageUrl, "./" + saveLoc + "/" + str(saveName))
-#
-#
-# def getSaveImageName(self, imageUrl):
-#     return str(self.imageCount) + "." + re.search('(png|jpg|gif)', imageUrl, re.IGNORECASE).group()

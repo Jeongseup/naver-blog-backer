@@ -10,7 +10,7 @@ class ComponentParser(object):
 		# user setting
 		self.component = component
 		self.title = titleType
-		self.subtitle = subTitleType
+		self.subTitle = subTitleType
 		self.endLine = '\n\n'
 		self.skipSticker = skipSticker
 
@@ -25,8 +25,11 @@ class ComponentParser(object):
 			print("[DEV MODE] " + message, end='\n')
 
 	# text wrapping for markdown style
-	def wrappingText(self, header, txt, tail=''):
-		return header + ' ' + txt.strip() + '' + tail
+	def wrappingText(self, txt, isTitle=False):
+		if (isTitle):
+			return self.title + ' ' + txt.strip() + '' + self.endLine
+		else:
+			return self.subTitle + ' ' + txt.strip() + '' + ''
 
 	# ============================================================================================
 
@@ -109,10 +112,34 @@ class ComponentParser(object):
 		return data
 
 	# ============================================================================================
+	def parsingTitle(self):
+		self.printDevMessage("== parsingTitle execution ==")
+
+		txt = ''
+
+		for content in self.component.select('.se-title-text'):
+			txt += self.wrappingText(content.text, isTitle=True)
+
+		self.printDevMessage("== title is clear == ")
+
+		return txt
 
 	# parsing function for text
 	def parsingText(self):
 		self.printDevMessage("== parsing text execution ==")
+
+		txt = ''
+		for subContent in self.component.select('.se-module-text'):
+			for pTag in subContent.select('p'):
+				txt += pTag.text
+				txt += self.endLine
+
+		self.printDevMessage("== text is clear == ")
+
+		return txt
+
+	def parsingSectionTitle(self):
+		self.printDevMessage("== parsingSectionTitle execution ==")
 
 		txt = ''
 		for subContent in self.component.select('.se-module-text'):
@@ -146,7 +173,8 @@ if __name__ == '__main__':
 		for i, rawComponent in enumerate(rawComponents):
 			if i == 0:
 				# 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
-				pass
+				headComponent = rawComponent
+				data += ComponentParser(headComponent, isDevMode=False).parsingTitle()
 			else:
 				data += ComponentParser(rawComponent, isDevMode=False).parsing()
 

@@ -35,66 +35,62 @@ class ComponentParser(object):
 
 	# 파서 작동
 	def parsing(self):
-		self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
-
-		# temporary text variable
-		data = ''
+		# self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
+		self.printDevMessage(f"== parsing execution ==")
 
 		componentSting = str(self.component)
 
 		# 텍스트 컴포넌트 체크
 		if "se-component se-text" in componentSting:
-			data += self.parsingText()
+			return self.parsingText()
 
 		# 소제목 컴포넌트 체크
 		elif "se-component se-sectionTitle" in componentSting:
-			print('parsing sectionTitle')
+			return self.parsingSectionTitle()
 
 		# 인용구 컴포넌트 체크
 		elif "se-component se-quotation" in componentSting:
-			print('parsing quotation')
+			pass
 
 		# 구분선 컴포넌트 체크
 		elif "se-component se-horizontalLine" in componentSting:
-			print('parsing horizontalLine')
+			return self.parsingHorizontalLine()
 
 		# 일정 컴포넌트 체크
 		elif "se-component se-schedule" in componentSting:
-			print('parsing schedule')
+			pass
 
 		# 코드 컴포넌트 체크
 		elif "se-component se-code" in componentSting:
-			print('parsing code')
+			pass
 
 		# 라이브러리 컴포넌트 체크
 		elif "se-component se-material" in componentSting:
-			print('parsing material')
+			pass
 
 		# 이미지 컴포넌트 체크
 		elif "se-component se-image" in componentSting:
-			print('parsing image')
+			pass
 
 		# 스티커 컴포넌트 체크
 		elif "se-component se-sticker" in componentSting:
-			print('parsing sticker')
-		# if (self.skipSticker):
-		# 	print('test')
+			pass
 
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
-			print('parsing video')
+			pass
 
 		# 파일 컴포넌트 체크
 		elif "se-component se-file" in componentSting:
-			print('parsing file')
+			pass
 
 		# 지도 컴포넌트 체크
 		elif "se-component se-placesMap" in componentSting:
-			print('parsing map')
+			pass
 
 		# 아웃고잉링크 컴포넌트 체크
 		elif "se-component se-oglink" in componentSting:
-			print('parsing oglink')
+			return self.parsingOglink()
 
 		# 수식 컴포넌트 체크
 		elif "se-component se-formula" in componentSting:
@@ -108,47 +104,77 @@ class ComponentParser(object):
 			print('find unknown tag\n' + str(self.component))
 
 		self.printDevMessage("== postSetup is clear == ")
-
-		return data
+		return ''
 
 	# ============================================================================================
+
+	# parsing function for main title
 	def parsingTitle(self):
 		self.printDevMessage("== parsingTitle execution ==")
 
 		txt = ''
-
 		for content in self.component.select('.se-title-text'):
 			txt += self.wrappingText(content.text, isTitle=True)
 
 		self.printDevMessage("== title is clear == ")
-
 		return txt
 
-	# parsing function for text
-	def parsingText(self):
-		self.printDevMessage("== parsing text execution ==")
-
-		txt = ''
-		for subContent in self.component.select('.se-module-text'):
-			for pTag in subContent.select('p'):
-				txt += pTag.text
-				txt += self.endLine
-
-		self.printDevMessage("== text is clear == ")
-
-		return txt
-
+	# parsing function for section title
 	def parsingSectionTitle(self):
 		self.printDevMessage("== parsingSectionTitle execution ==")
 
 		txt = ''
-		for subContent in self.component.select('.se-module-text'):
-			for pTag in subContent.select('p'):
+		for content in self.component.select('.se-module-text'):
+			for pTag in content.select('p'):
 				txt += pTag.text
 				txt += self.endLine
 
 		self.printDevMessage("== text is clear == ")
+		return txt
 
+	# parsing function for text
+	def parsingText(self):
+		self.printDevMessage("== parsingText execution ==")
+
+		txt = ''
+		for content in self.component.select('.se-module-text'):
+			for pTag in content.select('p'):
+				txt += pTag.text
+				txt += self.endLine
+
+		self.printDevMessage("== text is clear == ")
+		return txt
+
+	# parsing function for text
+	def parsingHorizontalLine(self):
+		self.printDevMessage("== parsingHorizontalLine execution ==")
+
+		txt = ''
+		for content in self.component.select('.se-hr'):
+			txt += '---'
+			txt += self.endLine
+
+		self.printDevMessage("== horizontal line is clear == ")
+		return txt
+
+
+	def parsingOglink(self):
+		self.printDevMessage("== parsingHorizontalLine execution ==")
+
+		txt = ''
+
+		oglinkTitle = self.component.select('.se-oglink-title')[0].text
+		oglinkSummary = self.component.select('.se-oglink-summary')[0].text
+		oglink = self.component.select('.se-oglink-info')[0]['href']
+
+		if oglinkTitle is '':
+			oglinkTitle = "No Title"
+
+		txt += f'[{oglinkTitle}]({oglink})' + ' : '
+		txt += oglinkSummary
+		txt += self.endLine
+
+		self.printDevMessage("== oglink is clear == ")
 		return txt
 
 
@@ -159,7 +185,6 @@ import os
 # parsing function for code
 
 if __name__ == '__main__':
-	print("== test bed start ==")
 
 	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
 	c1 = BlogPost(testPostUrl, False)
@@ -176,7 +201,7 @@ if __name__ == '__main__':
 				headComponent = rawComponent
 				data += ComponentParser(headComponent, isDevMode=False).parsingTitle()
 			else:
-				data += ComponentParser(rawComponent, isDevMode=False).parsing()
+				data += ComponentParser(rawComponent).parsing()
 
 		fp.write(data)
 

@@ -2,122 +2,133 @@ from blogPost import BlogPost
 
 
 class ComponentParser(object):
-    # SE3Component is class that based on str, found on soup(= HTML TAG)
-    # parser progress counter
-    counter = 0
+	# SE3Component is class that based on str, found on soup(= HTML TAG)
+	# parser progress counter
+	counter = 0
 
-    def __init__(self, component, titleType="##", subTitleType="###", skipSticker=True, isDevMode=True):
-        # user setting
-        self.component = component
-        self.title = titleType
-        self.subtitle = subTitleType
-        self.endLine = '\n\n'
-        self.skipSticker = skipSticker
+	def __init__(self, component, titleType="##", subTitleType="###", skipSticker=True, isDevMode=True):
+		# user setting
+		self.component = component
+		self.title = titleType
+		self.subtitle = subTitleType
+		self.endLine = '\n\n'
+		self.skipSticker = skipSticker
 
-        #  for development function
-        self.isDevMode = isDevMode
+		#  for development function
+		self.isDevMode = isDevMode
 
-        # possible parsing components
-        # self.parsingFunctionList = [self.img_group, self.link, self.text, self.code, self.img, self.sticker, self.hr,
-        #                             self.textarea, self.video, self.script, self.anniversary, self.unreliable_text]
+	# ============================================================================================
 
-    # ============================================================================================
+	# 개발편의용 프린트 함수
+	def printDevMessage(self, message):
+		if self.isDevMode:
+			print("[DEV MODE] " + message, end='\n')
 
-    # 개발편의용 프린트 함수
-    def printDevMessage(self, message):
-        if self.isDevMode:
-            print("[DEV MODE] " + message, end='\n')
+	# text wrapping for markdown style
+	def wrappingText(self, header, txt, tail=''):
+		return header + ' ' + txt.strip() + '' + tail
 
-    # text wrapping for markdown style
-    def wrappingText(self, header, txt, tail=''):
-        return header + ' ' + txt.strip() + '' + tail
+	# 파서 작동
+	def parsing(self):
+		self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
 
-    # 파서 작동
-    def parsing(self):
-        self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
+		# temporary text variable
+		txt = ''
 
-        # temporary text variable
-        txt = ''
+		componentSting = str(self.component)
 
-        for parsingFunc in self.parsingFunctionList:
-            # parsed text data
-            data = parsingFunc(self.component)
-            if data is not None:
-                # print('get item', data)
-                txt += data
-                break
+		# 텍스트 컴포넌트 체크
+		if "se-component se-text" in componentSting:
+			print('parsing text')
+		# parsingTextComponent(self.component)
 
-        # if txt == '':
-        #     print('unkown tag: ' + str(self.component))
+		# 소제목 컴포넌트 체크
+		elif "se-component se-sectionTitle" in componentSting:
+			print('parsing sectionTitle')
 
-        self.printDevMessage("== postSetup is clear == ")
+		# 인용구 컴포넌트 체크
+		elif "se-component se-quotation" in componentSting:
+			print('parsing quotation')
 
-        return txt
+		# 구분선 컴포넌트 체크
+		elif "se-component se-horizontalLine" in componentSting:
+			print('parsing quotation')
 
-    # ============================================================================================
+		# 일정 컴포넌트 체크
+		elif "se-component se-schedule" in componentSting:
+			print('parsing schedule')
 
-    def isParagraphComponent(self):
-        if "se-component se-paragraph" in str(self.component):
-            return True
-        else:
-            return False
+		# 코드 컴포넌트 체크
+		elif "se-component se-code" in componentSting:
+			print('parsing code')
 
-    # ============================================================================================
+		# 라이브러리 컴포넌트 체크
+		elif "se-component se-material" in componentSting:
+			print('parsing material')
 
-    # parsing function for text
-    def text(self):
-        component = self.component
+		# 이미지 컴포넌트 체크
+		elif "se-component se-image" in componentSting:
+			print('parsing image')
 
-        self.printDevMessage("== text execution ==")
+		# 스티커 컴포넌트 체크
+		elif "se-component se-sticker" in componentSting:
+			print('parsing sticker')
+			# if (self.skipSticker):
+			# 	print('test')
 
-        txt = ''
-        if 'se-module-text' in str(component):
-            for sub_content in component.select('.se-module-text'):
-                for p_tag in sub_content.select('p'):
-                    txt += p_tag.text
-                    txt += self.endline
-                if txt == '':
-                    txt += sub_content.text
-                    txt += self.endline
-            return txt
+		# 비디오 컴포넌트 체크
+		elif "se-component se-video" in componentSting:
+			print('parsing video')
 
-        self.printDevMessage("== text is clear == ")
+		# 파일 컴포넌트 체크
+		elif "se-component se-file" in componentSting:
+			print('parsing file')
 
-        return None
+		else:
+			print('find unknown tag\n' + str(self.component))
 
-    # parsing function for code
+		self.printDevMessage("== postSetup is clear == ")
+
+		return txt
+
+# ============================================================================================
+
+# parsing function for text
+def text(self):
+	component = self.component
+
+	self.printDevMessage("== text execution ==")
+
+	txt = ''
+	if 'se-module-text' in str(component):
+		for sub_content in component.select('.se-module-text'):
+			for p_tag in sub_content.select('p'):
+				txt += p_tag.text
+				txt += self.endline
+			if txt == '':
+				txt += sub_content.text
+				txt += self.endline
+		return txt
+
+	self.printDevMessage("== text is clear == ")
+
+	return None
 
 
-import time
+# parsing function for code
+
 
 if __name__ == '__main__':
-    print("== test bed start ==")
+	print("== test bed start ==")
 
-    testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
-    c1 = BlogPost(testPostUrl, False)
-    c1.postSetup()
-    components = c1.postInframeSoup.select('div.se-component')
+	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
+	c1 = BlogPost(testPostUrl, False)
+	c1.postSetup()
+	components = c1.postInframeSoup.select('div.se-component')
 
-    iteration = 0
-    totalTime = 0
-    while iteration < 10:
-        iteration += 1
+	for component in components:
+		data = ComponentParser(component)
+		data.parsing()
 
-        start = time.time()  # 시작 시간 저장
-        #  작업
-        textComponentCount = 0
-
-        for component in components:
-            if 'se-component se-text' in str(component):
-                textComponentCount += 1
-
-        print(f'{textComponentCount}개의 text component를 모두 찾았습니다.')
-
-        duration = time.time() - start
-        print(f'{iteration}번째 소요시간 : ', duration)
-        totalTime += duration
-
-    print(f'총 {len(components)}개의 컴포넌트를 찾는 소요시간은 평균 {totalTime / 10}초 입니다.')
-
-    # c1 = ComponentParser(tempComponent)
-    # print(c1.text())
+# c1 = ComponentParser(tempComponent)
+# print(c1.text())

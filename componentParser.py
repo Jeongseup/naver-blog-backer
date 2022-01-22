@@ -1,6 +1,6 @@
 from blogPost import BlogPost
 from utils import saveImage
-
+from html.parser import HTMLParser
 
 class ComponentParser(object):
 	# SE3Component is class that based on str, found on soup(= HTML TAG)
@@ -45,19 +45,23 @@ class ComponentParser(object):
 
 		# 텍스트 컴포넌트 체크
 		if "se-component se-text" in componentSting:
-			return self.parsingText()
+			# return self.parsingText()
+			return ''
 
 		# 소제목 컴포넌트 체크
 		elif "se-component se-sectionTitle" in componentSting:
-			return self.parsingSectionTitle()
+			# return self.parsingSectionTitle()
+			return ''
 
 		# 인용구 컴포넌트 체크
 		elif "se-component se-quotation" in componentSting:
-			return self.parsingQuotation()
+			# return self.parsingQuotation()
+			return ''
 
 		# 구분선 컴포넌트 체크
 		elif "se-component se-horizontalLine" in componentSting:
-			return self.parsingHorizontalLine()
+			# return self.parsingHorizontalLine()
+			return ''
 
 		# 일정 컴포넌트 체크
 		elif "se-component se-schedule" in componentSting:
@@ -90,7 +94,7 @@ class ComponentParser(object):
 
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
-			return ''
+			return self.parsingVideo()
 
 		# 파일 컴포넌트 체크
 		elif "se-component se-file" in componentSting:
@@ -102,7 +106,8 @@ class ComponentParser(object):
 
 		# 아웃고잉링크 컴포넌트 체크
 		elif "se-component se-oglink" in componentSting:
-			return self.parsingOglink()
+			return ''
+			# return self.parsingOglink()
 
 		# 임베드 컴포넌트 체크
 		elif "se-component se-oembed" in componentSting:
@@ -316,15 +321,22 @@ class ComponentParser(object):
 		return txt
 
 	def parsingVideo(self):
-		for sub_content in self.component.select('script'):
+		self.printDevMessage("== parsingVideo execution ==")
+		parser = HTMLParser()
+
+		txt = ''
+		for content in self.component.select('script'):
+
+			print(content['data-module'])
+			print(parser.feed(content.text))
 			# fp.write(sub_content['data-module'])
-			script_txt = sub_content['data-module']
-			'''
-			'''
-			script_txt = script_txt[script_txt.find('<iframe'):]
-			script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
-			txt += script_txt
-			txt += self.endline
+			# script_txt = sub_content['data-module']
+			# '''
+			# '''
+			# script_txt = script_txt[script_txt.find('<iframe'):]
+			# script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
+			# txt += script_txt
+			# txt += self.endline
 		return txt
 		# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
 		# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
@@ -335,7 +347,7 @@ class ComponentParser(object):
 
 if __name__ == '__main__':
 
-	testPostUrl = "https://blog.naver.com/thswjdtmq4/222619927525"
+	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
 	c1 = BlogPost(testPostUrl, False)
 	c1.postSetup()
 	rawComponents = c1.postInframeSoup.select('div.se-component')
@@ -352,7 +364,6 @@ if __name__ == '__main__':
 				data += ComponentParser(headComponent, isDevMode=False).parsingTitle()
 				continue
 
-			print(rawComponent)
 			data += ComponentParser(rawComponent, skipSticker=True).parsing
 
 			if i == len(rawComponents) - 1:

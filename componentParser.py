@@ -73,15 +73,17 @@ class ComponentParser(object):
 
 		# 이미지 컴포넌트 체크
 		elif "se-component se-image" in componentSting:
-			return self.parsingImage()
+			return ''
+			# return self.parsingImage()
 
 		# 이미지 스트립 컴포넌트 체크
 		elif "se-component se-imageStrip" in componentSting:
-			return self.parsingImageStrip()
+			return ''
+			# return self.parsingImageStrip()
 
 		# 스티커 컴포넌트 체크
 		elif "se-component se-sticker" in componentSting:
-			if not (self.skipSticker):
+			if not self.skipSticker:
 				return self.parsingSticker()
 			else:
 				return ''
@@ -89,7 +91,6 @@ class ComponentParser(object):
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
 			return ''
-
 
 		# 파일 컴포넌트 체크
 		elif "se-component se-file" in componentSting:
@@ -182,18 +183,17 @@ class ComponentParser(object):
 
 		txt = ''
 
+		oglinkTitle = "No Title"
+		oglinkSummary = ''
+
 		oglinkTitleTag = self.component.select('.se-oglink-title')
 		oglinkSummaryTag = self.component.select('.se-oglink-summary')
 		oglink = self.component.select('.se-oglink-info')[0]['href']
 
-		if len(oglinkTitleTag) == 0:
-			oglinkTitle = "No Title"
-		else:
+		if len(oglinkTitleTag) != 0:
 			oglinkTitle = oglinkTitleTag[0].text
 
-		if len(oglinkSummaryTag) == 0:
-			oglinkSummary = ''
-		else:
+		if len(oglinkSummaryTag) != 0:
 			oglinkSummary = oglinkSummaryTag[0].text
 
 		txt += f'[{oglinkTitle}]({oglink})' + ' : '
@@ -222,12 +222,11 @@ class ComponentParser(object):
 		self.printDevMessage("== parsingQuotation execution ==")
 
 		txt = ''
+		quotationSite = "No Site"
 
 		quotationSiteTag = self.component.select('.se-cite')
 
-		if len(quotationSiteTag) == 0:
-			quotationSite = "No Site"
-		else:
+		if len(quotationSiteTag) != 0:
 			quotationSite = quotationSiteTag[0].text
 
 		for pTag in self.component.select('.se-quote'):
@@ -245,11 +244,10 @@ class ComponentParser(object):
 		self.printDevMessage("== parsingImage execution ==")
 
 		txt = ''
+		imageCaption = ''
 
 		imageCaptionTag = self.component.select('.se-caption')
-		if len(imageCaptionTag) == 0:
-			imageCaption = ''
-		else:
+		if len(imageCaptionTag) != 0:
 			imageCaption = imageCaptionTag[0].text
 
 		for imageTag in self.component.select('img'):
@@ -316,6 +314,20 @@ class ComponentParser(object):
 
 		self.printDevMessage('clear')
 		return txt
+
+	def parsingVideo(self):
+		for sub_content in self.component.select('script'):
+			# fp.write(sub_content['data-module'])
+			script_txt = sub_content['data-module']
+			'''
+			'''
+			script_txt = script_txt[script_txt.find('<iframe'):]
+			script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
+			txt += script_txt
+			txt += self.endline
+		return txt
+		# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
+		# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
 
 
 # ============================================================================================

@@ -354,8 +354,10 @@ class ComponentParser(object):
 				videoDescripton = jsonData[descriptionKey]
 
 
-			txt += f'[![{videoTitle}]({videoThumbnail})]({videoUrl}) : '
-			txt += videoDescripton
+			txt += f'[![{videoTitle}]({videoThumbnail})]({videoUrl})'
+			txt += self.endLine
+			
+			txt += '설명' + videoDescripton
 			txt += self.endLine
 
 			self.printDevMessage("clear")
@@ -366,16 +368,27 @@ class ComponentParser(object):
 		self.printDevMessage("== parsingVideo execution ==")
 
 		txt = ''
+		imageCaption = ''
 
-		# fp.write(sub_content['data-module'])
-		# script_txt = sub_content['data-module']
-		# '''
-		# '''
-		# script_txt = script_txt[script_txt.find('<iframe'):]
-		# script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
-		# txt += script_txt
-		# txt += self.endline
-		return txt
+		imageCaptionTag = self.component.select('.se-caption')
+		if len(imageCaptionTag) != 0:
+			imageCaption = imageCaptionTag[0].text
+
+		for imageTag in self.component.select('img'):
+
+			imageUrl = imageTag['data-lazy-src']
+
+			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
+			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			txt += self.endLine
+			txt += imageCaption
+
+			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+				ComponentParser.counter += 1
+			else:
+				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
+
+		self.printDevMessage('clear')
 # [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
 # pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
 
@@ -385,7 +398,7 @@ class ComponentParser(object):
 
 if __name__ == '__main__':
 
-	testPostUrl = "https://blog.naver.com/thswjdtmq4/222619927525"
+	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
 	c1 = BlogPost(testPostUrl, False)
 	c1.postSetup()
 	rawComponents = c1.postInframeSoup.select('div.se-component')

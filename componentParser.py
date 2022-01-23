@@ -1,6 +1,7 @@
 from blogPost import BlogPost
-from utils import saveImage
+from utils import saveImage, parsingScriptTag
 from html.parser import HTMLParser
+
 
 class ComponentParser(object):
 	# SE3Component is class that based on str, found on soup(= HTML TAG)
@@ -78,12 +79,12 @@ class ComponentParser(object):
 		# 이미지 컴포넌트 체크
 		elif "se-component se-image" in componentSting:
 			return ''
-			# return self.parsingImage()
+		# return self.parsingImage()
 
 		# 이미지 스트립 컴포넌트 체크
 		elif "se-component se-imageStrip" in componentSting:
 			return ''
-			# return self.parsingImageStrip()
+		# return self.parsingImageStrip()
 
 		# 스티커 컴포넌트 체크
 		elif "se-component se-sticker" in componentSting:
@@ -94,7 +95,8 @@ class ComponentParser(object):
 
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
-			return self.parsingVideo()
+			return ''
+		# return self.parsingVideo()
 
 		# 파일 컴포넌트 체크
 		elif "se-component se-file" in componentSting:
@@ -107,11 +109,11 @@ class ComponentParser(object):
 		# 아웃고잉링크 컴포넌트 체크
 		elif "se-component se-oglink" in componentSting:
 			return ''
-			# return self.parsingOglink()
+		# return self.parsingOglink()
 
 		# 임베드 컴포넌트 체크
 		elif "se-component se-oembed" in componentSting:
-			return ''
+			return self.parsingOembed()
 
 		# 수식 컴포넌트 체크
 		elif "se-component se-formula" in componentSting:
@@ -320,26 +322,63 @@ class ComponentParser(object):
 		self.printDevMessage('clear')
 		return txt
 
-	def parsingVideo(self):
-		self.printDevMessage("== parsingVideo execution ==")
-		parser = HTMLParser()
+	def parsingOembed(self):
+		self.printDevMessage("== parsingOembed execution ==")
 
 		txt = ''
 		for content in self.component.select('script'):
+			jsonData = parsingScriptTag(content['data-module'])
 
-			print(content['data-module'])
-			print(parser.feed(content.text))
-			# fp.write(sub_content['data-module'])
-			# script_txt = sub_content['data-module']
-			# '''
-			# '''
-			# script_txt = script_txt[script_txt.find('<iframe'):]
-			# script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
-			# txt += script_txt
-			# txt += self.endline
+			keys = jsonData['data'].keys()
+			print(type(keys), keys)
+
+			if key1 in json_data['data'].keys():
+				print("Key exists")
+			else:
+				print("Key does not exist")
+
+			if keys['inputUrl'] is not None:
+				print(jsonData['data']['inputUrl'])
+
+			print(keys['title2'])
+
+		[![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
+		pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
+		# print(json_data['data']['inputUrl'])
+		# print(json_data['data']['title'])
+		# print(json_data['data']['thumbnailUrl'])
+		# print(json_data['data']['description'])
+		# print(json_data['data'].keys())
+
+		# fp.write(sub_content['data-module'])
+		# script_txt = sub_content['data-module']
+		# '''
+		# '''
+		# script_txt = script_txt[script_txt.find('<iframe'):]
+		# script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
+		# txt += script_txt
+		# txt += self.endline
 		return txt
-		# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
-		# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
+
+	# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
+	# 	# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
+
+	def parsingVideo(self):
+		self.printDevMessage("== parsingVideo execution ==")
+
+		txt = ''
+
+		# fp.write(sub_content['data-module'])
+		# script_txt = sub_content['data-module']
+		# '''
+		# '''
+		# script_txt = script_txt[script_txt.find('<iframe'):]
+		# script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
+		# txt += script_txt
+		# txt += self.endline
+		return txt
+	# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
+	# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
 
 
 # ============================================================================================
@@ -347,7 +386,7 @@ class ComponentParser(object):
 
 if __name__ == '__main__':
 
-	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
+	testPostUrl = "https://blog.naver.com/thswjdtmq4/222619927525"
 	c1 = BlogPost(testPostUrl, False)
 	c1.postSetup()
 	rawComponents = c1.postInframeSoup.select('div.se-component')

@@ -1,8 +1,12 @@
 
 from datetime import datetime, timedelta
 from urllib import request, parse
-import re, os, errno
+from html import unescape
 
+import re
+import os
+import errno
+import json
 
 # util for getPostDate
 def isRelativePostDate(postDate):
@@ -63,3 +67,9 @@ def saveImage(url, path):
         print(e)
         return False
     return True
+
+
+# util for script tag parse
+def parsingScriptTag(stringData):
+    unescapedString = unescape(stringData)
+    return json.loads(unescapedString.replace('\\"', ""))

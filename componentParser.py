@@ -326,42 +326,41 @@ class ComponentParser(object):
 		self.printDevMessage("== parsingOembed execution ==")
 
 		txt = ''
+
+		videoThumbnail = ''
+		videoTitle = ''
+		videoDescripton = ''
+		videoUrl = ''
+
 		for content in self.component.select('script'):
-			jsonData = parsingScriptTag(content['data-module'])
+			jsonData = parsingScriptTag(content['data-module'])['data']
 
-			keys = jsonData['data'].keys()
-			print(type(keys), keys)
+			videoUrlKey = 'inputUrl'
+			titleKey = 'title'
+			thumbnailKey = 'thumbnailUrl'
+			descriptionKey = 'description'
 
-			if key1 in json_data['data'].keys():
-				print("Key exists")
-			else:
-				print("Key does not exist")
 
-			if keys['inputUrl'] is not None:
-				print(jsonData['data']['inputUrl'])
+			if videoUrlKey in jsonData.keys():
+				videoUrl = jsonData[videoUrlKey]
 
-			print(keys['title2'])
+			if titleKey in jsonData.keys():
+				videoTitle = jsonData[titleKey]
 
-		[![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
-		pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
-		# print(json_data['data']['inputUrl'])
-		# print(json_data['data']['title'])
-		# print(json_data['data']['thumbnailUrl'])
-		# print(json_data['data']['description'])
-		# print(json_data['data'].keys())
+			if thumbnailKey in jsonData.keys():
+				videoThumbnail = jsonData[thumbnailKey]
 
-		# fp.write(sub_content['data-module'])
-		# script_txt = sub_content['data-module']
-		# '''
-		# '''
-		# script_txt = script_txt[script_txt.find('<iframe'):]
-		# script_txt = script_txt[:script_txt.find('/iframe') + len('/iframe') + 1]
-		# txt += script_txt
-		# txt += self.endline
-		return txt
+			if descriptionKey in jsonData.keys():
+				videoDescripton = jsonData[descriptionKey]
 
-	# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
-	# 	# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
+
+			txt += f'[![{videoTitle}]({videoThumbnail})]({videoUrl}) : '
+			txt += videoDescripton
+			txt += self.endLine
+
+			self.printDevMessage("clear")
+			return txt
+
 
 	def parsingVideo(self):
 		self.printDevMessage("== parsingVideo execution ==")
@@ -377,8 +376,8 @@ class ComponentParser(object):
 		# txt += script_txt
 		# txt += self.endline
 		return txt
-	# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
-	# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
+# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
+# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
 
 
 # ============================================================================================

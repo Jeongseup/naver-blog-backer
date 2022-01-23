@@ -1,6 +1,5 @@
 from blogPost import BlogPost
-from utils import saveImage, parsingScriptTag
-from html.parser import HTMLParser
+from utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
 
 
 class ComponentParser(object):
@@ -46,45 +45,48 @@ class ComponentParser(object):
 
 		# 텍스트 컴포넌트 체크
 		if "se-component se-text" in componentSting:
-			# return self.parsingText()
-			return ''
+			# return ''
+			return self.parsingText()
 
 		# 소제목 컴포넌트 체크
 		elif "se-component se-sectionTitle" in componentSting:
-			# return self.parsingSectionTitle()
-			return ''
+			# return ''
+			return self.parsingSectionTitle()
 
 		# 인용구 컴포넌트 체크
 		elif "se-component se-quotation" in componentSting:
-			# return self.parsingQuotation()
-			return ''
+			# return ''
+			return self.parsingQuotation()
 
 		# 구분선 컴포넌트 체크
 		elif "se-component se-horizontalLine" in componentSting:
-			# return self.parsingHorizontalLine()
-			return ''
+			# return ''
+			return self.parsingHorizontalLine()
 
 		# 일정 컴포넌트 체크
 		elif "se-component se-schedule" in componentSting:
+			print('지원하지 않는 컴포넌트입니다.')
 			return ''
 
 		# 코드 컴포넌트 체크
 		elif "se-component se-code" in componentSting:
+			# return ''
 			return self.parsingCode()
 
 		# 라이브러리 컴포넌트 체크
 		elif "se-component se-material" in componentSting:
-			return ''
+			# return ''
+			return self.parsingMaterial()
 
 		# 이미지 컴포넌트 체크
 		elif "se-component se-image" in componentSting:
-			return ''
-		# return self.parsingImage()
+			# return ''
+			return self.parsingImage()
 
 		# 이미지 스트립 컴포넌트 체크
 		elif "se-component se-imageStrip" in componentSting:
-			return ''
-		# return self.parsingImageStrip()
+			# return ''
+			return self.parsingImageStrip()
 
 		# 스티커 컴포넌트 체크
 		elif "se-component se-sticker" in componentSting:
@@ -96,23 +98,26 @@ class ComponentParser(object):
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
 			return ''
-		# return self.parsingVideo()
+			# return self.parsingVideo()
 
 		# 파일 컴포넌트 체크
 		elif "se-component se-file" in componentSting:
-			return ''
+			# return ''
+			return self.parsingFile()
 
 		# 지도 컴포넌트 체크
 		elif "se-component se-placesMap" in componentSting:
-			return ''
+			# return ''
+			return self.parsingPlacesMaps()
 
 		# 아웃고잉링크 컴포넌트 체크
 		elif "se-component se-oglink" in componentSting:
-			return ''
-		# return self.parsingOglink()
+			# return ''
+			return self.parsingOglink()
 
 		# 임베드 컴포넌트 체크
 		elif "se-component se-oembed" in componentSting:
+			# return ''
 			return self.parsingOembed()
 
 		# 수식 컴포넌트 체크
@@ -340,7 +345,6 @@ class ComponentParser(object):
 			thumbnailKey = 'thumbnailUrl'
 			descriptionKey = 'description'
 
-
 			if videoUrlKey in jsonData.keys():
 				videoUrl = jsonData[videoUrlKey]
 
@@ -353,48 +357,99 @@ class ComponentParser(object):
 			if descriptionKey in jsonData.keys():
 				videoDescripton = jsonData[descriptionKey]
 
-
 			txt += f'[![{videoTitle}]({videoThumbnail})]({videoUrl})'
 			txt += self.endLine
-			
+
 			txt += '설명' + videoDescripton
 			txt += self.endLine
 
 			self.printDevMessage("clear")
 			return txt
 
-
 	def parsingVideo(self):
 		self.printDevMessage("== parsingVideo execution ==")
 
 		txt = ''
-		imageCaption = ''
+		for content in self.component.select('script'):
+			jsonData = parsingScriptTag(content['data-module'])['data']
+			videoUrl = getVideoSource(jsonData)
 
-		imageCaptionTag = self.component.select('.se-caption')
-		if len(imageCaptionTag) != 0:
-			imageCaption = imageCaptionTag[0].text
+			videoThumbnail = jsonData['thumbnail']
+			videoTitle = jsonData['mediaMeta']['title']
+			videoTags = jsonData['mediaMeta']['tags']
+			videoDescription = jsonData['mediaMeta']['description']
 
-		for imageTag in self.component.select('img'):
-
-			imageUrl = imageTag['data-lazy-src']
-
-			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
-			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			# 나중에 확장자 셀렉터하는 것 추가할 것
+			txt += f'[![{ComponentParser.counter}]({videoThumbnail})](./sources/{ComponentParser.counter}.mp4)'
 			txt += self.endLine
-			txt += imageCaption
 
-			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+			txt += f'제목 : {videoTitle}, 설명 : {videoDescription}'
+			txt += self.endLine
+
+			txt += '해시태그 : '
+			for hashTag in videoTags:
+				txt += '#' + hashTag + ' '
+			txt += self.endLine
+
+			if saveVideo(videoUrl, f'sources/{ComponentParser.counter}.mp4'):
 				ComponentParser.counter += 1
 			else:
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
 
 		self.printDevMessage('clear')
-# [![Video Label](http: // img.youtube.com / vi / uLR1RNqJ1Mw / 0.j
-# pg)](https: // youtu.be / uLR1RNqJ1Mw?t=0s)
+		return txt
 
+	def parsingPlacesMaps(self):
+		self.printDevMessage("== parsingPlacesMaps execution ==")
+
+		txt = ''
+		for content in self.component.select('a.se-map-info'):
+			jsonData = parsingScriptTag(content['data-linkdata'])
+
+			txt += f'장소명 : {jsonData["name"]}'
+			txt += self.endLine
+			txt += f'주소 : {jsonData["address"]}'
+			txt += self.endLine
+
+		self.printDevMessage("clear")
+		return txt
+
+	def parsingMaterial(self):
+		self.printDevMessage("== parsingMaterial execution ==")
+
+		txt = ''
+		for content in self.component.select('a.se-module-material'):
+			jsonData = parsingScriptTag(content['data-linkdata'])
+
+			txt += f'{jsonData["title"]}({jsonData["type"]}), 링크 : {jsonData["link"]}'
+			txt += self.endLine
+
+		self.printDevMessage("clear")
+		return txt
+
+
+	def parsingFile(self):
+		self.printDevMessage("== parsingFile execution ==")
+
+		txt = ''
+		for content in self.component.select('a.se-file-save-button'):
+			jsonData = parsingScriptTag(content['data-linkdata'])
+
+			fileUrl = jsonData["link"]
+			fileName = fileUrl.split('/')[-1]
+
+			txt += f'![{fileName}](./source/{fileUrl["link"]})'
+			txt += self.endLine
+
+		if saveVideo(fileUrl, f'sources/{fileName}'):
+			pass
+		else:
+			print(f'[ERROR] "{fileName}" 파일이 정상적으로 저장되지 않았습니다.')
+
+		self.printDevMessage("clear")
+		return txt
 
 # ============================================================================================
-
 
 if __name__ == '__main__':
 
@@ -403,7 +458,7 @@ if __name__ == '__main__':
 	c1.postSetup()
 	rawComponents = c1.postInframeSoup.select('div.se-component')
 
-	with open('hashtag.md', "w", encoding='utf-8') as fp:
+	with open('test.md', "w", encoding='utf-8') as fp:
 
 		data = ''
 

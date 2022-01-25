@@ -73,7 +73,6 @@ def parsingScriptTag(stringData):
 
 # utils for finding out video source
 def getVideoSource(jsonData):
-
 	try:
 		videoId = jsonData['vid']
 		videoInkey = jsonData['inkey']
@@ -91,6 +90,7 @@ def getVideoSource(jsonData):
 		print(e)
 		return ''
 
+
 # util for saving video
 def saveVideo(url, path):
 	try:
@@ -99,3 +99,30 @@ def saveVideo(url, path):
 		print(e)
 		return False
 	return True
+
+
+# util for get post title list
+def getTotalCount(targetId):
+	postTitleListUrl = f'https://blog.naver.com/PostTitleListAsync.naver?blogId={targetId}'
+	try:
+		res = request.urlopen(postTitleListUrl).read().decode()
+		jsonData = json.loads(unescape(res).replace('\\', ''))
+
+		return jsonData['totalCount']
+
+	except Exception as e:
+		print(e)
+		return None
+
+# util for get post title list
+def getTotalCount(targetId):
+	postTitleListUrl = f'https://blog.naver.com/PostTitleListAsync.naver?blogId={targetId}'
+	try:
+		res = request.urlopen(postTitleListUrl).read().decode()
+		jsonData = json.loads(unescape(res).replace('\\', ''))
+
+		return jsonData['totalCount']
+
+	except Exception as e:
+		print(e)
+		return None

@@ -1,30 +1,39 @@
 import requests, re, time
 from threading import Thread
 # from progressbar import ProgressBar
-import os, shutil
+import os
 
 # Global Variables for Thread
-naverId = ""
+targetId = ""
 curPost = 1
 postsNum = 0
 crawlingProgressBar = None
 
 
 class BlogCrawler:
-	def __init__(self, _naverId, threadNum=4, isDevMode=False):
+	def __init__(self, _targetId, threadNum=4, isDevMode=False):
+		# 개발 편의
+		self.isDevMode = isDevMode
+
+		# use global variable
 		global naverId
-		naverId = _naverId
+		naverId = _targetId
+
+		# init
 		self.postUrlList = []
 		self.isDevMode = isDevMode
 		self.threadNum = threadNum
 
-	def getPostList(self):
-		pass
+		# init check
+		if self.isForeignId():
+			print("[INIT ERROR] 입력하신 ID로 검색된 포스트가 없습니다. 프로그램을 종료합니다.")
 
-	def copyCSSfile(self):
-		packagePath = os.path.dirname(NaverBlogPostCrawler.__file__)
-		cssPath = str(packagePath) + "/blogstyle.css"
-		shutil.copyfile(cssPath, "./blogstyle.css")
+	# ============================================================================================
+
+	def getTotalPosts(self):
+		return len(self.postUrlList)
+
+	# ============================================================================================
 
 	def run(self):
 		global naverId, postsNum, curPost, crawlingProgressBar
@@ -67,10 +76,8 @@ class BlogCrawler:
 			threads.append(NaverBlogPostCrawlThread(partialList))
 		return threads
 
-	def getEntirePostIdList(self, startPage):
-		page = startPage
-		postIdList = []
-		pastIdList = []
+	def getEntirePostIdList(self, category=0):
+
 		while True:
 			try:
 				partialList = self.getPostIdListViaPage(page)
@@ -84,26 +91,6 @@ class BlogCrawler:
 			except NonePostListException:
 				return postIdList
 
-	def isDuplicateList(self, postNumList1, postNumList2):
-		if len(postNumList1) == len(postNumList2):
-			for index in range(len(postNumList1)):
-				if postNumList1[index] != postNumList2[index]:
-					return False
-			return True
-		else:
-			return False
-
-	def getPostIdListViaPage(self, pageNum):
-		getPostList = "https://blog.naver.com/" \
-					  "PostList.nhn?from=postList&" \
-					  "blogId={}&currentPage={}".format(naverId, pageNum)
-		postListHtml = requests.get(getPostList).text
-		postListSoup = BeautifulSoup(postListHtml, "html5lib")
-		postNumTags = re.search("var tagParam .*\';", str(postListSoup)).group()
-		postNumList = re.findall('[0-9]+', postNumTags)
-		if postNumList == None:
-			raise NonePostListException
-		return postNumList
 
 
 # class BackerThread(Thread):
@@ -124,5 +111,3 @@ class BlogCrawler:
 # 			postingCrawler.run()
 #
 #
-# class NonePostListException(Exception):
-# 	pass

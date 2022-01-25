@@ -1,4 +1,4 @@
-from blogPost import BlogPost
+from BlogPost import BlogPost
 from utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
 
 
@@ -449,38 +449,9 @@ class ComponentParser(object):
 		self.printDevMessage("clear")
 		return txt
 
+
+
 # ============================================================================================
 
-if __name__ == '__main__':
-
-	testPostUrl = "https://blog.naver.com/thswjdtmq4/222626338613"
-	c1 = BlogPost(testPostUrl, False)
-	c1.postSetup()
-	rawComponents = c1.postInframeSoup.select('div.se-component')
-
-	with open('test.md', "w", encoding='utf-8') as fp:
-
-		data = ''
-
-		for i, rawComponent in enumerate(rawComponents):
-
-			if i == 0:
-				# 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
-				headComponent = rawComponent
-				data += ComponentParser(headComponent, isDevMode=False).parsingTitle()
-				continue
-
-			data += ComponentParser(rawComponent, skipSticker=True).parsing
-
-			if i == len(rawComponents) - 1:
-				txt = '해시태그 : '
-				for hashTag in ComponentParser.hashTagList:
-					txt += hashTag
-
-				data += ' ' + txt
-
-		fp.write(data)
-
-	ComponentParser.hashTagList = []
-	ComponentParser.counter = 0
-# print('텍스트 파싱 결과 ', data)
+def __str__(self):
+	return self.component

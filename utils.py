@@ -106,6 +106,7 @@ def getTotalCount(targetId):
 	postTitleListUrl = f'https://blog.naver.com/PostTitleListAsync.naver?blogId={targetId}'
 	try:
 		res = request.urlopen(postTitleListUrl).read().decode()
+		# json parsing
 		jsonData = json.loads(unescape(res).replace('\\', ''))
 
 		return jsonData['totalCount']
@@ -114,14 +115,17 @@ def getTotalCount(targetId):
 		print(e)
 		return None
 
+
 # util for get post title list
-def getTotalCount(targetId):
-	postTitleListUrl = f'https://blog.naver.com/PostTitleListAsync.naver?blogId={targetId}'
+def getPostTitleList(targetId, currentPage, categoryNo=0):
+	postTitleListUrl = f'https://blog.naver.com/PostTitleListAsync.naver?blogId={targetId}&viewdate=&currentPage={currentPage}&categoryNo={categoryNo}&parentCategoryNo=0&countPerPage=30'
+
 	try:
 		res = request.urlopen(postTitleListUrl).read().decode()
+		# json parsing
 		jsonData = json.loads(unescape(res).replace('\\', ''))
 
-		return jsonData['totalCount']
+		return jsonData
 
 	except Exception as e:
 		print(e)

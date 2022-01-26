@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from urllib import request, parse
 from html import unescape
+from requests.utils import unquote
 import re, os, errno, json
 
 
@@ -125,8 +126,19 @@ def getPostTitleList(targetId, currentPage, categoryNo=0):
 		# json parsing
 		jsonData = json.loads(unescape(res).replace('\\', ''))
 
-		return jsonData
+		return jsonData['postList']
 
 	except Exception as e:
 		print(e)
 		return None
+
+
+# util for parsing post data
+def parsingPostTitle(post):
+	tempObj = dict()
+
+	tempObj['date'] = post['addDate']
+	tempObj['title'] = unquote(post['title'], encoding='utf-8').replace('+', ' ')
+	tempObj['logNo'] = post['logNo']
+
+	return tempObj

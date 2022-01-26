@@ -1,7 +1,8 @@
-import requests, re, time
+from progressbar import ProgressBar
 from threading import Thread
-# from progressbar import ProgressBar
-import os
+import time
+
+from utils import getPostTitleList, getTotalCount, parsingPostTitle
 
 # Global Variables for Thread
 targetId = ""
@@ -16,13 +17,14 @@ class BlogCrawler:
 		self.isDevMode = isDevMode
 
 		# use global variable
-		global naverId
-		naverId = _targetId
+		global targetId
+		targetId = _targetId
 
 		# init
-		self.postUrlList = []
+		self.postList = []
 		self.isDevMode = isDevMode
 		self.threadNum = threadNum
+		self.totalCount = None
 
 		# init check
 		if self.isForeignId():
@@ -30,26 +32,53 @@ class BlogCrawler:
 
 	# ============================================================================================
 
-	def getTotalPosts(self):
-		return len(self.postUrlList)
+	# 개발편의용 프린트 함수
+	def printDevMessage(self, message):
+		if self.isDevMode:
+			print("[DEV MODE] " + message, end='\n')
+
+	# ============================================================================================
+
+	def getPostList(self):
+		self.printDevMessage("getPostList execution")
+
+		totalCount = getTotalCount(targetId)
+		# 전체 페이지 개수를 가져오는 currentPage수로 나눈 나머지 +1 만큼하면 모든 페이지 아이템을 가져올 수 있다.
+		pages = (int(totalCount) % 30) + 1
+
+		try:
+			result = list()
+			for i in range(1, pages):
+				print(f'Getting post number list in page {i} in {pages}')
+				tempPostList = getPostTitleList(targetId)
+
+				# 내가 쓴 글이 아닌 공유 글 제외
+				tempPostList = list(filter(lambda p: p['searchYn'] == 'true', tempPostList))
+
+				for post in tempPostList:
+					# 필요한 데이터만을 추출하고 appending
+					result.append(parsingPostTitle(post))
+
+			self.printDevMessage("clear")
+			return result
+		except Exception as e:
+			print(e)
+			return None
 
 	# ============================================================================================
 
 	def run(self):
 		global naverId, postsNum, curPost, crawlingProgressBar
 		initTime = time.time()
-		startPage = 1
-		urlPrefix = "https://blog.naver.com/" + naverId + "/"
-		postIdList = self.getEntirePostIdList(startPage)
-		postsNum = len(postIdList)
+
 		print("[ Getting post address list in {0:0.2f}s ]".format((time.time() - initTime)))
 		print("[ Total posts : {}posts. Backup begins... ]".format(postsNum))
-		self.copyCSSfile()
+
 		crawlingProgressBar = ProgressBar(max_value=postsNum, redirect_stdout=True)
 		crawlingProgressBar.update(curPost)
 
 		divListSize = postsNum // self.threadNum
-		threads = self.makeCrawlingThreads(postIdList)
+		threads = self.makeCrawlingThreads(self.postList)
 
 		self.startThreads(threads)
 
@@ -75,23 +104,6 @@ class BlogCrawler:
 				partialList = postIdList[index * divListSize: (index + 1) * divListSize]
 			threads.append(NaverBlogPostCrawlThread(partialList))
 		return threads
-
-	def getEntirePostIdList(self, category=0):
-
-		while True:
-			try:
-				partialList = self.getPostIdListViaPage(page)
-				if page == 1 or page % 20 == 0:
-					print("Getting post number list in page {}...".format(page))
-				if partialList == [] or self.isDuplicateList(pastIdList, partialList):
-					return postIdList
-				postIdList.extend(partialList)
-				pastIdList = partialList
-				page += 1
-			except NonePostListException:
-				return postIdList
-
-
 
 # class BackerThread(Thread):
 # 	def __init__(self, postList, isDevMode=False):

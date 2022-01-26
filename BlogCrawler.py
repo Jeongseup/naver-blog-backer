@@ -83,6 +83,7 @@ class BlogCrawler:
 	# ============================================================================================
 
 	def run(self):
+
 		global targetId, myTotalCount, currentCount, crawlingProgressBar
 		initTime = time.time()
 
@@ -92,9 +93,9 @@ class BlogCrawler:
 		crawlingProgressBar = ProgressBar(max_value=myTotalCount, redirect_stdout=True)
 		crawlingProgressBar.update(currentCount)
 
-		# 이건 언제 쓰이는 거지?
-		divListSize = myTotalCount // self.threadNum
-		threads = self.makeCrawlingThreads()
+		# 쓰레드에 해야 할 일들 업로드
+		threads = self.setupThreads()
+		# 쓰레드 런닝
 		self.startThreads(threads)
 
 		print("[ {0} Posts backup complete in {1:0.2f}s ]".format(myTotalCount, time.time() - initTime))
@@ -107,7 +108,7 @@ class BlogCrawler:
 		for thread in threads:
 			thread.join()
 
-	def makeCrawlingThreads(self):
+	def setupThreads(self):
 		global myTotalCount
 
 		threads = list()
@@ -115,21 +116,23 @@ class BlogCrawler:
 		lastIndex = self.threadNum - 1
 
 		for index in range(self.threadNum):
+			# 마지막 쓰레드
 			if index == lastIndex:
 				partialList = self.postList[index * divListSize:]
 			else:
 				partialList = self.postList[index * divListSize: (index + 1) * divListSize]
-			threads.append(NaverBlogPostCrawlThread(partialList))
+			threads.append(BlogCrawlerThread(partialList))
 		return threads
 
 
 class BlogCrawlerThread(Thread):
-	def __init__(self, postList):
+	def __init__(self, postList, isDevMode = False):
 		Thread.__init__(self)
 		self.postList = postList
 		self.isDevMode = isDevMode
 
 	def run(self):
+		"""start()시 실제로 실행되는 부분이다"""
 		global curPost, postsNum, naverId, crawlingProgressBar
 		for postUrl in self.postList:
 			if self.isDevMode:

@@ -110,11 +110,10 @@ def getTotalCount(targetId):
 		# json parsing
 		jsonData = json.loads(unescape(res).replace('\\', ''))
 
-		return jsonData['totalCount']
+		return int(jsonData['totalCount'])
 
 	except Exception as e:
-		print(e)
-		return None
+		return str(e)
 
 
 # util for get post title list

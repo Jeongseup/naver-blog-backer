@@ -3,8 +3,8 @@ import time
 from naverblogbacker.utils import getPostTitleList, getTotalCount, parsingPostTitle, createNewDirectory
 from naverblogbacker.post import BlogPost
 
-class BlogCrawler:
-	def __init__(self, targetId, dirPath, isDevMode=False):
+class BlogCrawler(object):
+	def __init__(self, targetId, isDevMode=False):
 		# init check
 		if isinstance(getTotalCount(targetId), str):
 			print("[INIT ERROR] 입력하신 ID로 검색된 포스트가 없습니다. 프로그램을 종료합니다.")
@@ -15,14 +15,12 @@ class BlogCrawler:
 
 		# init variables
 		self.targetId = targetId
-		self.dirPath = dirPath
 		self.postList = []
 		self.totalCount = None
 		self.myTotalCount = None
 
 		# setup
 		self.getPostList()
-
 	# ============================================================================================
 
 	# 개발편의용 프린트 함수
@@ -43,7 +41,7 @@ class BlogCrawler:
 		try:
 			myPostList = list()
 
-			for i in tqdm(range(1, pages + 1)):
+			for i in tqdm(range(1, 2)):
 				# print(f'Getting post number list in page {i} in {pages}')
 				tempPostList = getPostTitleList(self.targetId, i)
 
@@ -59,15 +57,14 @@ class BlogCrawler:
 			self.myTotalCount = len(myPostList)
 			self.postList = myPostList
 
-			self.printDevMessage("clear")
+			self.printDevMessage(f'find out {len(myPostList)} posts!')
 
 		except Exception as e:
 			print(e)
 
 	# ============================================================================================
 
-	def run(self):
-		global myPath
+	def run(self, dirPath):
 		initTime = time.time()
 		print("[ Getting post address list in {0:0.2f}s ]".format((time.time() - initTime)))
 		print("[ Total posts : {}posts. Backup begins... ]".format(self.myTotalCount))
@@ -76,7 +73,7 @@ class BlogCrawler:
 		urlPrefix = f'https://blog.naver.com/{self.targetId}/'
 		for post in tqdm(self.postList):
 			# 먼저 빈 폴더에 현재 진행할 포스트 로그넘버로된 폴더생성
-			tempPostDir = myPath + "/" + post['logNo']
+			tempPostDir = dirPath + "/" + post['logNo']
 
 			if not createNewDirectory(tempPostDir):
 				print(f"[ERROR] : {post['logNo']}포스트 폴더가 정상적으로 생성되지 않았습니다.")
@@ -84,8 +81,8 @@ class BlogCrawler:
 
 			# 포스트 크롤링 시작
 			tempPostUrl = urlPrefix + post['logNo']
-			tempPost = BlogPost(tempPostUrl, isDevMode=False)
-			tempPost.run()
+			tempPost = BlogPost(tempPostUrl, isDevMode=True)
+			tempPost.crawling(dirPath=tempPostDir)
 			break
 
 		print("[ {0} Posts backup complete in {1:0.2f}s ]".format(self.myTotalCount, time.time() - initTime))

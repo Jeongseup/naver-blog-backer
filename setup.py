@@ -1,9 +1,9 @@
 import setuptools
 
-'''
+
 setuptools.setup(
-    name="패키지 이름",
-    version="버전",
+    name="naver 이름",
+    version="0.1",
     license='MIT',
     author="패키지 제작자 이름",
     author_email="패키지 제작자 이메일",
@@ -18,4 +18,3 @@ setuptools.setup(
         "Operating System :: OS Independent"
     ],
 )
-'''

@@ -7,6 +7,7 @@ class ComponentParser(object):
 	# parser progress counter
 	counter = 0
 	hashTagList = []
+	assetPath = ''
 
 	def __init__(self, component, titleType="##", subTitleType="###", skipSticker=True, isDevMode=True):
 		# user setting
@@ -36,7 +37,6 @@ class ComponentParser(object):
 	# ============================================================================================
 
 	# 파서 작동
-	@property
 	def parsing(self):
 		# self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
 		self.printDevMessage(f"== parsing execution ==")
@@ -97,8 +97,8 @@ class ComponentParser(object):
 
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
-			return ''
-		# return self.parsingVideo()
+			# return ''
+			return self.parsingVideo()
 
 		# 파일 컴포넌트 체크
 		elif "se-component se-file" in componentSting:
@@ -175,6 +175,7 @@ class ComponentParser(object):
 				txt += self.endLine
 
 		self.printDevMessage("clear")
+		print(txt)
 		return txt
 
 	# parsing function for text
@@ -267,12 +268,12 @@ class ComponentParser(object):
 			imageUrl = imageTag['data-lazy-src']
 
 			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
-			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			txt += f'![{ComponentParser.counter}](./asset/{ComponentParser.counter}.png)'
 			txt += self.endLine
 			txt += imageCaption
 
 			print('이미지 저장 위치 맞는 지 확인', os.getcwd())
-			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+			if saveImage(imageUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
 			else:
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
@@ -293,13 +294,13 @@ class ComponentParser(object):
 			imageUrl = imageTag['data-lazy-src']
 
 			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
-			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			txt += f'![{ComponentParser.counter}](./asset/{ComponentParser.counter}.png)'
 			txt += self.endLine
 
 			if len(imageCaptionTag) != 0:
 				txt += imageCaptionTag[i]
 
-			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+			if saveImage(imageUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
 			else:
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
@@ -317,10 +318,10 @@ class ComponentParser(object):
 			imageUrl = imageTag['src']
 
 			# 나중에 이미지 확장자 셀렉터하는 것 추가할 것
-			txt += f'![{ComponentParser.counter}](./sources/{ComponentParser.counter}.png)'
+			txt += f'![{ComponentParser.counter}](./asset/{ComponentParser.counter}.png)'
 			txt += self.endLine
 
-			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
+			if saveImage(imageUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
 			else:
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
@@ -381,7 +382,7 @@ class ComponentParser(object):
 			videoDescription = jsonData['mediaMeta']['description']
 
 			# 나중에 확장자 셀렉터하는 것 추가할 것
-			txt += f'[![{ComponentParser.counter}]({videoThumbnail})](./sources/{ComponentParser.counter}.mp4)'
+			txt += f'[![{ComponentParser.counter}]({videoThumbnail})](./asset/{ComponentParser.counter}.mp4)'
 			txt += self.endLine
 
 			txt += f'제목 : {videoTitle}, 설명 : {videoDescription}'
@@ -392,7 +393,7 @@ class ComponentParser(object):
 				txt += '#' + hashTag + ' '
 			txt += self.endLine
 
-			if saveVideo(videoUrl, f'sources/{ComponentParser.counter}.mp4'):
+			if saveVideo(videoUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.mp4'):
 				ComponentParser.counter += 1
 			else:
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
@@ -438,10 +439,10 @@ class ComponentParser(object):
 			fileUrl = jsonData["link"]
 			fileName = fileUrl.split('/')[-1]
 
-			txt += f'![{fileName}](./source/{fileUrl["link"]})'
+			txt += f'![{fileName}](./asset/{fileUrl["link"]})'
 			txt += self.endLine
 
-		if saveVideo(fileUrl, f'sources/{fileName}'):
+		if saveVideo(fileUrl, f'{ComponentParser.assetPath}/{fileName}'):
 			pass
 		else:
 			print(f'[ERROR] "{fileName}" 파일이 정상적으로 저장되지 않았습니다.')

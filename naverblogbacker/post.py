@@ -18,13 +18,10 @@ class BlogPost:
         self.postDate = None
         self.postInframeSoup = None
 
-        self.imageCount = 0
-        self.saveDir = ''
-        self.saveFile = None
-
         # init check
         if self.isForeignUrl():
             print("[INIT ERROR] URL이 잘못되었습니다. 프로그램을 종료합니다.")
+            exit(-1)
 
     # ============================================================================================
 
@@ -117,37 +114,41 @@ class BlogPost:
 
     # ============================================================================================
 
-    def run(self, dirPath):
+    def crawling(self, dirPath):
         self.printDevMessage("== run execution ==")
         self.postSetup()
 
-        try:
-            # "fp" stands for "file pointer"
-            # with open(dir + '/' + file_name, "w", encoding='utf-8') as fp:
-            filePath = dirPath + '/' + 'word.md'
-            with open(filePath, mode='w', encoding='utf-8') as fp:
-                data = ''
-                for i, component in enumerate(self.postInframeSoup):
+        filePath = dirPath + '/' + 'word.md'
+        ComponentParser.assetPath = dirPath + '/asset'
 
+        rawComponents = self.postInframeSoup.select('div.se-component')
+        try:
+            with open(filePath, mode='w', encoding='utf-8') as fp:
+                # 작성될 텍스트 데이터 초기화
+                data = ''
+                for i, component in enumerate(rawComponents):
                     if i == 0:
                         # 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
-                        data += ComponentParser(component, isDevMode=False).parsingTitle()
+                        data += ComponentParser(component, isDevMode=self.isDevMode).parsingTitle()
+                        print(data)
                         continue
 
-                    data += ComponentParser(component, skipSticker=False).parsing()
+                    data += ComponentParser(component, skipSticker=self.isDevMode).parsing()
+                    print(data)
 
                     # last loop에서는 해시태그까지 추가해준다.
-                    if i == len(component) - 1:
+                    if i == (len(rawComponents) - 1):
                         txt = '해시태그 : '
                         for hashTag in ComponentParser.hashTagList:
                             txt += hashTag
-                        data += ' ' + txt
 
+                        data += ' ' + txt
                 # 작성
                 fp.write(data)
-                # 포스트 백업 후 클래스 변수 초기화
-                ComponentParser.hashTagList = []
-                ComponentParser.counter = 0
+
+            # 포스트 백업 후 클래스 변수 초기화
+            ComponentParser.hashTagList = []
+            ComponentParser.counter = 0
         except Exception as e:
             print(e)
             return False

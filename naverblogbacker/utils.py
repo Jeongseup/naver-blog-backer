@@ -50,14 +50,16 @@ def isEmptyDirectory(dirPath):
 # utils for create post folder
 def createNewDirectory(dirPath):
 	try:
+		# 폴더가 존재하지 않으면
 		if not (os.path.isdir(dirPath)):
 			# 포스트 폴더
 			os.makedirs(os.path.join(dirPath))
 
 			# 포스트 소스 폴더
-			sourcePath = dirPath + "/" + "source"
-			os.makedirs(os.path.join(sourcePath))
-
+			assetPath = dirPath + "/" + "asset"
+			os.makedirs(os.path.join(assetPath))
+		else:
+			pass
 	except OSError as e:
 		if e.errno != errno.EEXIST:
 			print(dirPath + ' 폴더를 생성하지 못 했습니다.')

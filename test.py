@@ -1,7 +1,11 @@
-# pages = (int(totalCount) % 30) + 1
+from naverblogbacker.utils import isEmptyDirectory
 
-print(324 // 30 + 1)
+def main():
+    myPath = 'C:\Jeongseup\python_test'
 
+    # 빈 폴더 경로가 아니면 종료한다.
+    if not isEmptyDirectory(dirPath=myPath):
+        exit(-1)
 
-for i in range(1, 11):
-	print(30)
+if __name__ == '__main__':
+    main()

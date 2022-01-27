@@ -1,10 +1,10 @@
 from tqdm import tqdm
 import time
-from utils import getPostTitleList, getTotalCount, parsingPostTitle
-
+from naverblogbacker.utils import getPostTitleList, getTotalCount, parsingPostTitle, createNewDirectory
+from naverblogbacker.post import BlogPost
 
 class BlogCrawler:
-	def __init__(self, targetId, isDevMode=False):
+	def __init__(self, targetId, dirPath, isDevMode=False):
 		# init check
 		if isinstance(getTotalCount(targetId), str):
 			print("[INIT ERROR] 입력하신 ID로 검색된 포스트가 없습니다. 프로그램을 종료합니다.")
@@ -15,6 +15,7 @@ class BlogCrawler:
 
 		# init variables
 		self.targetId = targetId
+		self.dirPath = dirPath
 		self.postList = []
 		self.totalCount = None
 		self.myTotalCount = None
@@ -66,20 +67,22 @@ class BlogCrawler:
 	# ============================================================================================
 
 	def run(self):
-
+		global myPath
 		initTime = time.time()
-
 		print("[ Getting post address list in {0:0.2f}s ]".format((time.time() - initTime)))
 		print("[ Total posts : {}posts. Backup begins... ]".format(self.myTotalCount))
 
-		# crawlingProgressBar = ProgressBar(max_value=self.myTotalCount, redirect_stdout=True)
-		# crawlingProgressBar.update(currentCount)
+
+		urlPrefix = f'https://blog.naver.com/{self.targetId}/'
+		for post in tqdm(self.postList):
+			# 먼저 빈 폴더에 현재 진행할 포스트 로그넘버로된 폴더생성
+			tempPostDir = myPath + "/" + post['logNo']
+
+			if createNewDirectory(tempPostDir):
+
+			# 포스트 크롤링 시작
+			tempPostUrl = urlPrefix + post['logNo']
+			tempPost = BlogPost(tempPostUrl, isDevMode=False)
+			tempPost.run()
 
 		print("[ {0} Posts backup complete in {1:0.2f}s ]".format(self.myTotalCount, time.time() - initTime))
-
-
-if __name__ == '__main__':
-	myBlog = BlogCrawler("thswjdtmq4")
-	# print(myBlog.myTotalCount)
-	# print(myBlog.totalCount)
-	print(myBlog.postList)

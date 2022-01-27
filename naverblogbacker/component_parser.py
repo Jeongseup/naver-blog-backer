@@ -1,6 +1,4 @@
-from BlogPost import BlogPost
-from utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
-
+from naverblogbacker.utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
 
 class ComponentParser(object):
 	# SE3Component is class that based on str, found on soup(= HTML TAG)
@@ -98,7 +96,7 @@ class ComponentParser(object):
 		# 비디오 컴포넌트 체크
 		elif "se-component se-video" in componentSting:
 			return ''
-			# return self.parsingVideo()
+		# return self.parsingVideo()
 
 		# 파일 컴포넌트 체크
 		elif "se-component se-file" in componentSting:
@@ -427,7 +425,6 @@ class ComponentParser(object):
 		self.printDevMessage("clear")
 		return txt
 
-
 	def parsingFile(self):
 		self.printDevMessage("== parsingFile execution ==")
 
@@ -448,10 +445,3 @@ class ComponentParser(object):
 
 		self.printDevMessage("clear")
 		return txt
-
-
-
-# ============================================================================================
-
-def __str__(self):
-	return self.component

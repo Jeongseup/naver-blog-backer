@@ -33,26 +33,35 @@ def getRelativePostDate(relativeDate):
 	return curTime
 
 
-# util for folder check
-def checkBackupDir(dirName):
-	try:
-		# 정해진 위치에 폴더가 존재하지 않은 경우
-		if not (os.path.isdir(dirName)):
-			os.makedirs(os.path.join(dirName))
-
-	# 폴더 생성 실패
-	except OSError as e:
-		if e.errno != errno.EEXIST:
-			print(dirName + '폴더를 생성하지 못하였습니다.')
-			raise
+# util for folder empty check
+def isEmptyDirectory(dirPath):
+	if os.path.exists(dirPath) and os.path.isdir(dirPath):
+		if not os.listdir(dirPath):
+			print("Directory is empty")
+			return True
+		else:
+			print("Directory is not empty")
+			return False
+	else:
+		print("Given Directory don't exists")
 		return False
-	return True
 
+# utils for create post folder
+def createNewDirectory(dirPath):
+    try:
+        if not(os.path.isdir(dirPath)):
+            # 포스트 폴더
+            os.makedirs(os.path.join(dirPath))
+			# 포스트 소스 폴더
+			sourePath = dirPath + "/" + "source"
+            os.makedirs(os.path.join(sourePath))
 
-def removeSpecialChar(dirName):
-	windowsDir = re.compile('[\?:|<|>|\||\*|\"\/]')  # Special Chars that cannot use in Windows' Directory Name
-	fixedDirName = windowsDir.sub('', dirName)
-	return fixedDirName
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            print(dirPath + ' 폴더를 생성하지 못 했습니다.')
+            raise
+        return False
+    return True
 
 
 # util for saving images

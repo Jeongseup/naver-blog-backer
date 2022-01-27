@@ -1,7 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import sys
-import utils
+
+from naverblogbacker.component_parser import ComponentParser
+from naverblogbacker.utils import isRelativePostDate, getRelativePostDate
 
 
 class BlogPost:
@@ -106,11 +108,9 @@ class BlogPost:
             for link in links:
                 publishDate = link.get_text()
 
-            if utils.isRelativePostDate(publishDate):
-                publishDate = utils.getRelativePostDate(publishDate)
+            if isRelativePostDate(publishDate):
+                publishDate = getRelativePostDate(publishDate)
 
-            # publishDateRegExpr = "20[0-9][0-9]\. [0-9]+\. [0-9]+\. [0-9]+:[0-9]+"
-            # publishDate = re.search(publishDateRegExpr, publishDate).group()
 
             self.printDevMessage(f'return is : {publishDate}')
             return publishDate
@@ -119,45 +119,34 @@ class BlogPost:
 
     def run(self):
         self.printDevMessage("== run execution ==")
-
         self.postSetup()
 
         try:
             # "fp" stands for "file pointer"
             # with open(dir + '/' + file_name, "w", encoding='utf-8') as fp:
-            with open('./post/test.txt', mode='w', encoding='utf-8') as fp:
-                txt = 'write test'
+            with open('test.md', mode='w', encoding='utf-8') as fp:
+                data = ''
+                for i, component in enumerate(self.postInframeSoup):
 
-                # if 'se_component' in str(self.postInframeSoup):
-                #     for sub_content in soup.select('div.se_component'):
-                #         txt += parser.parsing(sub_content)
-                # else:
-                #     for sub_content in soup.select('div.se-component'):
-                #         txt += parser.parsing(sub_content)
+                    if i == 0:
+                        # 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
+                        data += ComponentParser(component, isDevMode=False).parsingTitle()
+                        continue
 
-                fp.write(txt)
-            return
+                    data += ComponentParser(component, skipSticker=False).parsing()
+
+                    # last loop에서는 해시태그까지 추가해준다.
+                    if i == len(component) - 1:
+                        txt = '해시태그 : '
+                        for hashTag in ComponentParser.hashTagList:
+                            txt += hashTag
+                        data += ' ' + txt
+
+                # 작성
+                fp.write(data)
+                # 포스트 백업 후 클래스 변수 초기화
+                ComponentParser.hashTagList = []
+                ComponentParser.counter = 0
         except Exception as e:
             print(e)
             return False
-
-
-if __name__ == '__main__':
-    testPostUrl1 = "https://blog.naver.com/thswjdtmq4/222619927525"
-    testPostUrl2 = "https://blog.naver.com/thswjdtmq4/222625521000"
-    c1 = BlogPost(testPostUrl2, False)
-    c1.postSetup()
-
-    components = c1.postInframeSoup.select('div.se-component')
-    print(components[0])
-    # for component in c1.postInframeSoup.select('div.se-component'):
-    #     # 컨텐츠 하나 가져오고
-    #  컨텐츠 가져올 때 어차피 첫 컨텐츠는 무조건 title이니까 바로 title로 처리 se-title-text로 접근
-
-    #     print("===================")
-    #     print(component)
-    #     print("===================")
-    # #
-    #     break
-    # 파싱하고
-    # 파일에 쓰고

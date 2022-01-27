@@ -78,11 +78,14 @@ class BlogCrawler:
 			# 먼저 빈 폴더에 현재 진행할 포스트 로그넘버로된 폴더생성
 			tempPostDir = myPath + "/" + post['logNo']
 
-			if createNewDirectory(tempPostDir):
+			if not createNewDirectory(tempPostDir):
+				print(f"[ERROR] : {post['logNo']}포스트 폴더가 정상적으로 생성되지 않았습니다.")
+				exit(-1)
 
 			# 포스트 크롤링 시작
 			tempPostUrl = urlPrefix + post['logNo']
 			tempPost = BlogPost(tempPostUrl, isDevMode=False)
 			tempPost.run()
+			break
 
 		print("[ {0} Posts backup complete in {1:0.2f}s ]".format(self.myTotalCount, time.time() - initTime))

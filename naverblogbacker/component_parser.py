@@ -1,3 +1,5 @@
+import os
+
 from naverblogbacker.utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
 
 class ComponentParser(object):
@@ -269,6 +271,7 @@ class ComponentParser(object):
 			txt += self.endLine
 			txt += imageCaption
 
+			print('이미지 저장 위치 맞는 지 확인', os.getcwd())
 			if saveImage(imageUrl, f'sources/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
 			else:

@@ -117,14 +117,15 @@ class BlogPost:
 
     # ============================================================================================
 
-    def run(self):
+    def run(self, dirPath):
         self.printDevMessage("== run execution ==")
         self.postSetup()
 
         try:
             # "fp" stands for "file pointer"
             # with open(dir + '/' + file_name, "w", encoding='utf-8') as fp:
-            with open('test.md', mode='w', encoding='utf-8') as fp:
+            filePath = dirPath + '/' + 'word.md'
+            with open(filePath, mode='w', encoding='utf-8') as fp:
                 data = ''
                 for i, component in enumerate(self.postInframeSoup):
 

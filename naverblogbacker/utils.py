@@ -46,22 +46,24 @@ def isEmptyDirectory(dirPath):
 		print("Given Directory don't exists")
 		return False
 
+
 # utils for create post folder
 def createNewDirectory(dirPath):
-    try:
-        if not(os.path.isdir(dirPath)):
-            # 포스트 폴더
-            os.makedirs(os.path.join(dirPath))
-			# 포스트 소스 폴더
-			sourePath = dirPath + "/" + "source"
-            os.makedirs(os.path.join(sourePath))
+	try:
+		if not (os.path.isdir(dirPath)):
+			# 포스트 폴더
+			os.makedirs(os.path.join(dirPath))
 
-    except OSError as e:
-        if e.errno != errno.EEXIST:
-            print(dirPath + ' 폴더를 생성하지 못 했습니다.')
-            raise
-        return False
-    return True
+			# 포스트 소스 폴더
+			sourcePath = dirPath + "/" + "source"
+			os.makedirs(os.path.join(sourcePath))
+
+	except OSError as e:
+		if e.errno != errno.EEXIST:
+			print(dirPath + ' 폴더를 생성하지 못 했습니다.')
+			raise
+		return False
+	return True
 
 
 # util for saving images

@@ -4,7 +4,6 @@ from html import unescape
 from requests.utils import unquote
 import re, os, errno, json
 
-
 # util for getPostDate
 def isRelativePostDate(postDate):
 	if "전" in postDate:
@@ -37,13 +36,13 @@ def getRelativePostDate(relativeDate):
 def isEmptyDirectory(dirPath):
 	if os.path.exists(dirPath) and os.path.isdir(dirPath):
 		if not os.listdir(dirPath):
-			print("Directory is empty")
+			print("[MESSAGE] Directory is empty, Start backup your blog :)")
 			return True
 		else:
-			print("Directory is not empty")
+			raise Exception("[ERROR] Given Directory don't exists")
 			return False
 	else:
-		print("Given Directory don't exists")
+		raise Exception("[ERROR] Given Directory don't exists")
 		return False
 
 
@@ -62,8 +61,7 @@ def createNewDirectory(dirPath):
 			pass
 	except OSError as e:
 		if e.errno != errno.EEXIST:
-			print(dirPath + ' 폴더를 생성하지 못 했습니다.')
-			raise
+			raise Exception(f'[ERROR] {dirPath} 폴더를 생성하지 못 했습니다.')
 		return False
 	return True
 
@@ -74,7 +72,6 @@ def saveImage(url, path):
 		link = parse.quote(url, safe=':/?-=')
 		request.urlretrieve(link, path)
 	except Exception as e:
-		print(e)
 		return False
 	return True
 
@@ -100,8 +97,10 @@ def getVideoSource(jsonData):
 			for video in videoList:
 				if str(video['encodingOption']['width']) == str(videoOriginalWidth):
 					return video['source']
+
+			return videoList[2]['source']
 	except Exception as e:
-		print(e)
+		print(f'[ERROR] {videoId}의 미디어 소스를 찾지 못하였습니다.')
 		return ''
 
 
@@ -110,7 +109,7 @@ def saveVideo(url, path):
 	try:
 		request.urlretrieve(url, path)
 	except Exception as e:
-		print(e)
+		# print(e)
 		return False
 	return True
 
@@ -149,7 +148,11 @@ def getPostTitleList(targetId, currentPage, categoryNo=0):
 def parsingPostTitle(post):
 	tempObj = dict()
 
-	tempObj['date'] = post['addDate']
+	if isRelativePostDate(post['addDate']):
+		tempObj['date'] = getRelativePostDate(post['addDate'])
+	else:
+		tempObj['date'] = post['addDate']
+
 	tempObj['title'] = unquote(post['title'], encoding='utf-8').replace('+', ' ')
 	tempObj['logNo'] = post['logNo']
 

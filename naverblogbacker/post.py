@@ -2,11 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 import sys
 
-from naverblogbacker.component_parser import ComponentParser
+from naverblogbacker.parser import ComponentParser
 from naverblogbacker.utils import isRelativePostDate, getRelativePostDate
 
 
 class BlogPost:
+    errorCount = 0
+
     def __init__(self, url, isDevMode=False):
         # 개발 편의
         self.isDevMode = isDevMode
@@ -114,14 +116,14 @@ class BlogPost:
 
     # ============================================================================================
 
-    def crawling(self, dirPath):
+    def run(self, dirPath):
         self.printDevMessage("== run execution ==")
         self.postSetup()
 
         filePath = dirPath + '/' + 'word.md'
         ComponentParser.assetPath = dirPath + '/asset'
-
         rawComponents = self.postInframeSoup.select('div.se-component')
+
         try:
             with open(filePath, mode='w', encoding='utf-8') as fp:
                 # 작성될 텍스트 데이터 초기화
@@ -130,11 +132,9 @@ class BlogPost:
                     if i == 0:
                         # 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
                         data += ComponentParser(component, isDevMode=self.isDevMode).parsingTitle()
-                        print(data)
                         continue
 
                     data += ComponentParser(component, skipSticker=self.isDevMode).parsing()
-                    print(data)
 
                     # last loop에서는 해시태그까지 추가해준다.
                     if i == (len(rawComponents) - 1):
@@ -146,9 +146,16 @@ class BlogPost:
                 # 작성
                 fp.write(data)
 
+            if ComponentParser.errorCounter != 0:
+                BlogPost.errorCount += 1
+
             # 포스트 백업 후 클래스 변수 초기화
             ComponentParser.hashTagList = []
             ComponentParser.counter = 0
+            ComponentParser.errorCount = 0
+
+            return True
+
         except Exception as e:
             print(e)
             return False

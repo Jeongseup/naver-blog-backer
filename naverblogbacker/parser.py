@@ -1,11 +1,12 @@
 import os
-
 from naverblogbacker.utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
+
 
 class ComponentParser(object):
 	# SE3Component is class that based on str, found on soup(= HTML TAG)
 	# parser progress counter
 	counter = 0
+	errorCounter = 0
 	hashTagList = []
 	assetPath = ''
 
@@ -132,6 +133,7 @@ class ComponentParser(object):
 
 		else:
 			print('find unknown tag\n' + str(self.component))
+			return ''
 
 	# ============================================================================================
 
@@ -175,7 +177,6 @@ class ComponentParser(object):
 				txt += self.endLine
 
 		self.printDevMessage("clear")
-		print(txt)
 		return txt
 
 	# parsing function for text
@@ -272,10 +273,10 @@ class ComponentParser(object):
 			txt += self.endLine
 			txt += imageCaption
 
-			print('이미지 저장 위치 맞는 지 확인', os.getcwd())
 			if saveImage(imageUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
 			else:
+				ComponentParser.errorCounter += 1
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
 
 		self.printDevMessage('clear')
@@ -303,6 +304,7 @@ class ComponentParser(object):
 			if saveImage(imageUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
 			else:
+				ComponentParser.errorCounter += 1
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
 
 		self.printDevMessage('clear')
@@ -324,6 +326,7 @@ class ComponentParser(object):
 			if saveImage(imageUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.png'):
 				ComponentParser.counter += 1
 			else:
+				ComponentParser.errorCounter += 1
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
 
 		self.printDevMessage('clear')
@@ -362,7 +365,7 @@ class ComponentParser(object):
 			txt += f'[![{videoTitle}]({videoThumbnail})]({videoUrl})'
 			txt += self.endLine
 
-			txt += '설명' + videoDescripton
+			txt += '설명 : ' + videoDescripton
 			txt += self.endLine
 
 			self.printDevMessage("clear")
@@ -396,6 +399,7 @@ class ComponentParser(object):
 			if saveVideo(videoUrl, f'{ComponentParser.assetPath}/{ComponentParser.counter}.mp4'):
 				ComponentParser.counter += 1
 			else:
+				ComponentParser.errorCounter += 1
 				print(f'[ERROR] {ComponentParser.counter}번째 이미지가 정상적으로 저장되지 않았습니다.')
 
 		self.printDevMessage('clear')
@@ -445,6 +449,7 @@ class ComponentParser(object):
 		if saveVideo(fileUrl, f'{ComponentParser.assetPath}/{fileName}'):
 			pass
 		else:
+			ComponentParser.errorCounter += 1
 			print(f'[ERROR] "{fileName}" 파일이 정상적으로 저장되지 않았습니다.')
 
 		self.printDevMessage("clear")

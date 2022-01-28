@@ -1,20 +1,26 @@
 from naverblogbacker.utils import isEmptyDirectory
-from naverblogbacker.crawler import BlogCrawler
+from naverblogbacker.blog import BlogCrawler
 
-myPath = 'C:\Jeongseup\python_test'
-myId = 'thswjdtmq4'
+def main(myId, myPath):
+    try:
+        # 저장 경로가 빈 폴더가 아닌 경우 에러 발생
+        if not isEmptyDirectory(dirPath=myPath):
+            pass
 
-def main():
-    global myPath, myId
+        myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
+        myBlog.crawling(dirPath=myPath)
 
-    # 빈 폴더 경로가 아니면 종료한다.
-    # if not isEmptyDirectory(dirPath=myPath):
-    #     exit(-1)
+        print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
 
-    myBlog = BlogCrawler(targetId=myId, isDevMode=True)
-    # BlogCrawler page2까지만 해둠
-    myBlog.run(dirPath=myPath)
+    except Exception as e:
+        print(e)
+        exit(-1)
 
 if __name__ == '__main__':
-    main()
+    myId = input("Please, Enter your naver id : ")
+    print(f'[MESSAGE] YOUR ID IS {myId}')
 
+    myPath = input("Please, Enter empty folder path for saving yours : ")
+    print(f'[MESSAGE] SAVE PATH IS {myPath}')
+
+    main(myId, myPath)

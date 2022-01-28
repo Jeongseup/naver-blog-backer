@@ -1,14 +1,16 @@
 from tqdm import tqdm
-import time
-from naverblogbacker.utils import getPostTitleList, getTotalCount, parsingPostTitle, createNewDirectory
 from naverblogbacker.post import BlogPost
+from naverblogbacker.utils import getPostTitleList, getTotalCount, parsingPostTitle, createNewDirectory
+
 
 class BlogCrawler(object):
-	def __init__(self, targetId, isDevMode=False):
+	errorPost = 0
+
+	def __init__(self, targetId, skipSticker=True, isDevMode=False):
 		# init check
 		if isinstance(getTotalCount(targetId), str):
 			print("[INIT ERROR] 입력하신 ID로 검색된 포스트가 없습니다. 프로그램을 종료합니다.")
-			return -1
+			exit(-1)
 
 		# 개발 편의
 		self.isDevMode = isDevMode
@@ -18,9 +20,11 @@ class BlogCrawler(object):
 		self.postList = []
 		self.totalCount = None
 		self.myTotalCount = None
+		self.skipSticker = skipSticker
 
 		# setup
 		self.getPostList()
+
 	# ============================================================================================
 
 	# 개발편의용 프린트 함수
@@ -41,13 +45,14 @@ class BlogCrawler(object):
 		try:
 			myPostList = list()
 
-			for i in tqdm(range(1, 2)):
-				# print(f'Getting post number list in page {i} in {pages}')
+			for i in tqdm(range(1, pages + 1)):
+				self.printDevMessage(f'Getting post number list in page {i} in {pages}')
 				tempPostList = getPostTitleList(self.targetId, i)
 
 				# 내가 쓴 글이 아닌 공유 글 제외
 				tempPostList = list(filter(lambda p: p['searchYn'] == 'true', tempPostList))
-				# print(f'{len(tempPostList)}개의 포스트 리스트를 준비하였습니다.')
+				print(f'공유한 글을 제외한 {len(tempPostList)}개의 포스트가 준비되었습니다.')
+
 				for post in tempPostList:
 					# 필요한 데이터만을 추출하고 appending
 					myPostList.append(parsingPostTitle(post))
@@ -57,32 +62,33 @@ class BlogCrawler(object):
 			self.myTotalCount = len(myPostList)
 			self.postList = myPostList
 
-			self.printDevMessage(f'find out {len(myPostList)} posts!')
+			self.printDevMessage(f'[MESSAGE] Find out your {len(myPostList)} posts!')
 
 		except Exception as e:
 			print(e)
 
 	# ============================================================================================
 
-	def run(self, dirPath):
-		initTime = time.time()
-		print("[ Getting post address list in {0:0.2f}s ]".format((time.time() - initTime)))
-		print("[ Total posts : {}posts. Backup begins... ]".format(self.myTotalCount))
-
-
+	def crawling(self, dirPath):
 		urlPrefix = f'https://blog.naver.com/{self.targetId}/'
+
+		if len(self.postList) == 0:
+			raise(Exception(f'[ERROR] postList 함수가 정상적으로 실행되지 않았습니다.'))
+
 		for post in tqdm(self.postList):
 			# 먼저 빈 폴더에 현재 진행할 포스트 로그넘버로된 폴더생성
 			tempPostDir = dirPath + "/" + post['logNo']
 
 			if not createNewDirectory(tempPostDir):
-				print(f"[ERROR] : {post['logNo']}포스트 폴더가 정상적으로 생성되지 않았습니다.")
-				exit(-1)
+				raise Exception(f"[ERROR] : {post['logNo']}포스트 폴더가 정상적으로 생성되지 않았습니다.")
 
 			# 포스트 크롤링 시작
 			tempPostUrl = urlPrefix + post['logNo']
-			tempPost = BlogPost(tempPostUrl, isDevMode=True)
-			tempPost.crawling(dirPath=tempPostDir)
-			break
+			tempPost = BlogPost(tempPostUrl, isDevMode=self.isDevMode)
+			tempPost.run(dirPath=tempPostDir)
 
-		print("[ {0} Posts backup complete in {1:0.2f}s ]".format(self.myTotalCount, time.time() - initTime))
+			if BlogPost.errorCount != 0:
+				BlogCrawler.errorPost += 1
+
+			# 포스트 백업 후 클래스 변수 초기화
+			BlogPost.errorCount = 0

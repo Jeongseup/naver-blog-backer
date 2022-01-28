@@ -98,7 +98,9 @@ def getVideoSource(jsonData):
 				if str(video['encodingOption']['width']) == str(videoOriginalWidth):
 					return video['source']
 
+			# 만약 videoOriginalWidth가 존재하지 않는다면?
 			return videoList[2]['source']
+
 	except Exception as e:
 		print(f'[ERROR] {videoId}의 미디어 소스를 찾지 못하였습니다.')
 		return ''

@@ -7,7 +7,7 @@ def main(myId, myPath):
         if not isEmptyDirectory(dirPath=myPath):
             pass
 
-        myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
+        myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=False)
         myBlog.crawling(dirPath=myPath)
 
         print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')

@@ -4,6 +4,7 @@ from html import unescape
 from requests.utils import unquote
 import re, os, errno, json
 
+
 # util for getPostDate
 def isRelativePostDate(postDate):
 	if "전" in postDate:
@@ -98,7 +99,7 @@ def getVideoSource(jsonData):
 				if str(video['encodingOption']['width']) == str(videoOriginalWidth):
 					return video['source']
 
-			# 만약 videoOriginalWidth가 존재하지 않는다면?
+			# 만약 videoOriginalWidth가 존재하지 않는다면 1080P로 처리한다.
 			return videoList[2]['source']
 
 	except Exception as e:

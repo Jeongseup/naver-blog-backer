@@ -1,10 +1,7 @@
-import os
 from naverblogbacker.utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
 
 
 class ComponentParser(object):
-	# SE3Component is class that based on str, found on soup(= HTML TAG)
-	# parser progress counter
 	counter = 0
 	errorCounter = 0
 	hashTagList = []
@@ -39,9 +36,7 @@ class ComponentParser(object):
 
 	# 파서 작동
 	def parsing(self):
-		# self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
-		self.printDevMessage(f"== parsing execution ==")
-
+		self.printDevMessage(f"== parsing execution, current order is {ComponentParser.counter} ==")
 		componentSting = str(self.component)
 
 		# 텍스트 컴포넌트 체크

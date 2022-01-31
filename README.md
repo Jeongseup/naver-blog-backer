@@ -83,3 +83,6 @@ CONTENT  (div.se-main-container)
 
 > https://wikidocs.net/21952
 > https://hongku.tistory.com/338
+
+
+<video id="dmp_Video" class="dmp_Video " playsinline="" webkit-playsinline="" x-webkit-airplay="allow" controlslist="nodownload" style="display: block; width: 100%; height: 100%; top: 0px; left: 0px;" src="blob:https://www.dailymotion.com/b38a4473-0553-46aa-ba9c-a7b6b6e3a190"></video>

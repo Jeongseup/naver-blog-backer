@@ -1,4 +1,4 @@
-from src.naverblogbacker import saveImage, parsingScriptTag, saveVideo, getVideoSource
+from naverblogbacker.utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
 
 
 class ComponentParser(object):

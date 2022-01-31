@@ -1,6 +1,6 @@
 from tqdm import tqdm
-from src.naverblogbacker.post import BlogPost
-from src.naverblogbacker import getPostTitleList, getTotalCount, parsingPostTitle, createNewDirectory
+from naverblogbacker.post import BlogPost
+from naverblogbacker.utils import getPostTitleList, getTotalCount, parsingPostTitle, createNewDirectory
 
 
 class BlogCrawler(object):

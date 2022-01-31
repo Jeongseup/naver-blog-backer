@@ -2,9 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import sys
 
-from src.naverblogbacker.parser import ComponentParser
-from src.naverblogbacker import isRelativePostDate, getRelativePostDate
-
+from naverblogbacker.parser import ComponentParser
+from naverblogbacker.utils import isRelativePostDate, getRelativePostDate
 
 class BlogPost:
     errorCount = 0

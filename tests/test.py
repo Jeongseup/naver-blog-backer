@@ -1,5 +1,5 @@
-from naverblogbacker.utils import isEmptyDirectory
-from naverblogbacker.blog import BlogCrawler
+from src.naverblogbacker import isEmptyDirectory
+from src.naverblogbacker.blog import BlogCrawler
 
 def main(myId, myPath):
     try:

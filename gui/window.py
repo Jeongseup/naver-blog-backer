@@ -22,16 +22,21 @@ class MyApp(QWidget):
 		savePathBtn.pressed.connect(self.showDialog)
 
 		# third widget
-		self.settingLable1 = QLabel('현재 입력된 아이디는 ...asddadsad ')
+		self.settingLable1 = QLabel('하단에서 당신의 아이디를 입력해주세요 :)')
+
+		# ========================================================================
 
 		grid = QGridLayout()
-		grid.addWidget(QLabel('Enter your naver ID : '), 0, 0)
-		grid.addWidget(QLabel('Choose save directory :'), 1, 0)
-		grid.addWidget(QLabel('Current Status:'), 2, 0)
+		grid.addWidget(QLabel('Current Status:'), 0, 0)
+		grid.addWidget(self.settingLable1, 0, 1)
 
-		grid.addWidget(self.idLine, 0, 1)
-		grid.addWidget(savePathBtn, 1, 1)
-		grid.addWidget(self.settingLable1, 2, 1)
+		grid.addWidget(QLabel('Enter your naver ID : '), 1, 0)
+		grid.addWidget(self.idLine, 1, 1)
+
+		grid.addWidget(QLabel('Choose save directory :'), 2, 0)
+		grid.addWidget(savePathBtn, 2, 1)
+
+		# ========================================================================
 
 		self.setLayout(grid)
 		self.setWindowIcon(QIcon('./src/icon.png'))
@@ -50,7 +55,7 @@ class MyApp(QWidget):
 
 		print('현재 입력된 텍스트 :', text)
 
-		self.settingLable1.setText(f'현재 입력된 아이디는 {text}')
+		self.settingLable1.setText(f'현재 입력된 아이디는 "{text}" 입니다.')
 		self.settingLable1.adjustSize()
 
 	def center(self):

@@ -18,6 +18,8 @@ def main(myId, myPath):
 
 
 if __name__ == '__main__':
+    print("test exe")
+
     myId = input("Please, Enter your naver id : ")
     print(f'[MESSAGE] YOUR ID IS {myId}')
 

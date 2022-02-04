@@ -2,7 +2,10 @@ from datetime import datetime, timedelta
 from urllib import request, parse
 from html import unescape
 from requests.utils import unquote
-import re, os, errno, json
+import re
+import os
+import errno
+import json
 
 
 # util for getPostDate

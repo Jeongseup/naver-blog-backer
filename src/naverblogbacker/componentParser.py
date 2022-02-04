@@ -1,5 +1,4 @@
-from naverblogbacker.utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
-
+from .utils import saveImage, parsingScriptTag, saveVideo, getVideoSource
 
 class ComponentParser(object):
 	counter = 0

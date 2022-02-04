@@ -6,6 +6,8 @@ from PyQt5.QtWidgets import QApplication, QFileDialog, QDesktopWidget, QGridLayo
 from PyQt5.QtGui import QIcon, QFont
 
 
+# from naverblogbacker.blog import BlogPost
+
 class MyApp(QWidget):
 
 	def __init__(self):

@@ -111,7 +111,7 @@ class BlogCrawler(object):
 					txt += post['title']
 					txt += '\n'
 
-					txt += urlPrefix + "/" + post['logNo']
+					txt += urlPrefix + post['logNo']
 					txt += '\n\n'
 
 					data += txt

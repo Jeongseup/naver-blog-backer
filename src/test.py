@@ -1,6 +1,7 @@
 from naverblogbacker.utils import isEmptyDirectory
 from naverblogbacker.blog import BlogCrawler
 from pick import pick
+import sys
 
 
 serviceTitle = ' Please choose an option: '
@@ -16,7 +17,7 @@ def main(myId, myPath, myOption):
 
         except Exception as e:
             print(e)
-            exit(-1)
+            sys.exit(1)
 
     elif myOption is 'backup':
         try:
@@ -24,26 +25,16 @@ def main(myId, myPath, myOption):
                 pass
 
             myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
-            # myBlog.crawling(dirPath=myPath)
+            myBlog.crawling(dirPath=myPath)
             print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
 
         except Exception as e:
             print(e)
-            exit(-1)
+            sys.exit(1)
 
     else:
-        try:
-            if not isEmptyDirectory(dirPath=myPath):
-                pass
-
-            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
-            # myBlog.crawling(dirPath=myPath)
-            print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
-
-        except Exception as e:
-            print(e)
-            exit(-1)
-
+        print(f' [MESSAGE] Sorry, It`s currently not supported')
+        sys.exit(0)
 
 if __name__ == '__main__':
     myOption, _ = pick(serviceOptions, serviceTitle, indicator='>')

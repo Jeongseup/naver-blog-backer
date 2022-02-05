@@ -1,29 +1,71 @@
 from naverblogbacker.utils import isEmptyDirectory
 from naverblogbacker.blog import BlogCrawler
+from pick import pick
 
-def main(myId, myPath):
-    try:
-        # 저장 경로가 빈 폴더가 아닌 경우 에러 발생
-        if not isEmptyDirectory(dirPath=myPath):
-            pass
 
-        myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=False)
-        myBlog.crawling(dirPath=myPath)
+serviceTitle = ' Please choose an option: '
+serviceOptions = ['backlink', 'backup', 'both']
 
-        print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
+def main(myId, myPath, myOption):
 
-    except Exception as e:
-        print(e)
-        exit(-1)
+    if myOption is 'backlink':
+        try:
+            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
+            myBlog.backlinking(dirPath=myPath)
+            print(f' [MESSAGE] Complete! created your backlinks')
+
+        except Exception as e:
+            print(e)
+            exit(-1)
+
+    elif myOption is 'backup':
+        try:
+            if not isEmptyDirectory(dirPath=myPath):
+                pass
+
+            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
+            # myBlog.crawling(dirPath=myPath)
+            print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
+
+        except Exception as e:
+            print(e)
+            exit(-1)
+
+    else:
+        try:
+            if not isEmptyDirectory(dirPath=myPath):
+                pass
+
+            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
+            # myBlog.crawling(dirPath=myPath)
+            print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
+
+        except Exception as e:
+            print(e)
+            exit(-1)
 
 
 if __name__ == '__main__':
-    print("test exe")
+    myOption, _ = pick(serviceOptions, serviceTitle, indicator='>')
 
-    myId = input("Please, Enter your naver id : ")
-    print(f'[MESSAGE] YOUR ID IS {myId}')
+    print(f'\n [MESSAGE] You selected this {myOption} service! \n''')
 
-    myPath = input("Please, Enter empty folder path for saving yours : ")
-    print(f'[MESSAGE] SAVE PATH IS {myPath}')
+    myId = input(" Please, Enter your naver id : ")
+    print(f'\n [MESSAGE] Your naver ID is {myId} \n')
 
-    main(myId, myPath)
+    myPath = input(" Please, Enter empty folder path for saving yours : ")
+    print(f'\n [MESSAGE] Your computer save path is {myPath} \n')
+
+    checkTitle = f''' 
+    ==== Check your options ====
+
+    Current selected service is "{myOption}",
+    Current entered id is "{myId}",
+    Current computer save path is "{myPath}" '''
+
+    checkOptions = ['go', 'stop']
+
+    check, _ = pick(checkOptions, checkTitle, indicator='>')
+
+    if check is 'go':
+        main(myId, myPath, myOption)

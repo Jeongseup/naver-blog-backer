@@ -1,963 +1,963 @@
 리눅스를 만든 리누스가 얘기한 그냥 재미로(Just for fun)란 말의 의미에 대해서(1) - 모든 것은 엔트로피 법칙을 따른다!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222637312674
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222637312674
 
 [Today I Learned] 파이썬으로 설정가능한 폰트 패밀리 리스트 출력하기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222636022791
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222636022791
 
 파이썬을 이용한 네이버 블로그 백커(백링크 & 백업) 프로젝트(4) : 블로그 데이터 크롤링 모듈 PyPI에 패키지 등록과 GUI 제작 시작
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222636017377
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222636017377
 
 [Today I Learned] 인터넷상에서 URL을 인코딩하는 이유(블로그에 첨부한 링크가 이상한 문자로 바뀌는 이유)와 python URL decoding 방법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222632080564
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222632080564
 
 [Today I Learned] sh 파일 확장자, bat 파일 확장자, exe 파일 확장자들의 차이점
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222631054794
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222631054794
 
 중국 최고의 부자들 중 새기고 싶은 말들 필사하기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222630538392
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222630538392
 
 파이썬을 이용한 네이버 블로그 백커(백링크 & 백업) 프로젝트(3) : 네이버 블로그 컴포넌트 파싱(parsing)과 HTML escape 문자열을 JSON decode하는 방법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222629510277
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222629510277
 
 [블로그 스킨 무료 공유]2022년 신년맞이 제작한 seupkin(제 블로그 스킨)을 커스텀하는 방법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222629387759
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222629387759
 
 [Today I Leared] 파이썬 BeautifulSoup 사용 팁 (컴포넌트 탐색 시 select와 find_all 속도 차이 비교)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222627277942
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222627277942
 
 파이썬을 이용한 네이버 블로그 백커(백링크 & 백업) 프로젝트(2) : 네이버 블로그 컴포넌트 및  API 톺아보기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222627181966
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222627181966
 
 test post
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222626338613
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222626338613
 
 파이썬을 이용한 네이버 블로그 백커(백링크 & 백업) 프로젝트(1) : 프로젝트 계획 및 목표 설정
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222626266161
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222626266161
 
 [Today I Leared] 백엔드 개발자 로드맵 따라가기 - 운영체제( a) - 프로세스 CPU 스케쥴링의 종류와 프로세스 로딩 과정
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222625521000
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222625521000
 
 [코인데스크 영어기사 읽기]카르다노(ADA) 가격은 최근 왜 급등했을까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222624805951
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222624805951
 
 TODAY I LEARNED : 모듈과 패키지! 과연 둘은 무슨 차이일까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222624569139
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222624569139
 
 [코인데스크 영어기사 읽기]솔라나는 디지털 자산계의 비자가 될 수 있을까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222623879087
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222623879087
 
 2022년 1월 16일에 부천시립도서관에서 집은 ‘나를 바꿀 자유’란 책을 읽고…
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222623529627
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222623529627
 
 &#39;블록체인 혁명&#39;을 읽고나서 : 은행은 과연 블록체인 시스템에 의해 대체되고 무너질까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222623222376
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222623222376
 
 Today I Learned : 내 블로그 포스트(게시물)의 전체기간 조회수 순위(랭킹) 보는 방법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222622803590
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222622803590
 
 [부천 자유시장 맛집 추천] 믿거나 말거나 : 꾸덕꾸덕한 시장 떡볶이 진짜 맛있어요ㅠ
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222619927525
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222619927525
 
 Today I Learned : 자바스크립트 논리연산자와 타입스크립트 옵셔널 체이닝 문법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222619254808
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222619254808
 
 아이템 팩토리 승인! 자체제작한 네이버 블로그 스킨(seupkin) 무료로 공유합니다 :)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222619186036
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222619186036
 
 [코인데스크 원문 읽기]이번 비트코인의 데드크로스는 함정일까 아닐까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222618748344
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222618748344
 
 Today I Leared : 백엔드 개발자 로드맵 따라가기 - 운영체제(6) : 프로세스 동기화 문제의 해결 방법 세마포(semaphore)와 활용 사례 버퍼(buffer)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222618499851
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222618499851
 
 [블로그 리뉴얼 3.0] 블로그 리뉴얼 공지와 네이버 블로그 스킨 공유, 블로그 카테고리 사이드바 위치에 따른 차이 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222618304594
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222618304594
 
 인생을 계몽시켜줄 IT 다큐멘터리 추천 - RSS와 CC를 만들어낸 아론 슈와츠(Aaron Swartz)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222617643872
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222617643872
 
 [비전공자 개발자들을 위한 책 추천] 컴퓨터는 어떻게 만들어졌나요? - 숫자, 논리학, 전기(공학)을 기반으로 탄생한 컴퓨터
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222617349381
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222617349381
 
 DDP 살바도르 달리 전시회 후기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222616622361
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222616622361
 
 Today I Leared : 자바스크립트는 정말 싱글쓰레드일까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222615896919
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222615896919
 
 [BBMO스터디 공유] : 타입스크립트 개요 및 설치방법 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222614842647
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222614842647
 
 Today I Leared : 백엔드 개발자 로드맵 따라가기 - 운영체제(5) : &quot;쓰레드(thread)란 뭔가요?&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222612387360
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222612387360
 
 2021 연말결산 &quot;올해의 OO&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222610640944
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222610640944
 
 [🔗 2021 블록체인을 활용한 비즈니스 모델 개발 프로젝트] DID 기반 비대면 시장조사 패널자격인증 플랫폼, we:DIDsurvey
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222608997852
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222608997852
 
 Today I Leared : 메모리 동적할당의 원리(메모리 구조 이해) 및 스택오버플로우가 일어나는 원리
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222608234576
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222608234576
 
 Today I Learned : 블록체인 트랜잭션 내 공개키에 대한 오해(블록체인 구조와 이론 책 리뷰)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222606912457
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222606912457
 
 Today I Learned : 클레이튼 포지션 페이퍼 요약(백서) 및 Bapp klip 로그인 방법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222602592637
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222602592637
 
 [BBMO스터디 공유] : 프론트엔드 자바스크립트 프레임워크 Vue(뷰) vs React(리액트) 차이점
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222601290829
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222601290829
 
 [BBMO스터디 공유] : Basic Terminal Commands (베이직 터미널 명령어)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222600848870
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222600848870
 
 [BBMO스터디 공유]  : REST, REST API, RESTful API 란?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222600805315
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222600805315
 
 Today I Leared : 백엔드 개발자 로드맵 따라가기 - 운영체제(4) - 운영체제 프로세스 관리 개요
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222600663338
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222600663338
 
 Today I Leared : 백엔드 개발자 로드맵 따라가기 - 운영체제(3) - 운영체제의 메모리, CPU 보호
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222600632625
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222600632625
 
 Today I Leared : 백엔드 개발자 로드맵 따라가기 - 운영체제(2) - 운영체제의 이중 모드
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222600631574
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222600631574
 
 돈의 인문학 : 비트코인(디지털화폐)은 원래 케인즈 학파에서 처음 나온 &#39;세계화폐&#39;란 아이디어였다?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222600547279
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222600547279
 
 클레이튼 기반 크로노스DAO (fork of Olympus DAO, Defi 2.0) 에어드랍 이벤트 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222597387353
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222597387353
 
 비빔밥 파이낸스 (fork of Olympus DAO, Defi 2.0) 에어드랍 이벤트 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222597374273
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222597374273
 
 클레이스왑의 KLAY(카카오 클레이) Airdrop(에어드랍) 이벤트
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222597356353
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222597356353
 
 Mr.Misang 작가님의 PFP 프로젝트 : 고스트 프로젝트 & myty 프로젝트 트위터 이벤트 - Say anything about &#39;Afterlife&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222597323025
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222597323025
 
 Today I Leared : 백엔드 개발자 로드맵 따라가기 - 운영체제(1) - 운영체제 서론과 역사, 인터럽트 기반 체제 살펴보기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222596031219
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222596031219
 
 Mr.Misang 작가님의 PFP 프로젝트 : 고스트 프로젝트 화이트리스트
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222595186503
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222595186503
 
 Today I Learned : 암호화폐 변천사 정리와 비트코인 백서 요약하기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222594798114
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222594798114
 
 [노션] 학교 메일 인증 후 노션 프로 업그레이드
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222593479618
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222593479618
 
 26살의 취준생이 앞으로의 20대를 어떻게 보낼지 고민하며 읽은 책들 정리(자기계발 시 참고)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222593460378
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222593460378
 
 Today I Leared : 자바스크립크로 알아본 클래스의 개념과 객체와의 차이, 그리고 그 외의 프로그래밍 방법론들
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222591719428
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222591719428
 
 [2021 마이 블로그 리포트] 블로그 빅데이터로 알아보는 &#39;2021 내 블로그 스타일&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222591397688
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222591397688
 
 Today i learned : HTTP Protocol vs HTTPS Protocol
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222590385128
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222590385128
 
 부의 확장, 나와 세상의 부를 연결하는 법 : 연봉협상에 맞닥뜨릴 취준생과 신입들을 위해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222587371731
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222587371731
 
 인간의 품격을 결정하는 7가지 자본, 아비투스에 관하여(2) : 취준생과 신입들이 알아야 할 과제와 팁들
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222587307628
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222587307628
 
 [혁신성장 청년인재 양성사업 후기] DID프로젝트 완수와 블록체인 비즈니스 모델 개발 과정 수료
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222587268208
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222587268208
 
 메타디움 기반 NFT 마켓플레이스 메타파이 출시 기념 메타코인 에어드랍 이벤트   블록체인 기반 설문조사 플랫폼 더폴
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222586980562
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222586980562
 
 BSC 기반 하이달러 에어드랍 이벤트, 1일 1달러 받기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222586963171
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222586963171
 
 클레이튼 기반 P2E 모바일 게임 무한돌파 삼국지
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222586911608
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222586911608
 
 송버드 테스트 네트워크 프로젝트 CanaryX 에어드랍 이벤트
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222586902206
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222586902206
 
 클레이튼 기반 Defi 2.0 출시와 클레이튼 토큰 가격 쉽게 보는 방법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222583369657
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222583369657
 
 Today i learned : GDG 송도 Flutter Study 2주차, async & await와 then의 사용성의 차이 알아보기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222581912213
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222581912213
 
 무언가에 관하여3, 수석으로 인천대를 졸업하면서의 감정과 그 과정에 관한 것들
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222579855128
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222579855128
 
 [NFT BUSAN 2021] 컨퍼런스 체험 일지 3일차 : NFT 부산 내 참관한 부스(기업)들에 대해 감상평
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222579372468
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222579372468
 
 인간의 품격을 결정하는 7가지 자본, 아비투스에 관하여(1) : 다가오는 연말에 해보면 좋을만한 멀린다 게이츠의 습관!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222571445857
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222571445857
 
 [NFT BUSAN 2021] 컨퍼런스 체험 일지 2일차 : 새롭게 알게 된 franctional NFT, PFP NFT의 사례들
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222569372549
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222569372549
 
 비트코인 및 초창기 프로젝트들의 히스토리 자료 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222564494188
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222564494188
 
 [NFT BUSAN 2021] 컨퍼런스 체험 일지 1일차 : 생각보다 재미난 프로젝트들이 많은데..?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222559838477
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222559838477
 
 Today i learned : DID 프로젝트를 위한 메타마스크를 통한 암호화 메시지 전달
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222552862757
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222552862757
 
 [블록체인기반 디앱 체험기 2] : 디센트럴랜드, 메타버스 페스티벌
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222545291727
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222545291727
 
 [블록체인산업 스타트업 취업을 위한 디앱 체험기 1]  : 갈라게임즈의 타운스타
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222533983195
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222533983195
 
 Today i learned : make-up class(8) - CPU계산 과정 원리 및 멀티스레드의 원리 이해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222532694036
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222532694036
 
 Today i learned : make-up class(7) - Thread(스레드)의 개념과 멀티스레드 예시
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222532195999
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222532195999
 
 Today i learned : [Intro-to-Vue3] 뷰 프레임워크 작동원리 이해(2)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222530617624
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222530617624
 
 Today i learned : [Intro-to-Vue3] 뷰 프레임워크 작동원리 이해(1)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222529124186
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222529124186
 
 Today i learned : DID 프로젝트를 위한 텐더민트 플랫폼 조사(3) - 디앱 자기주권을 확보해 주는 코스모스SDK
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222527025461
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222527025461
 
 Today i learned : DID 프로젝트를 위한 텐더민트 플랫폼 조사(2) - 세대별 블록체인 코인들의 차이점
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222526783257
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222526783257
 
 웹 프로그래밍 교육을 받으면서 알게 된 인사이트 정리 1
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222526028435
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222526028435
 
 [자작곡] - common day, 뻔하디 뻔한 그런 똑같은 일상
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222525872686
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222525872686
 
 Today i learned : DID 프로젝트를 위한 텐더민트 플랫폼 조사(1) - 텐더민트 탄생 배경
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222523576677
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222523576677
 
 [🔗 2021 Hdac Technology Competition - NFT를 활용한 서비스 모델 개발] - NFT 기반 아마추어 아티스트 후원 플랫폼, 아마도(AMADO)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222521257217
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222521257217
 
 TIL -
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222513932318
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222513932318
 
 Today i learned : make-up class(6) - Axios 통신 구조, 익명 함수의 단점, 자바스크립트 호이스팅
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222509171293
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222509171293
 
 IPFS 이해를 위한 공부 자료 공유.
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222508712612
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222508712612
 
 Today i learned : make-up class(5) - 함수의 자료구조 스택, 동기-비동기 및 블록-논블록의 이해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222508199847
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222508199847
 
 Today i learned : make-up class(4) - 네트워크 속 데이터 전송의 이해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222507174080
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222507174080
 
 Today i learned : make-up clasee(번외) Node.js의 명령어 nvm npm npx의 차이
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222506564493
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222506564493
 
 Today i learned :  이더리움 NFT 용 토큰 규격 ERC-721 코드 해석 및 정리
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222506485300
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222506485300
 
 Today i learned : make-up class(3) 네트워크 구조 이해2 (포트번호를 통한 통신의 이해)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222505946861
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222505946861
 
 2022학년도 인천대 산업경영공학과 편입생을 위해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222505900230
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222505900230
 
 Today i learned : make-up class(1, 2) 네트워크 구조 이해(이더넷과 인터넷)   OSI 7계층
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222505618455
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222505618455
 
 Today i learned : 블록체인 DApp 설계와 DB 저장요소
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222504163070
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222504163070
 
 Today i learned : truffle-drizzle cachedCall() & cacheSend()
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222504073412
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222504073412
 
 블록체인 개발 무료 강의 추천 : 인프런 - coldmind
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222503572314
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222503572314
 
 Today i learned : 이더리움 Network ID & ERC와 IERC 규격 차이
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222503519156
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222503519156
 
 블록체인 스타트업들은 어떤 인재를 지향하는가? DSRV labs & Onther의 채용 인재 소개
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222500271331
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222500271331
 
 NFT 프로젝트 3주 차 회고 3 - 21.09.08
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222499776321
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222499776321
 
 웹 접근성에 대한 이해자료 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222499768311
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222499768311
 
 [자작곡] - 왜 이러케 ㅈ같애(What a fucking my life) : 인생이 뭐같이 힘들 때, 만들었던 가사와 곡
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222499746322
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222499746322
 
 Today i learned : [크립토좀비] 8 - web3.js 활용방법과 Using indexed & Querying past events
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222499348174
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222499348174
 
 Today i learned : [크립토좀비] 7 - JSON-RPC와 Web3.js 라이브러리 사용의 이유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222499221790
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222499221790
 
 Today i learned : [크립토좀비] 6 - 레슨5 클리어(ERC-721)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222499154073
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222499154073
 
 NFT 프로젝트 3주 차 회고 2 - 21.09.07
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222498676810
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222498676810
 
 Today i learned : 프로그램의 실행원리와 CPU의 구조
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222498672893
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222498672893
 
 Today i learned : [크립토좀비] 5 - 레슨4 클리어
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222498266442
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222498266442
 
 NFT 프로젝트 3주 차 회고 1 - 21.09.06
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222497386692
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222497386692
 
 Today i learned : 포트 번호에 따른 인터넷 서비스들의 종류와 WEB의 이해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222495684171
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222495684171
 
 Today i learned : CSS 스타일 가이드 및 :root의 의미
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222493115249
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222493115249
 
 [자작곡] - 불나방(Fire moth) : 우린 불나방처럼 그저 꿈(빛)을 따라 쫓을수록, 왜 더 방황하게 되는 걸까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222493072402
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222493072402
 
 Today i learned : What is HTTP in URL?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222491925662
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222491925662
 
 Today i learned : [생활코딩, Node.js] - 1. Node.js의 탄생 및 역활
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222490013080
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222490013080
 
 Today i learned : 웹 관련 단어 개념 정리
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222488758503
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222488758503
 
 Today i learned : URL 및 form태그 내 name 속성에 대한 이해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222485793657
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222485793657
 
 Today i learned : DOM이란 무엇인가?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222485746085
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222485746085
 
 [미니 프로젝트] - 🎥 무비크루&#39;s 워드클라우드(맥도날드 크루들의 영화모임, 무비크루의 1년간의 영화이야기)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222485001859
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222485001859
 
 [데이콘 인공지능 비트 트레이더 시즌 3] - 머신러닝 및 매수, 매도 전략을 통한 비트코인 트레이딩 모델 설계
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222483111454
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222483111454
 
 [데이콘 비트코인 트레이더 경진대회 시즌2] - 머신러닝을 통한 비트코인 가격 예측(인천대학교 산업경영공학과 캡스톤 디자인)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222482421257
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222482421257
 
 [🔗 블록체인 비즈니스 모델 개발 - 미니 프로젝트] - Artademy (Art arcademy for young NFT artists based on donation)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222481747122
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222481747122
 
 [인터넷의 초창기와 비트코인 발전과정 비교하기 2] 현재까지  블록체인의 발전 특성들은 옛날 인터넷 서비스의 모습과 상당히 유사하다
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222481215322
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222481215322
 
 [인터넷의 초창기와 비트코인 발전과정 비교하기 1] 나는 왜 비트코인을 보고 옛날 인터넷 역사 책을 보게 되었는가?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222481113550
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222481113550
 
 Today i learned : [Ethernaut] - 9. King
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222466805109
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222466805109
 
 Today i learned : [Ethernaut] - 8. Vault
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222466727585
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222466727585
 
 Today i learned : [Ethernaut] - 7. Force
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222466715356
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222466715356
 
 Today i learned : [Ethernaut] - 6. Delegation (부록 : solidity call과 delegatecall의 차이)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222465428601
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222465428601
 
 Today i learned : [Ethernaut] - 5. Token
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222465370472
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222465370472
 
 Today i learned : [Ethernaut] - 4. Telephone
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222465337694
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222465337694
 
 Today i learned : [Ethernaut] - 2. Fallout
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222464863578
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222464863578
 
 Wargame형 프로그래밍 공부 Ethernaut & OverTheWire
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222464789078
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222464789078
 
 Today i learned : [Ethernaut] - 3. Coin Flip
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222464084362
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222464084362
 
 Today i learned : [Ethernaut] - 1. Fallback
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222464001518
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222464001518
 
 Today i learned :  [Ethernaut] - Ethernaut 소개 & 0. Hello Ethernaut
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222463957418
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222463957418
 
 Today i learned : 인터넷과 TCP/IP란 무엇일까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222463544995
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222463544995
 
 Today i learned : 이제서야 들여다보는 web3의 개념과 웹의 발전과정
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222463465864
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222463465864
 
 [웹 공부 자료] 생활코딩 - 겁나 빠른 웹 레시피
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222463380536
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222463380536
 
 Today i learned : [한 눈에 끝내는 Node.js] - 몰랐던 자바스크립트 문법 이해하기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222460670780
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222460670780
 
 구름EDU : 모두를 위한 IT교육(무료 강의도 많고 설명도 친절한 편)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222459691016
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222459691016
 
 Today i learned :  [한 눈에 끝내는 Node.js] - 자바스크립트의 역사 및 기술 발전 이해하기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222459542392
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222459542392
 
 클레이튼 개발을 위한 Kaikas 와 Klaytn Docses
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222459438399
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222459438399
 
 Today i learned : [클레이튼] Baobab test net Feucet Klay 받기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222459341726
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222459341726
 
 2021 인천대학교 산업경영공학과 졸업생 인터뷰 下편
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222458946235
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222458946235
 
 Today i learend : 가나쉐 펫 박스 연습
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222458911222
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222458911222
 
 [🔗 블록체인 비즈니스 모델 개발 - 미니  프로젝트] - The Givers(Ethereum Blockchain Donation Contract)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222458622673
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222458622673
 
 Ethereum DApp frame work : TRUFFLE
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222456401682
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222456401682
 
 Today i learned - How do we contribute open source in github
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222456397817
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222456397817
 
 Today i learned : Ethereum Remix IDE web3 provider error
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222456149210
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222456149210
 
 [🔗 블록체인 비즈니스 모델 개발 - 미니  프로젝트] - Etherseupcan(Etherscan copy practice with ganache-cli)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222456082741
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222456082741
 
 Today i learned : 블록체인 서비스 개발의 연결 방식(ganache- remix-local html 연결)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222455567216
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222455567216
 
 [ESG] EU의 CBAM에 대한 sk 증권 EGS weekly 리포트 요약
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222455203346
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222455203346
 
 [과학기사] 우주관광산업의 경제적 효과에 대한 맥락적 이해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222455170054
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222455170054
 
 Today i learned : Etherscan front copy practice(etherseupcan)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222454770779
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222454770779
 
 솔리디티 프로그래밍을 위한 로컬 VM library : ganache-cli
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222454180925
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222454180925
 
 Today i learned : Tutorial Go Ethereum(geth 설치 및 사용법)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222454021625
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222454021625
 
 [암호화폐 칼럼] 정우현의 코인세상 뒤집어보기, 금과 다른 가치의 자산 비트코인
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222454012221
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222454012221
 
 [🔗 블록체인 비즈니스 모델 개발 - Vue.js 미니 프로젝트] 강사의 품격(Course Evaluation System)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222453712551
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222453712551
 
 [방구석 내 책 다시 펼쳐보기] - &quot;CEO, 어떤 책을 읽는가&quot; 다시 읽고 앞으로 가져가고 싶은 말(맘)들
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222453592814
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222453592814
 
 Today i learned : 블록체인 내 탈중앙성 및 암호화에 대한 본질적인 의미
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222450958501
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222450958501
 
 Today i learned : [크립토좀비] 4 - 이더리움 DApp의 특성들
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222450692632
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222450692632
 
 Today i learned : 이더리움 가스비에 대한 오해
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222450673011
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222450673011
 
 Today i learned : [크립토좀비] 3 - 솔리티디 문법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222450667803
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222450667803
 
 [1993년 3월 9일, 에릭 휴즈] A Cypherpunk&#39;s Manifesto(사이퍼펑크 선언)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222450587991
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222450587991
 
 Today i learned : 프로그래밍에서 2진수가 아닌 16진수로 처리하는 이유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222450585820
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222450585820
 
 Today i learned : 웹이 화면에 그려지는 과정(브라우저 렌더링)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222450531152
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222450531152
 
 Today i learned : [마스터링 이더리움] 번외 - 이더리움 프로토콜에 대한 의문점
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222449849432
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222449849432
 
 페이스북, 한국 이더리움 사용자 그룹
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222449458325
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222449458325
 
 Today I learned : [크립토좀비] 2 - 솔리티디 문법 2
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222449451594
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222449451594
 
 Today I learned : [크립토좀비] 1  - 솔리디티 문법
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222449370023
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222449370023
 
 솔리디티 튜토리얼 - 크립토 좀비
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222449310624
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222449310624
 
 Today I learned : [마스터링 이더리움] 번외 - 비잔틴 문제란, 노드 전파 과정, 트랜잭션의 vrs
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222449108047
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222449108047
 
 이더리움에서 사용하는 Keccak-256 Hash 함수
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222448567715
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222448567715
 
 Today I learnend : [마스터링 이더리움] 9 - 현 시점 암호화폐 시장에 대한 내 생각   스마트 컨트랙트 예제 연습 5
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222448468440
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222448468440
 
 Today I learnend : [마스터링 이더리움] 8 - 다양한 스마트 컨트랙트 예제 연습4
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222448351105
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222448351105
 
 [깃허브] 학교 메일 인증 후 GitHub Student Developer Pack 무료 사용
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222448277859
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222448277859
 
 [암호화폐] WEF(World Economic Forum)의 Cryptocurrency Article 읽고 정리하기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222448173092
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222448173092
 
 Today I learnend : [마스터링 이더리움] 7 - 다양한 스마트 컨트랙트 예제 연습3
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222447853256
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222447853256
 
 Today I learnend : [마스터링 이더리움] 6 - 다양한 스마트 컨트랙트 예제 연습2
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222447803149
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222447803149
 
 Today I learnend : [마스터링 이더리움] 5 - 다양한 스마트 컨트랙트 예제 연습
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222447530880
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222447530880
 
 Today I learnend : [마스터링 이더리움] 4 - 스마트 컨트랙트 생성원리 및 컨트랙트 주소의 의미
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222447369632
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222447369632
 
 Today I learnend : [마스터링 이더리움] 3 - 코인과 토큰의 차이
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222447307987
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222447307987
 
 Today I learnend : [마스터링 이더리움] 2 - 이더리움 IDE로 스마트 컨트랙트 배포
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222446308979
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222446308979
 
 Today I learnend : [마스터링 이더리움] 1 - 이더리움에서 거래가 성립을 의미하는 transcaction의 의미
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222446124944
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222446124944
 
 대학생 창업을 꿈꾸는 이들을 위하여, 과연 20대 창업은 좋은 길일까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222444182133
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222444182133
 
 &#39;대학교 퍼즐의 완성&#39;, 산업경영공학과 수석 졸업( 코로나세대 대학생 멘티 모집)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222436539500
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222436539500
 
 2021 인천대학교 산업경영공학과 졸업생 인터뷰 上편
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222428121158
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222428121158
 
 다시 시작하는 블로그 2.0 (인천대 졸업 한달 전)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222427217086
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222427217086
 
 &#39;안녕, 인천대학교...&#39;, 저 곧 졸업합니다
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222394473152
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222394473152
 
 행복의 기원을 세 번 읽고 알게 된 행복에 대하여[2] : 사람에게 결국 필요한 건..? 사람이다!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222357817246
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222357817246
 
 행복의 기원을 세 번 읽고 알게 된 행복에 대하여[1] : 행복은 하나의 생각이 아닌 경험이다
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222356625630
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222356625630
 
 글쓰기 챌린지, 글쓰기 프로젝트를 준비하는 과정1 : &#39;스토리텔링 교육의 모든 것&#39;을 읽고 느낀 점
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222344275561
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222344275561
 
 이웃 따라서 써보는 100문 100답.
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222339821724
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222339821724
 
 &#39;행복&#39;과 &#39;인생&#39; 그리고 &#39;열심히&#39; 와 &#39;노력&#39;에 관해 적어볼까 합니다. (대학생들에게, 주변 사람들에게, 그리고 인터넷상 누군가에게)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222338151314
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222338151314
 
 대학교 4학년 막학기 4월의 일상, 뭔가를 하지만 다 의미없다고 느껴지는 그런 시기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222334124384
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222334124384
 
 1년이 지나 내 블로그 돌아보기, 처음 목적과 달리 참 많이도 변했네요
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222320930350
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222320930350
 
 창업 일기 5 : 벌써 4월이네...
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222301213684
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222301213684
 
 대학생 투자자의 투자 일기, 글로벌 자산관리 및 자산 배분에 대하여
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222301105929
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222301105929
 
 프로젝트, 인턴 전에 고민해봐야 할 것들에 대하여 : &#39;왜 회사에서는 인턴 경험을 원하는 걸까?&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222285413079
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222285413079
 
 니체에 관해 쉽게 풀어낸 책, 곁에 두고 읽는 니체[6. 반년 뒤 돌이켜 본 니체의 말들]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222282120210
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222282120210
 
 창업 일기 4 : 그 결심을 하고 난 뒤 약 2개월이 흘러서...
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222280093217
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222280093217
 
 애프터 코로나, 2021 취업을 준비하는 산업경영공학 학부생들을 위하여(3)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222265676300
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222265676300
 
 Today I learned : Outlier Detection & VAE
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222263946685
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222263946685
 
 애프터 코로나, 2021 취업을 준비하는 산업경영공학 학부생들을 위하여(2)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222263031367
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222263031367
 
 Today I learned : Late CS50 5week learning review
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222262989390
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222262989390
 
 애프터 코로나, 2021 취업을 준비하는 산업경영공학 학부생들을 위하여(1)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222253065292
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222253065292
 
 대학원(석사과정)을 고민하는 산업경영공학 학부생들을 위하여(3)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222249682668
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222249682668
 
 대학원(석사과정)을 고민하는 산업경영공학 학부생들을 위하여(2)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222248483409
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222248483409
 
 대학원(석사과정)을 고민하는 산업경영공학 학부생들을 위하여(1)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222242562841
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222242562841
 
 산업경영공학과 전공자도 마케팅관련 일을 할 수 있을까? 마케터가 될 수 있을까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222237199973
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222237199973
 
 Today I learned : hexadecimal and Pointer(*&) represention
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222237050230
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222237050230
 
 Animation Movie &#39;SOUL&#39; Review : The reason why do i live
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222235826791
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222235826791
 
 산경 학부생의 연구인턴 6개월간의 여정 속 고민들, 마지막달은.... 좀 지치네요
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222235766300
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222235766300
 
 Today I learned : CS50 코칭스터디 4주차
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222232354912
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222232354912
 
 2021년도 대학생투자자의포트폴리오 고민 및 전략방안(ft. 삼프로, 신한금융투자)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222232317056
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222232317056
 
 한국지도자육성장학재단 51기 분들에게 남깁니다 : 50기 때는 이랬어요!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222230946389
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222230946389
 
 창업 일기3 : 창업을 결심하고 들이기로 한 습관 두 가지
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222226925371
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222226925371
 
 Today I learned :Pointer variables, switch function, queue programming
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222225371814
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222225371814
 
 창업 일기2 : 창업자에게 필요한 PT와 창업의 이유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222224821948
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222224821948
 
 Today I learned : 문자열 변수의 메모리할당 이슈와 클린코드
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222223579784
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222223579784
 
 무언가에 관하여2, 생기원에서 박사님과 미팅하면서 느낀 것들
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222221102007
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222221102007
 
 Today I learned : Compiling Process & Debugging
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222219797976
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222219797976
 
 창업 일기1 : 창업을 결심하는 이유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222218669845
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222218669845
 
 Today I learned : C언어 자료형 복습
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222218608881
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222218608881
 
 대학등록금 때문에 경제적 고민이 많은 학생들에게 전하는 메세지 : &quot;교외장학, 한지회를 소개합니다!&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222218584370
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222218584370
 
 Today I learned : CS50 코칭스터디 1,2주차 생각 정리
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222216649283
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222216649283
 
 21학년도 인천대학교 산업경영공학과 편입 질문 후기 : 모두 수고하셨습니다 :)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222215507884
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222215507884
 
 1월 어느 날 20학번 후배와의 대화 : 형 연계전공을 해볼까 하는데....?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222214265455
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222214265455
 
 눈 오는 날에 본 풍경들이나 추억 사진들이 있나요? 있다면 블로그씨에게 보여주실래요?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222211913857
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222211913857
 
 Today I Learned : 이미지처리 공부 정리(pytorch CNN & cv2)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222211887177
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222211887177
 
 &#39;모든 것이 되는 법&#39;을 읽고 나서 든 생각, 다재다능인은 후천적으로 만들어진 것은 아닐까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222210625374
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222210625374
 
 딥러닝 공부 메모 : AutoML(Automated Machine Learning)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222209668692
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222209668692
 
 인천대학교 막바지 4학년 재학생이 적은 인천대 만족도 설문조사
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222209644181
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222209644181
 
 오늘 코스피 장을 보면서 느낀 불안감 (뭔가 싸~아 한데..., 버블은 곧 터지는 건가?)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222205396048
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222205396048
 
 투자에 관하여, 친구나 주변 사람들에게 들려주고 싶은 투자 마인드
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222203239437
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222203239437
 
 네이버 부스트캠프 AI -Tech 후기, 최종 2차 코테에서 아쉬운 불합격
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222202366548
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222202366548
 
 인생은 B와 D사이 Choice라고 하는 이유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222198940516
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222198940516
 
 스무살, 무언갈 시작하고 싶지만 열정만 가득하고 무얼해야할지 모르겠는 동생들에게
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222197769427
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222197769427
 
 내가 생각한 사람들의 성장의 곡선 생김새 묘사
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222196446527
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222196446527
 
 자취를 시작하고 외로운 나날들을 보내면서 만든 곡 : 자취
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222195345158
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222195345158
 
 2020 투자 연말정산, 포트폴리오 공개
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222194968663
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222194968663
 
 2020 연말결산 &quot;올해의 OO&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222193074963
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222193074963
 
 인턴 때문에 자취방, 원룸을 구할 때 확인해야 할 팁들(천안, 생기원)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222192056675
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222192056675
 
 그동안 적은 산업경영공학과 대학생들을 위한 팁 모음(산업경영공학과 희망하는 분들 필독!)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222187635013
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222187635013
 
 &#39;이제 대학생 3,4학년인데.. 나도 현장실습(인턴)이나 해볼까?&#39; 하는 당신에게 진심으로 해주고 싶은 조언 몇 가지
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222185500621
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222185500621
 
 [2020 마이블로그 리포트] 한 눈에 보는 올해 내 블로그 데이터!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222185343842
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222185343842
 
 12월의 일상, 연말에 돌아본 내 블로그의 글들이 준 영향력에 대하여
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222179271562
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222179271562
 
 스물다섯이 되고 든 생각으로 만든 곡 : 반오십 Cypher(2020년은 벌써 다 지나갔네요)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222171265801
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222171265801
 
 대학원과 취업 그 사이의 고민, 근데 내가 진정으로 원하는 건 &#39;내 사업&#39;인데...?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222157276510
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222157276510
 
 무언가에 관하여, 장기현장실습(IPP) 인턴을 하면서 느낀 15가지
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222154725979
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222154725979
 
 클라이밍을 하면 어떤 기분일까? : 11월 어느 대학생의 주말 일상, 처음 시도해본 클라이밍
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222151686246
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222151686246
 
 &#39;새장&#39;밖 &#39;세상&#39;을 향한 내 삶의 행복 &#39;자유&#39;(최근 일상속 다시 느낀 내 가치관에 대하여)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222141054553
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222141054553
 
 11월의 일상, 2년 전 군대에서 적었던 메모 다시 꺼내보기(ft. 이제 두 달밖에 안 남았네요)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222139182185
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222139182185
 
 요즘은 당연한 투잡?, 대학생 N잡러들을 위한 데이터 수집 아르바이트 추천 &#39;크라우드웍스&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222138242457
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222138242457
 
 좋은 주식투자 습관과 투자 아이디어 및 종목 발굴을 위한 대학생 투자자의 주가, 경제 이슈 점검 소스 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222135690212
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222135690212
 
 자기소개영상(영상이력서) 제작 후기 : 나 자신의 &#39;겉모습&#39;과 내가 해온 발자취를 돌이켜보다
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222133819699
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222133819699
 
 학과소개 멘토링을 하면서 느낀, 중고등학생들에게 꼭 해주고 싶은 말[1] : &quot;너네가 공부를 한다는 건 &#39;대학&#39;이라는 세상에 대해  선택할 수 있는 권리를 얻기 위해서야!&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222132928771
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222132928771
 
 인천대 산업경영공학과 편입을 준비하는 당신을 위한 지침서(ft. 18학번 인천대 산경 편입생)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222126302215
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222126302215
 
 스물 다섯 연구직 인턴 대학생의 잡념과 생각, &#39;세상은 넓고 배울건 많구나....&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222125588055
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222125588055
 
 스물 다섯 대학생의 2020년 10월 22일 11시 40분의 고민
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222123716761
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222123716761
 
 선배가 알려주는 인천대학교 산업경영공학과 인터뷰 : &quot; 인천대 산경?!&quot; 그거 내가 다 알려줄게
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222119156309
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222119156309
 
 9월 말부터 10월 초, 한 동안의 일상과 함께 앞으로의 다짐(ft. 리.부.트)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222113982509
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222113982509
 
 21학번 후배들을 위한 인천대학교 산업경영공학과 면접 준비 지침서(*전공 질문 문항 및 팁)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222102421681
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222102421681
 
 고등학생이 빅데이터 분석, 데이터 사이언스를 진로로 고민한다면 산업경영공학과가 좋은 전공일까?(*인천대 산업경영공학과 기준)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222098968087
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222098968087
 
 머신러닝야학4일차(2) : 히든 레이어 속 활성화 함수(Activation function) 무슨 의미일까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222094189990
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222094189990
 
 니체에 관해 쉽게 풀어낸 책📙, 곁에 두고 읽는 니체 [5. 블로그 이웃분들은 어떻게 생각하시나요? ]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222092518775
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222092518775
 
 대학생 블로거의 나의 가치관 찾기 릴레이! &quot;행복, 자유, 호기심, 책임, 리더십&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222090595908
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222090595908
 
 니체에 관해 쉽게 풀어낸 책, 곁에 두고 읽는 니체 [4. 누군가에게 박수를 쳐준다는 것]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222086030960
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222086030960
 
 니체에 관해 쉽게 풀어낸 책, 곁에 두고 읽는 니체 [3. 풍요로운 행복을 느끼며 코로나블루를 이겨내자!]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222085157106
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222085157106
 
 처음하는 내 성적 자랑!(‘내가 누군가에게 조언을 할만 한 사람일까?’를 고민하며)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222084171237
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222084171237
 
 연구직 인턴의 함께 시작된 천안살이 1주 차 일상은? (독립, 노을, 가족 생각, 인생네컷)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222083199561
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222083199561
 
 대학생 블로그 네이버 애드포스트 첫 게시!(*전공 관련해서 댓글 진심 어린 댓글을 달아주신 분들 정말 감사했습니다:)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222083116572
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222083116572
 
 팁24. 고등학생분들을 위한 나무위키 산업공학과(산업경영공학과) 학과 소개 공유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222081415924
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222081415924
 
 대학생 친구들에게 들려주고 싶은 내 노래와 가사 : &quot;더 높이 올라가려면 내려갈 줄도 알아야 한다&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222080715862
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222080715862
 
 머신러닝야학 4일차(1) : 문자 데이터인 명목형 데이터는 get_dummies로 해결!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222079702345
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222079702345
 
 편의점 맥주 추천 &quot;경복궁 I.P.A&quot;, &#39;근데 맥주는 어떻게 만들어진 거지?&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222078633361
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222078633361
 
 나의 첫 자취 시작!! 한국생산기술연구원 학생 인턴 1일차
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222077684147
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222077684147
 
 내가 좋아하는 소주(회사), 하이트진로의 국내 및 해외시장 전망 그리고 동남아시장 진출과 할랄 소주 건의하기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222074909473
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222074909473
 
 3회차 GDAC 카카오 클레이(KLAY) 보상 커뮤니티(SNS) 인증하기!(*빨리해야 해!)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222071632389
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222071632389
 
 자유로운 삶을 지향하는 대학생 블로거의 첫 일간 조회수 &#39;100&#39;돌파
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222070978575
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222070978575
 
 니체에 관해 쉽게 풀어낸 책, 곁에 두고 읽는 니체[2. 우리 자신을 사랑하며 우리 삶의 충실해야 하는 이유]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222070965791
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222070965791
 
 팁.23 수강신청 올클하려면 자기학교 서버 시간 정도는 확인해야지?(*새내기 필독)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222069649284
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222069649284
 
 니체에 관해 쉽게 풀어낸 책, 곁에 두고 읽는 니체[1. 간단한 니체 인물 소개와 프롤로그]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222068596525
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222068596525
 
 홈 칵테일, 참이슬토닉💧만들기! (*소주 칵테일로 싸게 싸게 가자구요~)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222066906104
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222066906104
 
 머신러닝야학 3일차(1) : 독립변수? 종속변수? 인공지능하는데 그런 것도 알아야 해?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222066408478
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222066408478
 
 머신러닝야학 2일차(2) : 모델에 loss=&#39;mse&#39;라는데 무슨 의미일까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222065390377
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222065390377
 
 투자에 눈을 뜬 대학생투자자, 카카오 암호화폐 클레이(Klay)는 들어봤니?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222065024830
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222065024830
 
 머신러닝야학 2일차(1) : 표를 다루는 도구 &#39;Pandas&#39;(*머신러닝 공부 팁 포함)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222063119540
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222063119540
 
 팁.22 &quot;IT기획자? 기획개발자?, 그거 어떻게 되는거야?&quot;(CJ 랜선잡담 멘토링 후기)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222061515991
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222061515991
 
 머신러닝야학 1일차 : 인공지능의 전반적인 틀을 되짚어 보자!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222060030035
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222060030035
 
 홈 칵테일, 블랙러시안 만들기 (*오늘따라 인생이 찐~하게 쓸 때)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222057045339
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222057045339
 
 팁.21 4학년 선배의 산업경영공학과 취업에 대한 생각은 어떨까?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222055705833
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222055705833
 
 팁.20 대학생 취업 준비는 어떻게 하는 걸까? (인천대 산업경영공학과 졸업 선배들의 취업토크를 듣고 나서)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222045660198
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222045660198
 
 내 삶의 행복은 &#39;자유&#39;, &quot;당신의 삶의 이유와 행복은 무엇인가요?&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222040337979
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222040337979
 
 홈 칵테일, 깔루아밀크 만들기 (*커피우유 맛!)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222036572703
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222036572703
 
 &#39;비주얼라이즈 디스&#39;를 읽고 난 후 데이터 시각화 대한 고찰 : &#39;분석 후 어떻게 정보를 전달하는 것이 좋을까?&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222034634295
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222034634295
 
 Bifan, 24th 부천 판타스틱 영화제 : ‘윌리엄 프레드킨의 엑소시스트를 말하다’ 후기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222033124836
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222033124836
 
 팁.19 새내기들을 위한, 대학교 메일 작성 방법(*인천대 기준)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222030660779
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222030660779
 
 스물다섯 살에 처음 &#39;어린왕자&#39;를 읽으면서 [마지막]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222030144725
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222030144725
 
 스물다섯 살에 처음 &#39;어린왕자&#39;를 읽으면서[2]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222026930874
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222026930874
 
 나의 인천대 산업경영공학과 1학년부터 지금까지, &#39;회고록&#39;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222024941646
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222024941646
 
 팁.18 산업경영공학과 커리큘럼, 내가 스스로 만들어가자!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222023276694
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222023276694
 
 스물다섯 살에 처음 &#39;어린왕자&#39;를 읽으면서[1]
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222022730891
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222022730891
 
 팁.17 나만의 학점관리 방법과 1학년에게 해주는 조언
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/222019515615
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=222019515615
 
 팁.16 산업경영공학과 고학년이 돼서야 후회하는 것들...
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221997825918
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221997825918
 
 팁.15 Python과 AI 공부는 Colab에서!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221996788392
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221996788392
 
 팁.14 산업경영공학과 학생들, 연계전공은 들어봤니?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221995637489
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221995637489
 
 팁.13 대학생! 네이버의 새로운 웹, 웨일을 사용해보자!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221993483600
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221993483600
 
 취업준비를 앞둔 내가 산업경영공학과 팁을 적게 된 이유
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221993461196
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221993461196
 
 팁.12 산업경영공학과 새내기를 위한 학년별 과정 소개!
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221992562133
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221992562133
 
 팁.11 산업경영공학과 새내기가 알면 도움 되는 사이트 모음(*전공책 답이 궁금해?)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221991487699
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221991487699
 
 팁.10  전공 책을 반드시 구매할 필요는 없다. (*대학교 새내기 팁)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221990442932
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221990442932
 
 팁.09 팀 프로젝트는 구글 앱으로
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221989295135
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221989295135
 
 팁.08 대학에는 담임 선생님이 없다.(*대학교 새내기들에게)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221988955362
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221988955362
 
 팁.07 대학생 재테크! 이런 방법도 있어요, 학교행사로 의미있게 용돈벌기
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221984687018
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221984687018
 
 팁.06 Micrsoft의 대학생 혜택(*노트북 10만원 저렴하게 구매하기)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221984682867
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221984682867
 
 팁.05 반드시 익혀야할 산업경영공학과 기초 분야 (*인천대학교 기준)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221984678184
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221984678184
 
 팁.04 산업경영공학과 학과 홈페이지, 방문은 해보셨나요?
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221982045284
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221982045284
 
 팁.03 산업경영공학과 새내기에게 &quot;대학은 고등학교와 다르다&quot;
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221982042307
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221982042307
 
 팁.02 대학교 첫 과제를 하기전에 알아야 할 것(*새내기 필독)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221979979587
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221979979587
 
 팁.01  산업경영공학과 대학생! 파일을 정리하는 습관을 갖자
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221979130726
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221979130726
 
 아두이노 프로젝트 : 시각장애인을 위한 스마트 지팡이 제작 (* 초음파센서 팁)
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221805414997
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221805414997
 
 15학번의 다시 보는 인천대학교 산업경영공학과 면접준비
-https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=/221803974477
+https://blog.naver.com/PostView.naver?blogId=thswjdtmq4&logNo=221803974477
 

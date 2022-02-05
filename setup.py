@@ -15,7 +15,7 @@ setuptools.setup(
     author_email="thswjdtmq4@inu.ac.kr",
     url="https://github.com/Jeongseup/naver-blog-backer",
     download_url="https://github.com/Jeongseup/naver-blog-backer/archive/main.zip",
-    install_requires=['tqdm', 'beautifulsoup4', 'requests'],
+    install_requires=['tqdm', 'beautifulsoup4', 'requests', 'pick'],
 	package_dir={"":"src"},
     packages=setuptools.find_packages(where="src"),
     python_requires='>=3.6',

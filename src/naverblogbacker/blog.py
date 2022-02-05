@@ -1,4 +1,4 @@
-from tqdm import tqdm
+from tqdm import trange, tqdm
 from .post import BlogPost
 from .utils import getPostTitleList, getTotalCount, parsingPostTitle, createNewDirectory
 
@@ -44,13 +44,13 @@ class BlogCrawler(object):
 		try:
 			myPostList = list()
 
-			for i in tqdm(range(1, 2)):
-				self.printDevMessage(f'Getting post number list in page {i} in {pages}')
+			for i in trange(1, pages + 1):
+				# self.printDevMessage(f'Getting post number list in page {i} in {pages}')
 				tempPostList = getPostTitleList(self.targetId, i)
 
 				# 내가 쓴 글이 아닌 공유 글 제외
 				tempPostList = list(filter(lambda p: p['searchYn'] == 'true', tempPostList))
-				print(f'공유한 글을 제외한 {len(tempPostList)}개의 포스트가 준비되었습니다.')
+				# print(f'공유한 글을 제외한 {len(tempPostList)}개의 포스트가 준비되었습니다.')
 
 				for post in tempPostList:
 					# 필요한 데이터만을 추출하고 appending
@@ -61,7 +61,7 @@ class BlogCrawler(object):
 			self.myTotalCount = len(myPostList)
 			self.postList = myPostList
 
-			self.printDevMessage(f'[MESSAGE] Find out your {len(myPostList)} posts!')
+			self.printDevMessage(f' [MESSAGE] Find out your {len(myPostList)} posts!\n')
 
 		except Exception as e:
 			print(e)
@@ -104,7 +104,8 @@ class BlogCrawler(object):
 			with open(filePath, mode='w', encoding='utf-8') as fp:
 				data = ''
 
-				for post in tqdm(self.postList):
+				pbar = tqdm(self.postList)
+				for post in pbar:
 					txt = ''
 
 					txt += post['title']
@@ -114,6 +115,7 @@ class BlogCrawler(object):
 					txt += '\n\n'
 
 					data += txt
+					pbar.set_description(" Processing")
 
 				fp.write(data)
 

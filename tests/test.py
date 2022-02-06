@@ -1,42 +1,46 @@
+import os
 from naverblogbacker.utils import isEmptyDirectory
 from naverblogbacker.blog import BlogCrawler
 from pick import pick
-import sys
 
-
-serviceTitle = ' Please choose an option: '
-serviceOptions = ['backlink', 'backup', 'both']
 
 def main(myId, myPath, myOption):
 
     if myOption is 'backlink':
         try:
-            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
+            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=False)
             myBlog.backlinking(dirPath=myPath)
             print(f' [MESSAGE] Complete! created your backlinks')
+            os.system("pause")
 
         except Exception as e:
             print(e)
-            sys.exit(1)
+            os.system("pause")
 
     elif myOption is 'backup':
         try:
             if not isEmptyDirectory(dirPath=myPath):
                 pass
 
-            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=True)
+            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=False)
             myBlog.crawling(dirPath=myPath)
             print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
+            os.system("pause")
 
         except Exception as e:
             print(e)
-            sys.exit(1)
+            os.system("pause")
 
     else:
         print(f' [MESSAGE] Sorry, It`s currently not supported')
-        sys.exit(0)
+        os.system("pause")
 
 if __name__ == '__main__':
+
+    serviceTitle = ' Please choose an option: '
+
+    serviceOptions = ['backlink', 'backup', 'both']
+
     myOption, _ = pick(serviceOptions, serviceTitle, indicator='>')
 
     print(f'\n [MESSAGE] You selected this {myOption} service! \n''')
@@ -60,3 +64,7 @@ if __name__ == '__main__':
 
     if check is 'go':
         main(myId, myPath, myOption)
+    else:
+        print(f'\n [MESSAGE] Exit the programe. Bye :) \n')
+        os.system("pause")
+

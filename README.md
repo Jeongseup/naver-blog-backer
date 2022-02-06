@@ -1,7 +1,41 @@
-# naver-blog-backer
-DESCRIPTION  
+naver-blog-backer
+=======
+
+[![PyPI version](https://badge.fury.io/py/naver-blog-backer/badge.svg)](https://badge.fury.io/py/naver-blog-backer)
+
+
+[![Latest Version](https://pypip.in/version/<PYPI_PKG_NAME>/badge.svg)](https://pypi.python.org/pypi/<PYPI_PKG_NAME>/)
+
+[![Latest Version](https://pypip.in/version/navere-blog-backer/badge.svg)](https://pypi.python.org/pypi/naver-blog-backer)
+
+
+**pick** is a small python library to help you create curses based interactive selection list in the terminal. 
+
 This package is for backup your naver blog posts  
 네이버 블로그를 마크다운언어로 파일로 백업해주는 패키지입니다.  
+
+
+.. image:: https://github.com/wong2/pick/raw/master/example/basic.gif
+   :alt: Demo
+
+Installation
+------------
+
+    $ pip install naver-blog-backer
+
+Usage
+---------
+You can backup your Naver blog with using python3 script like this.  
+네이버 블로그를 파이썬3 스크립트를 사용하여 다음과 같이 백업할 수 있습니다.
+
+    from NaverBlogCrawler import NaverBlogCrawler as nblog
+    
+    crawler = nblog.NaverBlogCrawler("your_naver_ID")
+    crawler.run()
+
+
+
+DESCRIPTION  
 
 ### memo
 - code stype : cameCase

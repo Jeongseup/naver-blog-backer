@@ -1,12 +1,11 @@
 naver-blog-backer
 =======
 
-**naver-blog-backer** 라이브러리는 개인 네이버 블로그의 글을 백업하고, 구글 검색 서치를 위한 백링크를 쉽게 생성합니다.
+**naver-blog-backer**는 개인 네이버 블로그의 글을 아카이빙 목적으로 백업하거나 구글 검색 서치를 위한 포스트 백링크를 작성해주는 패키지입니다.  
 
-**pick** is a small python library to help you create curses based interactive selection list in the terminal. 
-
-This package is for backup your naver blog posts  
-네이버 블로그를 마크다운언어로 파일로 백업해주는 패키지입니다.  
+※ 해당 패키지는 아래의 두 패키지를 참고하여 만들어졌습니다.
+1. https://github.com/Lenir/Naver-Blog-Backup
+2. https://github.com/chandong83/download-naver-blog
 
 Installation
 ------------
@@ -42,6 +41,10 @@ Usage
 ```
 SAVE DIRECTORY PATH는 반드시 빈 폴더여야 합니다. 그렇지 않으면, 에러가 발생하고 프로그램이 종료됩니다.
 
+**output**
+<img src="https://jeongseup.github.io/assets/naver-blog-backer/image/output_backup.png" width=70%></img>
+
+
 2. **backlink use case**
 
 ```python
@@ -61,17 +64,81 @@ SAVE DIRECTORY PATH는 반드시 빈 폴더여야 합니다. 그렇지 않으면
 ```
 백링크 생성 api는 반드시 빈 폴더일 필요가 없습니다.
 
+**output**
+
+<img src="https://jeongseup.github.io/assets/naver-blog-backer/image/output_backlink.png" width=70%></img>
+
 Options
 -------
 
 * ``targetId``: 백업 및 백링크를 위한 사용할 네이버 블로그 아이디입니다.
 * ``dirPath``: 백업 혹은 백링크 결과물을 저장할 경로입니다.
 * ``skipSticker`` : (optional) 블로그 포스트 내 스티커 이미지를 저장할지 말지에 대한 옵션입니다. 기본값은 True이며, True를 스티커 이미지를 스킵해 저장하지 않는 것을 뜻합니다.
-* ``isDevMode``: (optional) set this if the default selected option is not the first one
+* ``isDevMode``: (optional) **naver-blog-backer** 모듈 내 처리들에 대한 상세 히스토리를 볼 수 있는 개발자 모드 옵션입니다. 기본값은 False이며, 만약 True로 전환 시 [DEV MODE] 메세지가 출력됩니다.
 
 
+Examples
+---------
+1. **using pthon script** (*the code is tests folder in this repository*)
+```python
+import os
+from naverblogbacker.utils import isEmptyDirectory
+from naverblogbacker.blog import BlogCrawler
+from pick import pick
+
+
+def main(myId, myPath, myOption):
+    if myOption is 'backlink':
+        try:
+            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=False)
+            myBlog.backlinking(dirPath=myPath)
+            print(f' [MESSAGE] Complete! created your backlinks')
+            os.system("pause")
+
+        except Exception as e:
+            print(e)
+            os.system("pause")
+
+    elif myOption is 'backup':
+        try:
+            if not isEmptyDirectory(dirPath=myPath):
+                pass
+
+            myBlog = BlogCrawler(targetId=myId, skipSticker=True, isDevMode=False)
+            myBlog.crawling(dirPath=myPath)
+            print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
+            os.system("pause")
+
+        except Exception as e:
+            print(e)
+            os.system("pause")
+
+    else:
+        print(f' [MESSAGE] Sorry, It`s currently not supported')
+        os.system("pause")
+
+if __name__ == '__main__':
+    myId = 'YOUR NAVER ID'
+    myPath = 'SAVE DIRECTORY'
+    myOption =  'CHOOSE OPTIONS IN [backlink, backup]'
+
+    main(myId, myPath, myOption)
+```
+
+2. **using program** (*the program, naverblogbacker.exe, is root path in this repository*)
+
+
+#### Version Information
+##### ver 0.0.1 ~ 0.0.6
+Beta release. (crawling & backlicking complete) 
+
+##### Later
+it will be making GUI version for common users
+___
 Memo
 -----
+해당 라이브러리 및 프로그램 개발과 관련된 메모를 위한 공간입니다.
+
 - code stype : cameCase
 - 패키지 로직 (ver : 0.1)
     1. 일단.. blogPost라는 객체를 완성 후 url를 넣으면 bs4로 inframe 데이터를 가져온다.

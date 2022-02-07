@@ -1,22 +1,12 @@
 naver-blog-backer
 =======
 
-[![PyPI version](https://badge.fury.io/py/naver-blog-backer/badge.svg)](https://badge.fury.io/py/naver-blog-backer)
-
-
-[![Latest Version](https://pypip.in/version/<PYPI_PKG_NAME>/badge.svg)](https://pypi.python.org/pypi/<PYPI_PKG_NAME>/)
-
-[![Latest Version](https://pypip.in/version/navere-blog-backer/badge.svg)](https://pypi.python.org/pypi/naver-blog-backer)
-
+**naver-blog-backer** 라이브러리는 개인 네이버 블로그의 글을 백업하고, 구글 검색 서치를 위한 백링크를 쉽게 생성합니다.
 
 **pick** is a small python library to help you create curses based interactive selection list in the terminal. 
 
 This package is for backup your naver blog posts  
 네이버 블로그를 마크다운언어로 파일로 백업해주는 패키지입니다.  
-
-
-.. image:: https://github.com/wong2/pick/raw/master/example/basic.gif
-   :alt: Demo
 
 Installation
 ------------
@@ -25,21 +15,64 @@ Installation
 
 Usage
 ---------
-You can backup your Naver blog with using python3 script like this.  
-네이버 블로그를 파이썬3 스크립트를 사용하여 다음과 같이 백업할 수 있습니다.
 
-    from NaverBlogCrawler import NaverBlogCrawler as nblog
-    
-    crawler = nblog.NaverBlogCrawler("your_naver_ID")
-    crawler.run()
+**naverblogbacker**는 crawling과 backlinking 2가지 서비스를 제공합니다.
+
+1. **crawling use case**
 
 
+```python
+    from naverblogbacker.utils import isEmptyDirectory
+    from naverblogbacker.blog import BlogCrawler
+    import os
 
-DESCRIPTION  
+    myId = 'YOUR NAVER ID' 
+    myPath = 'SAVE DIRECTROY PATH'
+    mySkipSticker = 'TRUE OR FALSE'
 
-### memo
+    if isEmptyDirectory(dirPath=myPath):
+
+        myBlog = BlogCrawler(targetId=myId, skipSticker=mySkipSticker, isDevMode=False)
+        myBlog.crawling(dirPath=myPath)
+
+        # 정상적으로 실행 시 백업 후 에러 포스트 개수가 출력
+        print(f'[MESSAGE] Complete! your blog posts, the number of error posts is {BlogCrawler.errorPost}')
+        # 위의 메세지를 잘 보기 위해 프로그램 종료 전 정지
+        os.system("pause")
+```
+SAVE DIRECTORY PATH는 반드시 빈 폴더여야 합니다. 그렇지 않으면, 에러가 발생하고 프로그램이 종료됩니다.
+
+2. **backlink use case**
+
+```python
+    from naverblogbacker.blog import BlogCrawler
+    import os
+
+    myId = 'YOUR NAVER ID' 
+    myPath = 'SAVE DIRECTROY PATH'
+
+    myBlog = BlogCrawler(targetId=myId, skipSticker=mySkipSticker, isDevMode=False)
+    myBlog.backlinking(dirPath=myPath)
+
+    # 정상적으로 실행 시 백업 후 에러 포스트 개수가 출력
+    print(f' [MESSAGE] Complete! created your backlinks')
+    # 위의 메세지를 잘 보기 위해 프로그램 종료 전 정지
+    os.system("pause")
+```
+백링크 생성 api는 반드시 빈 폴더일 필요가 없습니다.
+
+Options
+-------
+
+* ``targetId``: 백업 및 백링크를 위한 사용할 네이버 블로그 아이디입니다.
+* ``dirPath``: 백업 혹은 백링크 결과물을 저장할 경로입니다.
+* ``skipSticker`` : (optional) 블로그 포스트 내 스티커 이미지를 저장할지 말지에 대한 옵션입니다. 기본값은 True이며, True를 스티커 이미지를 스킵해 저장하지 않는 것을 뜻합니다.
+* ``isDevMode``: (optional) set this if the default selected option is not the first one
+
+
+Memo
+-----
 - code stype : cameCase
-
 - 패키지 로직 (ver : 0.1)
     1. 일단.. blogPost라는 객체를 완성 후 url를 넣으면 bs4로 inframe 데이터를 가져온다.
     2. 전체 html data 중 se-component를 찾아서 실질적인 데이터만을 골라낸다.

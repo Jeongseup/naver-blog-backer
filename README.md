@@ -7,6 +7,12 @@ naver-blog-backer
 
 백링크 API는 기존 네이버 블로그 사용자들의 애로사항인 구글 검색 엔진에 포스트가 인덱싱 되지 않는 문제를 해결하기 위한 포스트 백링크 텍스트 파일로 저장합니다.
 
+
+![](https://jeongseup.github.io/assets/naver-blog-backer/video/example_script.gif)
+
+※ 일반 사용자분들께서는 해당 폴더 내에 위치한 'naverblogbacker.exe'파일을 다운 받으시면 됩니다. 
+*본래 임의의 프로그램을 실행시키는 것은 해킹 취약합니다. 다운로드 시 백신 프로그램이나 window defense에 검출될 수 있으나 안심하시길 바랍니다 :)*
+
 ※ 해당 패키지는 아래의 두 패키지를 참고하여 만들어졌습니다.
 1. https://github.com/Lenir/Naver-Blog-Backup
 2. https://github.com/chandong83/download-naver-blog
@@ -128,8 +134,22 @@ if __name__ == '__main__':
 
     main(myId, myPath, myOption)
 ```
+**sample**
+
+![](https://jeongseup.github.io/assets/naver-blog-backer/video/example_script.gif)
+
 
 2. **using program** (*the program, naverblogbacker.exe, is root path in this repository*)
+
+**sample**
+
+![](https://jeongseup.github.io/assets/naver-blog-backer/video/example_exe.gif)
+
+Notes
+---------
+
+#### Notations
+현재 이 패키지는 네이버 블로그 에디터 버젼 4만을 지원합니다. (스마트 에디터 one) 만약 백업할 수 없는 버젼의 포스트를 마주하게 되면 자동으로 종료합니다.
 
 
 #### Version Information
@@ -138,89 +158,93 @@ Beta release. (crawling & backlicking complete)
 
 ##### Later
 it will be making GUI version for common users
+
 ___
+
 Memo
 -----
 해당 라이브러리 및 프로그램 개발과 관련된 메모를 위한 공간입니다.
 
-- code stype : cameCase
-- 패키지 로직 (ver : 0.1)
-    1. 일단.. blogPost라는 객체를 완성 후 url를 넣으면 bs4로 inframe 데이터를 가져온다.
-    2. 전체 html data 중 se-component를 찾아서 실질적인 데이터만을 골라낸다.
-    3. parser를 import하여 각 compoenent를 parser로 parsing 한다.
+#### package things
+- code stype : cameCase  
+- package component python script file
+    1. blog.py
+    2. componentParser.py
+    3. post.py
+    4. utils.py
 
+- how it works?
+    1. Collect specific blog's posts as a list by requesting naver blog api.
 
-패키지 구성
-### 패지키 구성
-1. blog.py
-2. parser.py
-3. post.py
-4. utils.py
+    2. In one post item, Bring the inframe data with [bs4](https://pypi.org/project/beautifulsoup4/) package by using BlogPost class
 
-
-에디터 버젼 4의 component 구성  
-1. HEADER 와 CONTENT로 구성  
-2. 모든 컨텐츠는 div.se-component로 구성    
-
-
-HEADER ()  
-- 카테고리명 :  se-component & se-documentTitle > se-component-content > ... > blog2_series    
-- 제목 : se-component se-documentTitle > se-component-content > ... > se-title-text  
-- etc..    
-
-CONTENT  (div.se-main-container)  
-- 텍스트 : se-component & se-text > se-component-content > se-section-text >    
-    - 실제 텍스트 : ... > se-module-text > p.se-text-paragraph & span (span 태그에 실제 텍스트가 담김)    
-    - 엔터 : ... > se-module-text > p.se-text-paragraph & span (nothing)    
-    - 링크 : ... > se-module-text > p.se-text-paragraph & se-link  
+    3. If it get inframe data, one component would be parsing and saving data while for loop
     
-- 소제목 : se-component & se-sectionTitle > se-component-content > ... > se-module-text > se-text-paragraph    
+    4. In the end of for loop, it make full text data into one file. And then save it with its assets like imags, video.
 
-- 인용구 : se-component & se-quotation > se-component-content > ... > se-module-text > se-text-paragraph    
+    5. Repeats steps 2 to 4 until counting post list length
 
-- 구분선 : se-component & se-horizontalLine > se-component-content > se-section-horizontalLine > se-module-horizontalLIne   
-    - 구분선 : ... > hr.se-hr (스타일에 따라 변하지는 않음)  
+#### Naver blog editior things
+지원하는 에디터 버젼의 Component 구성은 크게 HEADER와 CONTENT로 나뉩니다. 그리고 모든 컨텐츠는 ``<div class="se-component"></div>``로 구성되어 있습니다.
+
+
+- HEADER
+    - 카테고리명 :  se-component & se-documentTitle > se-component-content > ... > blog2_series    
+    - 제목 : se-component se-documentTitle > se-component-content > ... > se-title-text  
     
-- 일정 : se-component & se-schedule   
-    - 일정 텍스트 : ... > se-component-content > se-section-schedule > se-module-schedule > ... > p.se-schedule-title   
-    - 일정 데이트 : ... > script[data-module] > data.startAt, data.endAt  
+- CONTENT
+    - 텍스트 컴포넌트(se-component & se-text)
+        - 일반 텍스트 : se-component & se-text > se-component-content > se-section-text > se-module-text > p.se-text-paragraph & span
 
-- 코드 : se-component & se-code > se-component-content > se-section-code > se-section-code > se-module-code > se-code-source     
+        - 공백 텍스트 : se-component & se-text > se-component-content > se-section-text > se-module-text > p.se-text-paragraph & span (nothing)    
 
-- 라이브러리(책, 영화) : se-component & se-material > se-component-content > se-section-material > a[data-linkdata]  
+        - 링크 텍스트 : se-component & se-text > se-component-content > se-section-text > se-module-text > p.se-text-paragraph & se-link 
+        
+        - 해시태그 텍스트 : se-component & se-text > se-component-content > ... > se-module-text > se-text-paragraph > __se-hash-tag   
 
-- 이미지 : se-component & se-image > se-component-content > se-section-image >  
-    - 이미지 소스 : ... > se-module-image > a[data-link, src] or a > img[data-lazy-src]  
-    - 이미지 텍스트 : ... > se-module-text & se-caption > p.se-text-paragraph > span  
+    - 소제목 컴포넌트(se-component & se-sectionTitle)
+        - 소제목 텍스트 : se-component & se-sectionTitle > se-component-content > ... > se-module-text > se-text-paragraph
 
-- sns 이미지 : 이미지 컴포넌트와 동일  
+    - 인용구 컴포넌트(se-component & se-quotation)
+        - 인용구 텍스트 : se-component & se-quotation > se-component-content > ... > se-module-text > se-text-paragraph    
 
-- 스티커 : se-component & se-sticker > se-component-content > se-section-sticker >  
-    - 이미지 소스 : ... > se-module-sticker > a > img.se-sticker-image[src]  
-    - 이미지 텍스트 : ... > se-module-text & se-caption > p.se-text-paragraph > span  
+    - 구분선 컴포넌트(se-component & se-horizontalLine)
+        - 구분선 : se-component & se-horizontalLine > se-component-content > se-section-horizontalLine > se-module-horizontalLIne > ... > hr.se-hr (스타일에 따라 변하지는 않음)
+    
+    - 일정 컴포넌트(se-component & se-schedule) **※ 지원하지 않음**
+        - 일정 텍스트 :  se-component & se-schedule > se-component-content > se-section-schedule > se-module-schedule > ... > p.se-schedule-title   
+        - 일정 데이트 :  se-component & se-schedule > script[data-module] > data.startAt, data.endAt  
 
-- 비디오 :  se-component & se-video    
-    - 비디오 컴포넌트 : ... > se-component-content > se-section-video    
-    - 비디오 소스 : ... > script > data-module (vid, inkey) -> api 요청(https://apis.naver.com/rmcnmv/rmcnmv/vod/play/v2.0/VID?key=?) -> 파일 저장된 URL로 요청     
+    - 코드 컴포넌트(se-component & se-code)
+        - 소스 코드 : se-component & se-code > se-component-content > se-section-code > se-section-code > se-module-code > se-code-source     
 
-- 파일 : se-component & se-file > se-component-content > se-section-file > se-module-file >  a[data-link] -> api 요청(link)  
+    - 라이브러리(책, 영화) 컴포넌트(se-component & se-material)
+        - 링크 데이터 : se-component & se-material > se-component-content > se-section-material > a[data-linkdata]  
 
-- 지도 :  se-component & se-placeMap > se-component-content > se-section-placeMap > se-module-text > a.se-map-info > se-map-title & se-map-address (생략하고 텍스트 데이터만 가져옴.)  
+    - 이미지 컴포넌트(se-component & se-image)
+        - 이미지 소스 : se-component & se-image > se-component-content > se-section-image > se-module-image > a[data-link, src] or a > img[data-lazy-src]  
+        - 이미지 텍스트 : se-component & se-image > se-component-content > se-section-image > se-module-text & se-caption > p.se-text-paragraph > span 
 
-- 링크 : se-component & se-text > se-component-content > ... > se-module-oglink > se-text-paragraph > se-link    
-    - a > se-oglink-thumbnail  
-    - a > se-oglink-info  
-    - se-oglink-title    
-    - se-oglink-summary  
-    - se-oglink url  
-(ex: <a href="http://example.com" class="se-link" target="_blank"><strike><u><i><b>http://example.com</b></i></u></strike></a> )    
+    - 스티커 컴포넌트(se-component & se-sticker)
+        - 이미지 소스 : se-component & se-sticker > se-component-content > se-section-sticker > se-module-sticker > a > img.se-sticker-image[src]  
+        - 이미지 텍스트 : se-component & se-sticker > se-component-content > se-section-sticker > se-module-text & se-caption > p.se-text-paragraph > span  
 
-- 해시태그 : se-component & se-text > se-component-content > ... > se-module-text > se-text-paragraph > __se-hash-tag  
+    - 비디오 컴포넌트(se-component & se-video)
+        - 비디오 컴포넌트 : se-component & se-video > se-component-content > se-section-video    
+        - 비디오 소스 : se-component & se-video > script > data-module (vid, inkey) 
+            1. api 요청(https://apis.naver.com/rmcnmv/rmcnmv/vod/play/v2.0/vid=?inkey=?)
+            2. json 페이지 내 저장 URL 위치
 
+    - 파일 컴포넌트(se-component & se-file)
+        - 파일 데이터 : se-component & se-file > se-component-content > se-section-file > se-module-file >  a[data-link]
+            1. link로 api 요청
 
+    - 지도 컴포넌트(se-component & se-placeMap) **※ 지원하지 않음**
+        - 지도 데이터 : se-component & se-placeMap > se-component-content > se-section-placeMap > se-module-text > a.se-map-info > se-map-title & se-map-address
 
-> https://wikidocs.net/21952
-> https://hongku.tistory.com/338
-
-
-<video id="dmp_Video" class="dmp_Video " playsinline="" webkit-playsinline="" x-webkit-airplay="allow" controlslist="nodownload" style="display: block; width: 100%; height: 100%; top: 0px; left: 0px;" src="blob:https://www.dailymotion.com/b38a4473-0553-46aa-ba9c-a7b6b6e3a190"></video>
+    - 임베디드 컴포넌트(se-component se-oembed)
+        - 비디오 데이터 : ... > content['data-module']
+            - 비디오 URL 
+            - 비디오 제목
+            - 비디오 썸네일 URL
+            - 비디오 description

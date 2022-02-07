@@ -1,16 +1,14 @@
 naver-blog-backer
 =======
 
-**naver-blog-backer**는 네이버 블로그를 백업(크롤링)과 백링크 두 API를 제공하는 패키지입니다.
-
-백업(crawling) API는 개인 네이버 블로그의 글을 아카이빙 목적으로 기존 포스트를 마크다운언어 파일로 저장합니다.
-
-백링크 API는 기존 네이버 블로그 사용자들의 애로사항인 구글 검색 엔진에 포스트가 인덱싱 되지 않는 문제를 해결하기 위한 포스트 백링크 텍스트 파일로 저장합니다.
+**naver-blog-backer**는 네이버 블로그를 백업(크롤링)과 백링크 두 API를 제공하는 패키지입니다.  
+백업(crawling) API는 개인 네이버 블로그의 글을 아카이빙 목적으로 기존 포스트를 마크다운언어 파일로 저장합니다.  
+백링크 API는 기존 네이버 블로그 사용자들의 애로사항인 구글 검색 엔진에 포스트가 인덱싱 되지 않는 문제를 해결하기 위한 포스트 백링크 텍스트 파일로 저장합니다.  
 
 
 ![](https://jeongseup.github.io/assets/naver-blog-backer/video/example_script.gif)
 
-※ 일반 사용자분들께서는 해당 폴더 내에 위치한 'naverblogbacker.exe'파일을 다운 받으시면 됩니다. 
+※ 일반 사용자분들께서는 해당 폴더 내에 위치한 'naverblogbacker.exe'파일을 다운 받으시면 됩니다.  
 *본래 임의의 프로그램을 실행시키는 것은 해킹 취약합니다. 다운로드 시 백신 프로그램이나 window defense에 검출될 수 있으나 안심하시길 바랍니다 :)*
 
 ※ 해당 패키지는 아래의 두 패키지를 참고하여 만들어졌습니다.
@@ -49,9 +47,10 @@ Usage
         # 위의 메세지를 잘 보기 위해 프로그램 종료 전 정지
         os.system("pause")
 ```
-SAVE DIRECTORY PATH는 반드시 빈 폴더여야 합니다. 그렇지 않으면, 에러가 발생하고 프로그램이 종료됩니다.
+※ SAVE DIRECTORY PATH는 반드시 빈 폴더여야 합니다. 그렇지 않으면, 에러가 발생하고 프로그램이 종료됩니다.
 
 **output**
+
 <img src="https://jeongseup.github.io/assets/naver-blog-backer/image/output_backup.png" width=70%></img>
 
 
@@ -72,7 +71,7 @@ SAVE DIRECTORY PATH는 반드시 빈 폴더여야 합니다. 그렇지 않으면
     # 위의 메세지를 잘 보기 위해 프로그램 종료 전 정지
     os.system("pause")
 ```
-백링크 생성 api는 반드시 빈 폴더일 필요가 없습니다.
+※ 백링크 생성 api는 반드시 빈 폴더일 필요가 없습니다.
 
 **output**
 
@@ -154,7 +153,10 @@ Notes
 
 #### Version Information
 ##### ver 0.0.1 ~ 0.0.6
-Beta release. (crawling & backlicking complete) 
+Test bed
+
+##### ver 0.0.1 ~ 0.0.6
+Beta Release
 
 ##### Later
 it will be making GUI version for common users

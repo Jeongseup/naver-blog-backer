@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="naver-blog-backer",
-    version="0.0.6",
+    version="0.0.7",
     license='BSD',
     description="Backup your naver blog and Create backlink text file",
     long_description=long_description,

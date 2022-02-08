@@ -1,6 +1,7 @@
 import os
 from naverblogbacker.utils import isEmptyDirectory
 from naverblogbacker.blog import BlogCrawler
+import auth
 from pick import pick
 
 
@@ -63,8 +64,18 @@ if __name__ == '__main__':
     check, _ = pick(checkOptions, checkTitle, indicator='>')
 
     if check is 'go':
-        main(myId, myPath, myOption)
+        print(f'\n [MESSAGE] Please wait a second while sending a mail with temporary token \n')
+        authToken = auth.sendToken(f'{myId}@naver.com')
+
+        print(f'\n [MESSAGE] Check your naver email. And then Verify the token \n')
+        inputToken = input("token is : ")
+
+        if str(authToken) == str(inputToken):
+            main(myId, myPath, myOption)
+            os.system("pause")
+        else:
+            print(f'\n [MESSAGE] Sorry, your input token is not correct, Exit the programe. Bye :) \n')
+            os.system("pause")
     else:
         print(f'\n [MESSAGE] Exit the programe. Bye :) \n')
         os.system("pause")
-

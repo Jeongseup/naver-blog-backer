@@ -1,34 +1,49 @@
-# Function to read the contacts from a given contact file and return a
-# list of names and email addresses
-def get_contacts(filename):
-    names = []
-    emails = []
-    with open(filename, mode='r', encoding='utf-8') as contacts_file:
-        for a_contact in contacts_file:
-            names.append(a_contact.split()[0])
-            emails.append(a_contact.split()[1])
-    return names, emails
-
-from string import Template
-
-def read_template(filename):
-    with open(filename, 'r', encoding='utf-8') as template_file:
-        template_file_content = template_file.read()
-    return Template(template_file_content)
-
+from _socket import gaierror
+import os
+from dotenv import load_dotenv
 import smtplib
-# set up the SMTP server
-s = smtplib.SMTP(host='your_host_address_here', port=your_port_here)
-s.starttls()
-s.login(MY_ADDRESS, PASSWORD)
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import secrets
+
+authToken = secrets.token_urlsafe(16)
+
+load_dotenv()
+APP_SENDER = os.getenv('SENDER')
+APP_PASSWORD = os.getenv('PASSWORD')
+
+PORT = 465
+SERVER = "smtp.gmail.com"
+messageContent = f'''
+This is a simple mail. There is only text, no attachments are there The mail is sent using Python SMTP library.
+
+${authToken}
+Thank You
+'''
 
 if __name__ == '__main__':
+	# specify the sender’s and receiver’s email addresses
+	APP_RECEVIER = input("Please enter your receiver address : ")
 
-	output = get_contacts('contact.txt')
-	template = read_template('message.txt')
+	message = MIMEMultipart()
 
-	message = template.substitute(PERSON_NAME='Jeongseup')
+	message['FROM'] = APP_SENDER
+	message['To'] = APP_RECEVIER
+	message['Subject'] = 'NAVER BLOG BACKER Auth Mail by Jeongseup'
 
-	# print(output)
-	print(message)
+	message.attach(MIMEText(messageContent, 'plain'))
 
+	try:
+		# send your message with credentials specified above
+		with smtplib.SMTP_SSL(SERVER, PORT) as server:
+			server.login(APP_SENDER, APP_PASSWORD)
+			server.sendmail(APP_SENDER, APP_RECEVIER, message.as_string())
+
+		# tell the script to report if your message was sent or which errors need to be fixed
+		print('Sent')
+	except (gaierror, ConnectionRefusedError):
+		print('Failed to connect to the server. Bad connection settings?')
+	except smtplib.SMTPServerDisconnected:
+		print('Failed to connect to the server. Wrong user/password?')
+	except smtplib.SMTPException as e:
+		print('SMTP error occurred: ' + str(e))

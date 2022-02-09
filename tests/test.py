@@ -57,7 +57,8 @@ if __name__ == '__main__':
 
     Current selected service is "{myOption}",
     Current entered id is "{myId}",
-    Current computer save path is "{myPath}" '''
+    Current computer save path is "{myPath}" 
+    '''
 
     checkOptions = ['go', 'stop']
 

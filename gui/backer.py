@@ -1,10 +1,11 @@
 import os
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QFile, Qt
+from PyQt5.QtCore import QCoreApplication, QFile, Qt, QTimer, QBasicTimer
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
-	QRadioButton, QFileDialog
+	QRadioButton, QFileDialog, QInputDialog, QProgressDialog
+from PyQt5.QtWidgets import QMessageBox
 
 
 def load_stylesheet(app, res="./src/style.qss"):
@@ -124,7 +125,7 @@ class MyApp(QWidget):
 		runButton = QPushButton('Run')
 		cancelButton = QPushButton('Cancel')
 
-		# runButton.clicked.connect(self.run)
+		runButton.clicked.connect(self.authDialog)
 		cancelButton.clicked.connect(QCoreApplication.instance().quit)
 
 		hBox = QHBoxLayout()
@@ -135,8 +136,16 @@ class MyApp(QWidget):
 
 		return hBox
 
+	def closeEvent(self, event):
+		print(event)
 
 	# ==============================================================
+	def statusText(self):
+		if self.myPath != '' or self.myId != '' or self.myOption != '':
+			return \
+				f'''입력된 아이디는 : {self.myId}\n입력된 옵션은 : {self.myOption}\n입력된 저장경로 : {self.myPath}'''
+		else:
+			return '안녕하세요, 네이버 블로거 백커입니다 :)'
 
 	def onClicked(self):
 		radioButton = self.sender()
@@ -168,12 +177,30 @@ class MyApp(QWidget):
 			self.statusLabel.setText(self.statusText())
 			pass
 
-	def statusText(self):
-		if self.myPath != '' or self.myId != '' or self.myOption != '':
-			return \
-				f'''입력된 아이디는 : {self.myId}\n입력된 옵션은 : {self.myOption}\n입력된 저장경로 : {self.myPath}'''
+	def authDialog(self):
+		text, ok = QInputDialog.getText(self, 'Auth Dialog', 'Enter the token : ')
+
+		if ok:
+
+			# print(f' [DEV] Token is {text}')
+
+			# 토큰값 체크
+			if True:
+				print('시작')
+
+				progress = QProgressDialog("Run", "서비스를 시작합니다.", 0, 100, self)
+				progress.show()
+
+				# progress.setAutoClose(False)
+
+				# btn = QPushButton('Cancel')
+				# btn.setEnabled(False)
+				# progress.setCancelButton(btn)
+
+				# progress.setValue(0)
+
 		else:
-			return '안녕하세요, 네이버 블로거 백커입니다 :)'
+				QMessageBox.information(self, "ERROR", "올바르지 않은 토큰값입니다.")
 
 
 if __name__ == '__main__':

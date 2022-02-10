@@ -1,7 +1,0 @@
-
-Dear ${PERSON_NAME}, 
-
-This is a test message. 
-Have a great weekend! 
-
-Yours Truly

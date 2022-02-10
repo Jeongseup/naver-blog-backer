@@ -1,39 +1,48 @@
+import os
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QFile
+from PyQt5.QtCore import QCoreApplication, QFile, Qt
 from PyQt5.QtGui import QFont, QIcon
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
+	QRadioButton, QFileDialog
+
+
+def load_stylesheet(app, res="./src/style.qss"):
+	rc = QFile(res)
+	rc.open(QFile.ReadOnly)
+	content = rc.readAll().data()
+	app.setStyleSheet(str(content, "utf-8"))
+
 
 class MyApp(QWidget):
 
 	def __init__(self):
 		super().__init__()
 
-		self.myId = None
-		self.myPath = None
-		self.myOption = None
+		self.myId = ''
+		self.myPath = ''
+		self.myOption = ''
 
 		self.initUI()
 
 	def initUI(self):
-
 		vBox = QVBoxLayout()
-		vBox.addStretch(1)
-		vBox.addWidget(self.optionGroup())
-		vBox.addStretch(1)
+
 		vBox.addWidget(self.statusGroup())
 		vBox.addStretch(1)
+		vBox.addWidget(self.optionGroup())
 
 		self.setLayout(vBox)
 		self.setWindowIcon(QIcon('./src/icon.png'))
-		self.setWindowTitle('NAVER BLOG BACKER')
-		# self.setGeometry(300, 300, 300, 200)
+		self.setWindowTitle('네이버 블로그 백커')
+		self.resize(500, 400)
 		self.show()
 
 	# ==============================================================
+
 	def statusGroup(self):
-		groupBox = QGroupBox('현재 옵션')
-		# groupBox.setFlat(True)
+		groupBox = QGroupBox('현재 설정된 옵션값')
+		groupBox.setFlat(True)
 
 		vBox = QVBoxLayout()
 		vBox.addLayout(self.statusBox())
@@ -42,86 +51,130 @@ class MyApp(QWidget):
 		return groupBox
 
 	def statusBox(self):
-		label1 = QLabel('Status Label', self)
-		label1.setAlignment(Qt.AlignCenter)
 
-		label2 = QLabel('Second Label', self)
-		label2.setAlignment(Qt.AlignVCenter)
-
-		lbl_red.setStyleSheet("color: red;"
-							  "border-style: solid;"
-							  "border-width: 2px;"
-							  "border-color: #FA8072;"
-							  "border-radius: 3px")
-
-		lbl_green.setStyleSheet("color: green;"
-								"background-color: #7FFFD4")
-
-		font1 = label1.font()
-		font1.setPointSize(20)
-
-		idLabel = QLabel('네이버 아이디를 입력하세요 : ')
-		inputIdLine = QLineEdit()
-		inputIdLine.returnPressed.connect(self.enterId)
-
+		self.statusLabel = QLabel(self.statusText())
+		self.statusLabel.setAlignment(Qt.AlignVCenter)
 		hBox = QHBoxLayout()
-		hBox.addStretch(1)
-		hBox.addWidget(idLabel)
-		hBox.addWidget(inputIdLine)
-		hBox.addStretch(1)
+		hBox.addWidget(self.statusLabel)
 
 		return hBox
 
 	# ==============================================================
 	def optionGroup(self):
-		groupBox = QGroupBox('옵션들')
-		# groupBox.setFlat(True)
+		groupBox = QGroupBox('백업 옵션')
+		groupBox.setFlat(True)
 
 		vBox = QVBoxLayout()
+		vBox.addLayout(self.radioBox())
 		vBox.addLayout(self.idBox())
+		vBox.addLayout(self.pathBox())
 		vBox.addLayout(self.buttonBox())
-
 		groupBox.setLayout(vBox)
 		return groupBox
 
-	def buttonBox(self):
-		# buttons
-		okButton = QPushButton('OK')
-		cancelButton = QPushButton('Cancel')
-		cancelButton.clicked.connect(QCoreApplication.instance().quit)
+	def radioBox(self):
 
 		hBox = QHBoxLayout()
-		hBox.addStretch(1)
-		hBox.addWidget(okButton)
-		hBox.addWidget(cancelButton)
-		hBox.addStretch(1)
+
+		optionLabel = QLabel('옵션을 선택하세요 : ')
+		hBox.addWidget(optionLabel)
+
+		radioButton = QRadioButton('[옵션1] 백업')
+		radioButton.option = "backup"
+		radioButton.toggled.connect(self.onClicked)
+		hBox.addWidget(radioButton)
+
+		radioButton = QRadioButton('[옵션2] 백링크')
+		radioButton.option = "backlink"
+		radioButton.toggled.connect(self.onClicked)
+		hBox.addWidget(radioButton)
+
+		radioButton = QRadioButton('[옵션3] 모두')
+		radioButton.option = "both"
+		radioButton.toggled.connect(self.onClicked)
+		hBox.addWidget(radioButton)
 
 		return hBox
 
 	def idBox(self):
 		idLabel = QLabel('네이버 아이디를 입력하세요 : ')
+
 		inputIdLine = QLineEdit()
 		inputIdLine.returnPressed.connect(self.enterId)
 
 		hBox = QHBoxLayout()
-		hBox.addStretch(1)
 		hBox.addWidget(idLabel)
 		hBox.addWidget(inputIdLine)
+
+		return hBox
+
+	def pathBox(self):
+		pathLabel = QLabel('저장경로를 선택하세요 : ')
+
+		pathButton = QPushButton('저장경로 선택')
+		pathButton.pressed.connect(self.pathDialog)
+
+		hBox = QHBoxLayout()
+		hBox.addWidget(pathLabel)
+		hBox.addWidget(pathButton)
+
+		return hBox
+
+	def buttonBox(self):
+		runButton = QPushButton('Run')
+		cancelButton = QPushButton('Cancel')
+
+		# runButton.clicked.connect(self.run)
+		cancelButton.clicked.connect(QCoreApplication.instance().quit)
+
+		hBox = QHBoxLayout()
+		hBox.addStretch(1)
+		hBox.addWidget(runButton)
+		hBox.addWidget(cancelButton)
 		hBox.addStretch(1)
 
 		return hBox
 
+
 	# ==============================================================
+
+	def onClicked(self):
+		radioButton = self.sender()
+		if radioButton.isChecked():
+			print(f' [DEV] User entered the id, {radioButton.option}')
+			self.myOption = radioButton.option
+			self.statusLabel.setText(self.statusText())
 
 	def enterId(self):
 		inputIdLine = self.sender()
 		inputId = inputIdLine.text()
 
 		print(f' [DEV] User entered the id, {inputId}')
-		self.myId = inputId
 
-		# self.settingLable1.setText(f'현재 입력된 아이디는 "{text}" 입니다.')
-		# self.settingLable1.adjustSize()
+		self.myId = inputId
+		self.statusLabel.setText(self.statusText())
+
+	def pathDialog(self):
+		defaultPath = os.path.expanduser('~') + '/downloads'
+		dirPath = QFileDialog.getExistingDirectory(self, "Open Empty Directory", defaultPath)
+
+		# 선택하지 않았을 경우
+		if dirPath is '':
+			print('no select')
+		else:
+			print(f' [DEV] User selected path, {dirPath}')
+
+			self.myPath = dirPath
+			self.statusLabel.setText(self.statusText())
+			pass
+
+	def statusText(self):
+		if self.myPath != '' or self.myId != '' or self.myOption != '':
+			return \
+				f'''입력된 아이디는 : {self.myId}\n입력된 옵션은 : {self.myOption}\n입력된 저장경로 : {self.myPath}'''
+		else:
+			return '안녕하세요, 네이버 블로거 백커입니다 :)'
+
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)

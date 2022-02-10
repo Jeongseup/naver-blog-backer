@@ -1,7 +1,7 @@
 import os
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QFile, Qt, QTimer, QBasicTimer
+from PyQt5.QtCore import QCoreApplication, QFile, Qt
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
 	QRadioButton, QFileDialog, QInputDialog, QProgressDialog
@@ -188,19 +188,23 @@ class MyApp(QWidget):
 			if True:
 				print('시작')
 
-				progress = QProgressDialog("Run", "서비스를 시작합니다.", 0, 100, self)
-				progress.show()
+				progress = QProgressDialog()
+				progress.setWindowIcon(QIcon('./src/icon.png'))
+				progress.setWindowTitle("Run")
+				progress.setLabelText("서비스를 진행 중입니다.")
 
+				progress.setValue(30)
 				# progress.setAutoClose(False)
 
-				# btn = QPushButton('Cancel')
-				# btn.setEnabled(False)
-				# progress.setCancelButton(btn)
-
-				# progress.setValue(0)
+				btn = QPushButton('Cancel')
+				btn.setEnabled(False)
+				progress.setCancelButton(btn)
+				
+				progress.exec()
+				print("종료")
 
 		else:
-				QMessageBox.information(self, "ERROR", "올바르지 않은 토큰값입니다.")
+			QMessageBox.information(self, "ERROR", "올바르지 않은 토큰값입니다.")
 
 
 if __name__ == '__main__':

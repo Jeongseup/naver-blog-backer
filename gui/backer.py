@@ -1,14 +1,32 @@
 import os
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QFile, Qt, QEventLoop, QTimer
+from PyQt5.QtCore import QCoreApplication, QFile, Qt
+
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
-	QRadioButton, QFileDialog, QInputDialog, QProgressDialog
-from PyQt5.QtWidgets import QMessageBox
+	QRadioButton, QFileDialog, QInputDialog, QProgressDialog, QMessageBox
+
 from naverblogbacker.blog import BlogCrawler
 from naverblogbacker.post import BlogPost
 from naverblogbacker.utils import createNewDirectory
+
+''' test function
+def doGenerate(setValue):
+	for x2 in range(5):
+		loop = QEventLoop()
+		QTimer.singleShot(1000, loop.quit)
+		loop.exec_()
+		setValue(x2 + 1)
+
+	print('Done')
+	return True
+'''
+def load_stylesheet(app, res="./src/style.qss"):
+	rc = QFile(res)
+	rc.open(QFile.ReadOnly)
+	content = rc.readAll().data()
+	app.setStyleSheet(str(content, "utf-8"))
 
 
 class ProgressCrawler(BlogCrawler):
@@ -18,7 +36,7 @@ class ProgressCrawler(BlogCrawler):
 		if len(self.postList) == 0:
 			raise (Exception(f'[ERROR] postList 함수가 정상적으로 실행되지 않았습니다.'))
 
-		for post in self.postList:
+		for i, post in enumerate(self.postList):
 			tempPostDir = dirPath + "/" + post['logNo']
 
 			if not createNewDirectory(tempPostDir):
@@ -34,6 +52,11 @@ class ProgressCrawler(BlogCrawler):
 			# 포스트 백업 후 클래스 변수 초기화
 			BlogPost.errorCount = 0
 
+			print(f' [DEV] {(i / len(self.postList) * 100):.2f} % 완료했습니다.')
+			setValue(i + 1)
+
+		print(f' [DEV] User service complete!')
+
 	def backlinking(self, dirPath, setValue):
 		urlPrefix = f'https://blog.naver.com/PostView.naver?blogId={self.targetId}&logNo='
 		filePath = dirPath + '/' + 'backlink.txt'
@@ -45,7 +68,7 @@ class ProgressCrawler(BlogCrawler):
 			with open(filePath, mode='w', encoding='utf-8') as fp:
 				data = ''
 
-				for post in self.postList:
+				for i, post in enumerate(self.postList):
 					txt = ''
 					txt += post['title']
 					txt += '\n'
@@ -54,18 +77,14 @@ class ProgressCrawler(BlogCrawler):
 
 					data += txt
 
+					print(f' [DEV] {(i / len(self.postList) * 100):.2f} % 완료했습니다.')
+					setValue(i + 1)
+
 				fp.write(data)
+				print(f' [DEV] User service complete!')
 			return True
 		except Exception as e:
-			print(e)
-			return False
-
-
-def load_stylesheet(app, res="./src/style.qss"):
-	rc = QFile(res)
-	rc.open(QFile.ReadOnly)
-	content = rc.readAll().data()
-	app.setStyleSheet(str(content, "utf-8"))
+			raise Exception(e)
 
 
 class MyApp(QWidget):
@@ -256,7 +275,8 @@ class MyApp(QWidget):
 
 				progress.show()
 				progress.setValue(0)
-			# doGenerate(progress.setValue, postLength)
+				myBlog.backlinking(dirPath=self.myPath, setValue=progress.setValue)
+				print('종료')
 
 			elif self.myOption is 'backup':
 				myBlog = ProgressCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
@@ -272,10 +292,26 @@ class MyApp(QWidget):
 
 				progress.show()
 				progress.setValue(0)
-				self.testProgress(progress.setValue, postLength)
+				myBlog.crawling(dirPath=self.myPath, setValue=progress.setValue)
+				print('종료')
+
+			# elif self.myOption is 'both':
+			# 	raise Exception('[MESSAGE] 죄송합니다, 현재 이 기능은 지원하지 않습니다.')
 
 			else:
-				raise Exception('[MESSAGE] 죄송합니다, 현재 이 기능은 지원하지 않습니다.')
+				progressServiceMessage = "서비스를 진행 중 입니다."
+				progress = QProgressDialog(progressServiceMessage, None, 0, 5, self)
+
+				progress.setWindowTitle("Progress about Running")
+				progress.setWindowIcon(QIcon('./src/icon.png'))
+				progress.setWindowModality(Qt.WindowModal)
+
+				progress.show()
+				progress.setValue(0)
+
+				# 정상적으로 종료시
+				if doGenerate(progress.setValue):
+					self.msgBox()
 
 		except Exception as e:
 			errBox = QMessageBox()
@@ -285,18 +321,17 @@ class MyApp(QWidget):
 			errBox.exec()
 			return
 
-	def testProgress(self, setValue, MaxValue):
-		for i in range(MaxValue):
-			# if i == 4:
-			#     raise Exception('에러 발생!')
+	def msgBox(self):
+		msgBox = QMessageBox()
+		msgBox.setWindowIcon(QIcon('./src/icon.png'))
+		msgBox.setWindowTitle('Info')
+		msgBox.setWindowModality(Qt.WindowModal)
+		msgBox.setText('완료되었습니다.\n 이 창을 닫으시면 프로그램을 종료합니다.')
+		msgBox.addButton(QMessageBox.Ok)
+		msgBox.exec()
 
-			loop = QEventLoop()
-			QTimer.singleShot(500, loop.quit)
-			loop.exec_()
-
-			print(f' [DEV] {(i / MaxValue * 100):.2f} % 완료했습니다.')
-			setValue(i + 1)
-		print(f' [DEV] User service complete!')
+		os.startfile(self.myPath)
+		sys.exit(0)
 
 
 if __name__ == '__main__':

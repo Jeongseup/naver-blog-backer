@@ -1,12 +1,64 @@
 import os
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QFile, Qt, QBasicTimer, QEventLoop, QTimer
+from PyQt5.QtCore import QCoreApplication, QFile, Qt, QEventLoop, QTimer
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
 	QRadioButton, QFileDialog, QInputDialog, QProgressDialog
 from PyQt5.QtWidgets import QMessageBox
 from naverblogbacker.blog import BlogCrawler
+from naverblogbacker.post import BlogPost
+from naverblogbacker.utils import createNewDirectory
+
+
+class ProgressCrawler(BlogCrawler):
+	def crawling(self, dirPath, setValue):
+		urlPrefix = f'https://blog.naver.com/{self.targetId}/'
+
+		if len(self.postList) == 0:
+			raise (Exception(f'[ERROR] postList 함수가 정상적으로 실행되지 않았습니다.'))
+
+		for post in self.postList:
+			tempPostDir = dirPath + "/" + post['logNo']
+
+			if not createNewDirectory(tempPostDir):
+				raise Exception(f"[ERROR] : {post['logNo']}포스트 폴더가 정상적으로 생성되지 않았습니다.")
+
+			tempPostUrl = urlPrefix + post['logNo']
+			tempPost = BlogPost(tempPostUrl, isDevMode=self.isDevMode)
+			tempPost.run(dirPath=tempPostDir)
+
+			if BlogPost.errorCount != 0:
+				BlogCrawler.errorPost += 1
+
+			# 포스트 백업 후 클래스 변수 초기화
+			BlogPost.errorCount = 0
+
+	def backlinking(self, dirPath, setValue):
+		urlPrefix = f'https://blog.naver.com/PostView.naver?blogId={self.targetId}&logNo='
+		filePath = dirPath + '/' + 'backlink.txt'
+
+		if len(self.postList) == 0:
+			raise (Exception(f'[ERROR] postList 함수가 정상적으로 실행되지 않았습니다.'))
+
+		try:
+			with open(filePath, mode='w', encoding='utf-8') as fp:
+				data = ''
+
+				for post in self.postList:
+					txt = ''
+					txt += post['title']
+					txt += '\n'
+					txt += urlPrefix + post['logNo']
+					txt += '\n\n'
+
+					data += txt
+
+				fp.write(data)
+			return True
+		except Exception as e:
+			print(e)
+			return False
 
 
 def load_stylesheet(app, res="./src/style.qss"):
@@ -14,6 +66,7 @@ def load_stylesheet(app, res="./src/style.qss"):
 	rc.open(QFile.ReadOnly)
 	content = rc.readAll().data()
 	app.setStyleSheet(str(content, "utf-8"))
+
 
 class MyApp(QWidget):
 	def __init__(self):
@@ -26,9 +79,6 @@ class MyApp(QWidget):
 		self.initUI()
 
 	def initUI(self):
-		self.timer = QBasicTimer()
-		self.step = 0
-
 		vBox = QVBoxLayout()
 
 		vBox.addWidget(self.statusGroup())
@@ -63,8 +113,9 @@ class MyApp(QWidget):
 		return hBox
 
 	# ==============================================================
+
 	def optionGroup(self):
-		groupBox = QGroupBox('백업 옵션')
+		groupBox = QGroupBox('서비스 옵션')
 		groupBox.setFlat(True)
 
 		vBox = QVBoxLayout()
@@ -79,7 +130,7 @@ class MyApp(QWidget):
 
 		hBox = QHBoxLayout()
 
-		optionLabel = QLabel('옵션을 선택하세요 : ')
+		optionLabel = QLabel('이용할 서비스를 선택하세요 : ')
 		hBox.addWidget(optionLabel)
 
 		radioButton = QRadioButton('[옵션1] 백업')
@@ -112,8 +163,7 @@ class MyApp(QWidget):
 		return hBox
 
 	def pathBox(self):
-		pathLabel = QLabel('저장경로를 선택하세요 : ')
-
+		pathLabel = QLabel('저장경로를 선택하세요         : ')
 		pathButton = QPushButton('저장경로 선택')
 
 		pathButton.pressed.connect(self.pathDialog)
@@ -139,7 +189,8 @@ class MyApp(QWidget):
 
 		return hBox
 
-	# ==============================================================
+	# == [FUNCTIONS] =========================================================
+
 	def statusText(self):
 		if self.myPath != '' or self.myId != '' or self.myOption != '':
 			return \
@@ -186,37 +237,65 @@ class MyApp(QWidget):
 			# if str(authToken) == str(inputToken):
 			if True:
 				self.progressDialog()
-
 			else:
 				QMessageBox.information(self, "ERROR", "올바르지 않은 토큰값입니다.")
 
 	def progressDialog(self):
+		try:
+			if self.myOption is 'backlink':
+				myBlog = ProgressCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
+				postLength = len(myBlog.postList)
+				print(f' [DEV] {postLength}개의 포스트 데이터 추가, 프로그레스 다이얼로그 생성')
 
-		myBlog = BlogCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
-		print(len(myBlog.postList))
+				progressServiceMessage = "서비스를 진행 중 입니다."
+				progress = QProgressDialog(progressServiceMessage, None, 0, postLength, self)
 
-		n = len(myBlog.postList)
-		progress = QProgressDialog("서비스를 진행 중입니다", None, 0, n, self)
-		progress.setWindowTitle("Run")
-		progress.setWindowIcon(QIcon('./src/icon.png'))
-		progress.setWindowModality(Qt.WindowModal)
-		progress.show()
+				progress.setWindowTitle("Progress about Running")
+				progress.setWindowIcon(QIcon('./src/icon.png'))
+				progress.setWindowModality(Qt.WindowModal)
 
-		progress.setValue(0)
-		doGenerate(progress.setValue, n)
+				progress.show()
+				progress.setValue(0)
+			# doGenerate(progress.setValue, postLength)
 
-		print("종료")
+			elif self.myOption is 'backup':
+				myBlog = ProgressCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
+				postLength = len(myBlog.postList)
+				print(f' [DEV] {postLength}개의 포스트 데이터 추가, 프로그레스 다이얼로그 생성')
 
-	def doGenerate(setValue, SIZE):
-		for i in range(SIZE):
+				progressServiceMessage = "서비스를 진행 중 입니다."
+				progress = QProgressDialog(progressServiceMessage, None, 0, postLength, self)
+
+				progress.setWindowTitle("Progress about Running")
+				progress.setWindowIcon(QIcon('./src/icon.png'))
+				progress.setWindowModality(Qt.WindowModal)
+
+				progress.show()
+				progress.setValue(0)
+				self.testProgress(progress.setValue, postLength)
+
+			else:
+				raise Exception('[MESSAGE] 죄송합니다, 현재 이 기능은 지원하지 않습니다.')
+
+		except Exception as e:
+			errBox = QMessageBox()
+			errBox.setWindowTitle('Error')
+			errBox.setText('Error: ' + str(e))
+			errBox.addButton(QMessageBox.Ok)
+			errBox.exec()
+			return
+
+	def testProgress(self, setValue, MaxValue):
+		for i in range(MaxValue):
 			# if i == 4:
 			#     raise Exception('에러 발생!')
+
 			loop = QEventLoop()
 			QTimer.singleShot(500, loop.quit)
 			loop.exec_()
-			print(f' [DEV] {i / SIZE * 100}. % 완료했습니다.')
-			setValue(i + 1)
 
+			print(f' [DEV] {(i / MaxValue * 100):.2f} % 완료했습니다.')
+			setValue(i + 1)
 		print(f' [DEV] User service complete!')
 
 

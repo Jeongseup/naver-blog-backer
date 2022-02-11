@@ -5,10 +5,22 @@ from PyQt5.QtCore import QCoreApplication, QFile, Qt
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
 	QRadioButton, QFileDialog, QInputDialog, QProgressDialog, QMessageBox
+from naverblogbacker.auth import sendToken
 from naverblogbacker.blog import BlogCrawler
 from naverblogbacker.post import BlogPost
 from naverblogbacker.utils import createNewDirectory
 
+def load_stylesheet(app, res="backer.qss"):
+	qssPath = resourcePath(res)
+	rc = QFile(qssPath)
+	rc.open(QFile.ReadOnly)
+	content = rc.readAll().data()
+	app.setStyleSheet(str(content, "utf-8"))
+
+
+def resourcePath(relative_path):
+	base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+	return os.path.join(base_path, relative_path)
 
 class ProgressCrawler(BlogCrawler):
 	def crawling(self, dirPath, setValue):
@@ -72,6 +84,7 @@ class ProgressCrawler(BlogCrawler):
 class MyApp(QWidget):
 	def __init__(self):
 		super().__init__()
+		self.myIconPath = resourcePath('backer.ico')
 
 		self.myId = ''
 		self.myPath = ''
@@ -87,7 +100,7 @@ class MyApp(QWidget):
 		vBox.addWidget(self.optionGroup())
 
 		self.setLayout(vBox)
-		self.setWindowIcon(QIcon('./src/icon.png'))
+		self.setWindowIcon(QIcon(self.myIconPath))
 		self.setWindowTitle('네이버 블로그 백커')
 		self.resize(500, 400)
 		self.show()
@@ -176,8 +189,8 @@ class MyApp(QWidget):
 		return hBox
 
 	def buttonBox(self):
-		runButton = QPushButton('    Run    ')
-		cancelButton = QPushButton('Cancel')
+		runButton = QPushButton('     Run     ')
+		cancelButton = QPushButton('  Cancel  ')
 
 		runButton.clicked.connect(self.authDialog)
 		cancelButton.clicked.connect(QCoreApplication.instance().quit)
@@ -230,13 +243,17 @@ class MyApp(QWidget):
 			pass
 
 	def authDialog(self):
+		QMessageBox.information(self, "MESSAGE", "입력하신 네이버 아이디로 메일을 보냈습니다.\n 확인해주세요.")
+
+		SENDER = "MANAGER SECRET"
+		PASSWORD = "MANAGER SECRET"
+		authToken = sendToken(f'{self.myId}@naver.com', SENDER, PASSWORD)
+
 		text, ok = QInputDialog.getText(self, 'Auth Dialog', 'Enter the token : ')
-		# authToken = auth.sendToken(f'{self.myId}@naver.com')
 
 		if ok:
 			# 토큰값 체크
-			# if str(authToken) == str(inputToken):
-			if True:
+			if str(authToken) == str(text):
 				self.progressDialog()
 			else:
 				QMessageBox.information(self, "ERROR", "올바르지 않은 토큰값입니다.")
@@ -253,7 +270,7 @@ class MyApp(QWidget):
 				progress = QProgressDialog(progressServiceMessage, None, 0, postLength, self)
 
 				progress.setWindowTitle("Progress about Running")
-				progress.setWindowIcon(QIcon('./src/icon.png'))
+				progress.setWindowIcon(QIcon(self.myIconPath))
 				progress.setWindowModality(Qt.WindowModal)
 
 				progress.show()
@@ -273,7 +290,7 @@ class MyApp(QWidget):
 				progress = QProgressDialog(progressServiceMessage, None, 0, postLength, self)
 
 				progress.setWindowTitle("Progress about Running")
-				progress.setWindowIcon(QIcon('./src/icon.png'))
+				progress.setWindowIcon(QIcon(self.myIconPath))
 				progress.setWindowModality(Qt.WindowModal)
 
 				progress.show()
@@ -289,7 +306,7 @@ class MyApp(QWidget):
 		except Exception as e:
 			errBox = QMessageBox()
 			errBox.setWindowTitle('Error')
-			errBox.setWindowIcon(QIcon('./src/icon.png'))
+			errBox.setWindowIcon(QIcon(self.myIconPath))
 			errBox.setText('Error: ' + str(e))
 			errBox.addButton(QMessageBox.Ok)
 			errBox.exec()
@@ -297,7 +314,7 @@ class MyApp(QWidget):
 
 	def msgBox(self):
 		msgBox = QMessageBox()
-		msgBox.setWindowIcon(QIcon('./src/icon.png'))
+		msgBox.setWindowIcon(QIcon(self.myIconPath))
 		msgBox.setWindowTitle('Info')
 		msgBox.setWindowModality(Qt.WindowModal)
 		msgBox.setText('완료되었습니다.\n 이 창을 닫으시면 프로그램을 종료합니다.')
@@ -308,11 +325,6 @@ class MyApp(QWidget):
 		sys.exit(0)
 
 
-def load_stylesheet(app, res="./src/backer.qss"):
-	rc = QFile(res)
-	rc.open(QFile.ReadOnly)
-	content = rc.readAll().data()
-	app.setStyleSheet(str(content, "utf-8"))
 
 
 if __name__ == '__main__':

@@ -5,8 +5,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="naver-blog-backer",
-    version="0.0.8",
-    license='BSD',
+    version="0.1.0",
+    license='GLPv3',
     description="Backup your naver blog and Create backlink text file",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -21,7 +21,7 @@ setuptools.setup(
     python_requires='>=3.6',
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: BSD License",
+		"License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
         "Operating System :: OS Independent"
     ],
 )

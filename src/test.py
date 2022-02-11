@@ -1,7 +1,9 @@
 from naverblogbacker.utils import isEmptyDirectory
 from naverblogbacker.blog import BlogCrawler
+from naverblogbacker.auth import sendToken
 from pick import pick
 import sys
+import os
 
 
 serviceTitle = ' Please choose an option: '
@@ -61,9 +63,10 @@ if __name__ == '__main__':
     if check is 'go':
         print(f'\n [MESSAGE] Please wait a second while sending a mail with temporary token \n')
 
-        PASSWORD = "SCRET PASSWORD"
-        SENDER = "MANAGER GMAIL ID"
-        authToken = auth.sendToken(f'{myId}@naver.com', SENDER, PASSWORD)
+        PASSWORD = "MANAGER SECRET"
+        SENDER = "MANAGER SECRET"
+
+        authToken = sendToken(f'{myId}@naver.com', SENDER, PASSWORD)
 
         print(f'\n [MESSAGE] Check your naver email. And then Verify the token \n')
         inputToken = input("token is : ")

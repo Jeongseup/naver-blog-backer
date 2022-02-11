@@ -1,11 +1,12 @@
 import os
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QFile, Qt
+from PyQt5.QtCore import QCoreApplication, QFile, Qt, QBasicTimer, QEventLoop, QTimer
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
 	QRadioButton, QFileDialog, QInputDialog, QProgressDialog
 from PyQt5.QtWidgets import QMessageBox
+from naverblogbacker.blog import BlogCrawler
 
 
 def load_stylesheet(app, res="./src/style.qss"):
@@ -14,9 +15,7 @@ def load_stylesheet(app, res="./src/style.qss"):
 	content = rc.readAll().data()
 	app.setStyleSheet(str(content, "utf-8"))
 
-
 class MyApp(QWidget):
-
 	def __init__(self):
 		super().__init__()
 
@@ -27,6 +26,9 @@ class MyApp(QWidget):
 		self.initUI()
 
 	def initUI(self):
+		self.timer = QBasicTimer()
+		self.step = 0
+
 		vBox = QVBoxLayout()
 
 		vBox.addWidget(self.statusGroup())
@@ -113,6 +115,7 @@ class MyApp(QWidget):
 		pathLabel = QLabel('저장경로를 선택하세요 : ')
 
 		pathButton = QPushButton('저장경로 선택')
+
 		pathButton.pressed.connect(self.pathDialog)
 
 		hBox = QHBoxLayout()
@@ -135,9 +138,6 @@ class MyApp(QWidget):
 		hBox.addStretch(1)
 
 		return hBox
-
-	def closeEvent(self, event):
-		print(event)
 
 	# ==============================================================
 	def statusText(self):
@@ -179,32 +179,45 @@ class MyApp(QWidget):
 
 	def authDialog(self):
 		text, ok = QInputDialog.getText(self, 'Auth Dialog', 'Enter the token : ')
+		# authToken = auth.sendToken(f'{self.myId}@naver.com')
 
 		if ok:
-
-			# print(f' [DEV] Token is {text}')
-
 			# 토큰값 체크
+			# if str(authToken) == str(inputToken):
 			if True:
-				print('시작')
+				self.progressDialog()
 
-				progress = QProgressDialog()
-				progress.setWindowIcon(QIcon('./src/icon.png'))
-				progress.setWindowTitle("Run")
-				progress.setLabelText("서비스를 진행 중입니다.")
+			else:
+				QMessageBox.information(self, "ERROR", "올바르지 않은 토큰값입니다.")
 
-				progress.setValue(30)
-				# progress.setAutoClose(False)
+	def progressDialog(self):
 
-				btn = QPushButton('Cancel')
-				btn.setEnabled(False)
-				progress.setCancelButton(btn)
-				
-				progress.exec()
-				print("종료")
+		myBlog = BlogCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
+		print(len(myBlog.postList))
 
-		else:
-			QMessageBox.information(self, "ERROR", "올바르지 않은 토큰값입니다.")
+		n = len(myBlog.postList)
+		progress = QProgressDialog("서비스를 진행 중입니다", None, 0, n, self)
+		progress.setWindowTitle("Run")
+		progress.setWindowIcon(QIcon('./src/icon.png'))
+		progress.setWindowModality(Qt.WindowModal)
+		progress.show()
+
+		progress.setValue(0)
+		doGenerate(progress.setValue, n)
+
+		print("종료")
+
+	def doGenerate(setValue, SIZE):
+		for i in range(SIZE):
+			# if i == 4:
+			#     raise Exception('에러 발생!')
+			loop = QEventLoop()
+			QTimer.singleShot(500, loop.quit)
+			loop.exec_()
+			print(f' [DEV] {i / SIZE * 100}. % 완료했습니다.')
+			setValue(i + 1)
+
+		print(f' [DEV] User service complete!')
 
 
 if __name__ == '__main__':

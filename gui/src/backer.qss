@@ -1,0 +1,55 @@
+/*-----QWidget-----*/
+QWidget
+{
+	background-color: #fff;
+	color: black;
+}
+
+/*-----QLabel-----*/
+QGroupBox
+{
+	font-weight: bold;
+}
+
+/*-----QLabel-----*/
+QLabel
+{
+	background-color: transparent;
+	color: #454544;
+}
+
+
+/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: #00B050;
+	color: #fff;
+	border-radius: 4px;
+
+}
+
+QPushButton::hover
+{
+	background-color: #5564f2;
+}
+
+QPushButton::pressed
+{
+	background-color: #3d4ef2;
+
+}
+/*-----QLineEdit-----*/
+QRadioButton
+{
+	font-size: 15px;
+}
+
+/*-----QLineEdit-----*/
+QLineEdit
+{
+	background-color: #c2c7d5;
+	color: black;
+	border: none;
+	padding: 5px;
+	border-radius: 4px;
+}

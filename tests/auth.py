@@ -1,13 +1,15 @@
-from _socket import gaierror
 import os
-from dotenv import load_dotenv
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 import secrets
+import smtplib
+from _socket import gaierror
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from dotenv import load_dotenv
+
 
 def createToken():
 	return secrets.token_urlsafe(16)
+
 
 def loginSender():
 	load_dotenv('./.env')
@@ -15,6 +17,7 @@ def loginSender():
 	APP_PASSWORD = os.getenv('PASSWORD')
 
 	return APP_SENDER, APP_PASSWORD
+
 
 def createMessage(sender, receiver, token):
 	message = MIMEMultipart()
@@ -37,7 +40,7 @@ def createMessage(sender, receiver, token):
 
 	
 	아래의 토큰 데이터 값을(괄호 안에 있는 값) 제 프로그램에 입력하시면 정상적으로 이후 서비스가 동작됩니다.
-	토큰 데이터 값 : ({token})
+	토큰 데이터 값 : >>> {token} <<<
 
 
 	좋은 하루 되세요. 
@@ -46,19 +49,22 @@ def createMessage(sender, receiver, token):
 
 	P.S	
 	프로그램이 만족스러우셨다면?
-	제 블로그(https://blog.naver.com/thswjdtmq4)에 방문하셔서 안부나 댓글 하나씩만 부탁드립니다.
+	아래 적힌 제 블로그에 방문하셔서 안부나 댓글 하나씩만 부탁드립니다.
+	블로그 주소 : https://blog.naver.com/thswjdtmq4
 	'''
 	message.attach(MIMEText(messageContent, 'plain'))
 
 	return message.as_string()
 
-def sendToken(receiver):
+
+def sendToken(receiver, sender="default", password=1234):
+	if sender == "default":
+		sender, password = loginSender()
 
 	SMTP_PORT = 465
 	SMTP_SERVER = "smtp.gmail.com"
 
 	authToken = createToken()
-	sender, password = loginSender()
 	message = createMessage(sender, receiver, authToken)
 
 	try:

@@ -2,31 +2,12 @@ import os
 import sys
 
 from PyQt5.QtCore import QCoreApplication, QFile, Qt
-
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QGroupBox, QLineEdit, \
 	QRadioButton, QFileDialog, QInputDialog, QProgressDialog, QMessageBox
-
 from naverblogbacker.blog import BlogCrawler
 from naverblogbacker.post import BlogPost
 from naverblogbacker.utils import createNewDirectory
-
-''' test function
-def doGenerate(setValue):
-	for x2 in range(5):
-		loop = QEventLoop()
-		QTimer.singleShot(1000, loop.quit)
-		loop.exec_()
-		setValue(x2 + 1)
-
-	print('Done')
-	return True
-'''
-def load_stylesheet(app, res="./src/style.qss"):
-	rc = QFile(res)
-	rc.open(QFile.ReadOnly)
-	content = rc.readAll().data()
-	app.setStyleSheet(str(content, "utf-8"))
 
 
 class ProgressCrawler(BlogCrawler):
@@ -56,6 +37,7 @@ class ProgressCrawler(BlogCrawler):
 			setValue(i + 1)
 
 		print(f' [DEV] User service complete!')
+		return True
 
 	def backlinking(self, dirPath, setValue):
 		urlPrefix = f'https://blog.naver.com/PostView.naver?blogId={self.targetId}&logNo='
@@ -194,7 +176,7 @@ class MyApp(QWidget):
 		return hBox
 
 	def buttonBox(self):
-		runButton = QPushButton('Run')
+		runButton = QPushButton('    Run    ')
 		cancelButton = QPushButton('Cancel')
 
 		runButton.clicked.connect(self.authDialog)
@@ -263,44 +245,12 @@ class MyApp(QWidget):
 		try:
 			if self.myOption is 'backlink':
 				myBlog = ProgressCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
+
 				postLength = len(myBlog.postList)
 				print(f' [DEV] {postLength}개의 포스트 데이터 추가, 프로그레스 다이얼로그 생성')
 
 				progressServiceMessage = "서비스를 진행 중 입니다."
 				progress = QProgressDialog(progressServiceMessage, None, 0, postLength, self)
-
-				progress.setWindowTitle("Progress about Running")
-				progress.setWindowIcon(QIcon('./src/icon.png'))
-				progress.setWindowModality(Qt.WindowModal)
-
-				progress.show()
-				progress.setValue(0)
-				myBlog.backlinking(dirPath=self.myPath, setValue=progress.setValue)
-				print('종료')
-
-			elif self.myOption is 'backup':
-				myBlog = ProgressCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
-				postLength = len(myBlog.postList)
-				print(f' [DEV] {postLength}개의 포스트 데이터 추가, 프로그레스 다이얼로그 생성')
-
-				progressServiceMessage = "서비스를 진행 중 입니다."
-				progress = QProgressDialog(progressServiceMessage, None, 0, postLength, self)
-
-				progress.setWindowTitle("Progress about Running")
-				progress.setWindowIcon(QIcon('./src/icon.png'))
-				progress.setWindowModality(Qt.WindowModal)
-
-				progress.show()
-				progress.setValue(0)
-				myBlog.crawling(dirPath=self.myPath, setValue=progress.setValue)
-				print('종료')
-
-			# elif self.myOption is 'both':
-			# 	raise Exception('[MESSAGE] 죄송합니다, 현재 이 기능은 지원하지 않습니다.')
-
-			else:
-				progressServiceMessage = "서비스를 진행 중 입니다."
-				progress = QProgressDialog(progressServiceMessage, None, 0, 5, self)
 
 				progress.setWindowTitle("Progress about Running")
 				progress.setWindowIcon(QIcon('./src/icon.png'))
@@ -310,12 +260,36 @@ class MyApp(QWidget):
 				progress.setValue(0)
 
 				# 정상적으로 종료시
-				if doGenerate(progress.setValue):
+				if myBlog.backlinking(dirPath=self.myPath, setValue=progress.setValue):
 					self.msgBox()
+
+			elif self.myOption is 'backup':
+				myBlog = ProgressCrawler(targetId=self.myId, skipSticker=True, isDevMode=False)
+
+				postLength = len(myBlog.postList)
+				print(f' [DEV] {postLength}개의 포스트 데이터 추가, 프로그레스 다이얼로그 생성')
+
+				progressServiceMessage = "서비스를 진행 중 입니다."
+				progress = QProgressDialog(progressServiceMessage, None, 0, postLength, self)
+
+				progress.setWindowTitle("Progress about Running")
+				progress.setWindowIcon(QIcon('./src/icon.png'))
+				progress.setWindowModality(Qt.WindowModal)
+
+				progress.show()
+				progress.setValue(0)
+
+				# 정상적으로 종료시
+				if myBlog.crawling(dirPath=self.myPath, setValue=progress.setValue):
+					self.msgBox()
+
+			else:
+				raise Exception('[MESSAGE] 죄송합니다, 현재 이 기능은 지원하지 않습니다.')
 
 		except Exception as e:
 			errBox = QMessageBox()
 			errBox.setWindowTitle('Error')
+			errBox.setWindowIcon(QIcon('./src/icon.png'))
 			errBox.setText('Error: ' + str(e))
 			errBox.addButton(QMessageBox.Ok)
 			errBox.exec()
@@ -334,9 +308,16 @@ class MyApp(QWidget):
 		sys.exit(0)
 
 
+def load_stylesheet(app, res="./src/backer.qss"):
+	rc = QFile(res)
+	rc.open(QFile.ReadOnly)
+	content = rc.readAll().data()
+	app.setStyleSheet(str(content, "utf-8"))
+
+
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
-	# load_stylesheet(app)
+	load_stylesheet(app)
 	app.setFont(QFont('엘리스 디지털배움체 OTF'))
 	ex = MyApp()
 	sys.exit(app.exec_())

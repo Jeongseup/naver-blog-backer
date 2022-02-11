@@ -155,8 +155,11 @@ Notes
 ##### ver 0.0.1 ~ 0.0.6
 Test bed
 
-##### ver 0.0.1 ~ 0.0.6
-Beta Release
+##### ver 0.0.7
+EXE packing
+
+##### ver 0.0.8
+Add authentication & GUI version serving
 
 ##### Later
 it will be making GUI version for common users

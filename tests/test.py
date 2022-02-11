@@ -66,7 +66,10 @@ if __name__ == '__main__':
 
     if check is 'go':
         print(f'\n [MESSAGE] Please wait a second while sending a mail with temporary token \n')
-        authToken = auth.sendToken(f'{myId}@naver.com')
+
+        PASSWORD = "SCRET PASSWORD"
+        SENDER = "MANAGER GMAIL ID"
+        authToken = auth.sendToken(f'{myId}@naver.com', SENDER, PASSWORD)
 
         print(f'\n [MESSAGE] Check your naver email. And then Verify the token \n')
         inputToken = input("token is : ")

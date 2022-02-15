@@ -8,7 +8,7 @@ naver-blog-backer
 
 ![](https://jeongseup.github.io/assets/naver-blog-backer/video/example_script.gif)
 
-※ 일반 사용자분들께서는 해당 폴더 내에 위치한 'naverblogbacker.exe'파일을 다운 받으시면 됩니다.  
+※ 일반 사용자분들께서는 해당 [폴더](https://github.com/Jeongseup/naver-blog-backer/tree/main/gui/dist) 내에 위치한 'backer.exe'파일을 다운 받으시면 됩니다.  
 *본래 임의의 프로그램을 실행시키는 것은 해킹 취약합니다. 다운로드 시 백신 프로그램이나 window defense에 검출될 수 있으나 안심하시길 바랍니다* :smile:
 
 ![](https://raw.githubusercontent.com/Jeongseup/jeongseup.github.io/master/assets/naver-blog-backer/video/gui_example.gif)

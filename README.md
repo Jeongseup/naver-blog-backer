@@ -11,6 +11,9 @@ naver-blog-backer
 ※ 일반 사용자분들께서는 해당 폴더 내에 위치한 'naverblogbacker.exe'파일을 다운 받으시면 됩니다.  
 *본래 임의의 프로그램을 실행시키는 것은 해킹 취약합니다. 다운로드 시 백신 프로그램이나 window defense에 검출될 수 있으나 안심하시길 바랍니다* :smile:
 
+![](https://raw.githubusercontent.com/Jeongseup/jeongseup.github.io/master/assets/naver-blog-backer/video/gui_example.gif)
+
+
 ※ 해당 패키지는 아래의 두 패키지를 참고하여 만들어졌습니다.
 1. https://github.com/Lenir/Naver-Blog-Backup
 2. https://github.com/chandong83/download-naver-blog
@@ -161,8 +164,8 @@ EXE packing
 ##### ver 0.0.8
 Add authentication & GUI version serving
 
-##### Later
-it will be making GUI version for common users
+##### ver 0.1.0
+GUI version beta release
 
 ___
 

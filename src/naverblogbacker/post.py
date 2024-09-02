@@ -128,6 +128,8 @@ class BlogPost:
 					if i == 0:
 						# 처음에는 무조건 헤더부분의 다큐먼트 타이틀이 나온다.
 						data += ComponentParser(component, isDevMode=self.isDevMode).parsingTitle()
+						#data += ComponentParser(component, isDevMode=self.isDevMode).parsingDate() #포스팅날짜 subtitle 로 추가. 필요시 주석 해제
+						#data += ComponentParser(component, isDevMode=self.isDevMode).parsingCategory() #카테고리 heading 4 로 추가. 필요시 주석 해제
 						continue
 
 					data += ComponentParser(component, skipSticker=self.isDevMode).parsing()

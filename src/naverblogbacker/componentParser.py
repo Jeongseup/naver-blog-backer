@@ -173,6 +173,25 @@ class ComponentParser(object):
 		self.printDevMessage("clear")
 		return txt
 
+	def parsingDate(self): # 포스팅 날짜 parsing
+		self.printDevMessage("== parsingDate execution as subTitle ==")
+		txt = ''
+		for content in self.component.select('.se_publishDate'):
+			txt += self.wrappingText(content.text, isTitle=False)
+
+		self.printDevMessage("clear")
+		return txt
+	
+	def parsingCategory(self): # 카테고리 parsing
+		self.printDevMessage("== parsingCategory execution ==")
+		txt = ''
+		for content in self.component.select('.blog2_series'):
+			for aTag in content.select('a'):
+				txt += "\n\n#### "+aTag.text+"\n\n"
+
+		self.printDevMessage("clear")
+		return txt
+	
 	# parsing function for text
 	def parsingHorizontalLine(self):
 		self.printDevMessage("== parsingHorizontalLine execution ==")
